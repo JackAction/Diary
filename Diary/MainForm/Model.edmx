@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dnd_hotdqModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Details" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Diary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Place_ID" Type="int" />
+          <Property Name="Quests_ID" Type="int" />
+          <Property Name="Items_ID" Type="int" />
+          <Property Name="SessionID" Type="int" />
+          <Property Name="IngameDay" Type="varchar" MaxLength="50" />
+          <Property Name="Entry" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Diary_has_Person">
+          <Key>
+            <PropertyRef Name="Diary_ID" />
+            <PropertyRef Name="Person_ID" />
+          </Key>
+          <Property Name="Diary_ID" Type="int" Nullable="false" />
+          <Property Name="Person_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clan_ID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Rank" Type="varchar" MaxLength="50" />
+          <Property Name="Race" Type="varchar" MaxLength="50" />
+          <Property Name="Dead" Type="bit" />
+          <Property Name="Alignement" Type="varchar" MaxLength="50" />
+          <Property Name="Details" Type="varchar" MaxLength="1000" />
+          <Property Name="Comment_2" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Continent" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="District" Type="varchar" MaxLength="50" />
+          <Property Name="Building" Type="varchar" MaxLength="50" />
+          <Property Name="Comment_2" Type="varchar" MaxLength="1000" />
+          <Property Name="Details" Type="varchar" MaxLength="1000" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Quests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <Association Name="FK__Diary__Items_ID__5BE2A6F2">
+          <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary">
+              <PropertyRef Name="Items_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary__Place_ID__5DCAEF64">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary">
+              <PropertyRef Name="Place_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary__Quests_ID__5CD6CB2B">
+          <End Role="Quests" Type="Self.Quests" Multiplicity="0..1" />
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quests">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary">
+              <PropertyRef Name="Quests_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary_has__Diary__60A75C0F">
+          <End Role="Diary" Type="Self.Diary" Multiplicity="1" />
+          <End Role="Diary_has_Person" Type="Self.Diary_has_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diary">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary_has_Person">
+              <PropertyRef Name="Diary_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary_has__Perso__619B8048">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Diary_has_Person" Type="Self.Diary_has_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary_has_Person">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person__Clan_ID__59063A47">
+          <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="Clan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dnd_hotdqModelStoreContainer">
+          <EntitySet Name="Clan" EntityType="Self.Clan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diary" EntityType="Self.Diary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diary_has_Person" EntityType="Self.Diary_has_Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quests" EntityType="Self.Quests" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Diary__Items_ID__5BE2A6F2" Association="Self.FK__Diary__Items_ID__5BE2A6F2">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Diary" EntitySet="Diary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary__Place_ID__5DCAEF64" Association="Self.FK__Diary__Place_ID__5DCAEF64">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Diary" EntitySet="Diary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary__Quests_ID__5CD6CB2B" Association="Self.FK__Diary__Quests_ID__5CD6CB2B">
+            <End Role="Quests" EntitySet="Quests" />
+            <End Role="Diary" EntitySet="Diary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary_has__Diary__60A75C0F" Association="Self.FK__Diary_has__Diary__60A75C0F">
+            <End Role="Diary" EntitySet="Diary" />
+            <End Role="Diary_has_Person" EntitySet="Diary_has_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary_has__Perso__619B8048" Association="Self.FK__Diary_has__Perso__619B8048">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Diary_has_Person" EntitySet="Diary_has_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person__Clan_ID__59063A47" Association="Self.FK__Person__Clan_ID__59063A47">
+            <End Role="Clan" EntitySet="Clan" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dnd_hotdqModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK__Person__Clan_ID__59063A47" FromRole="Clan" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Diary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Place_ID" Type="Int32" />
+          <Property Name="Quests_ID" Type="Int32" />
+          <Property Name="Items_ID" Type="Int32" />
+          <Property Name="SessionID" Type="Int32" />
+          <Property Name="IngameDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Entry" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK__Diary__Items_ID__5BE2A6F2" FromRole="Diary" ToRole="Items" />
+          <NavigationProperty Name="Place" Relationship="Self.FK__Diary__Place_ID__5DCAEF64" FromRole="Diary" ToRole="Place" />
+          <NavigationProperty Name="Quest" Relationship="Self.FK__Diary__Quests_ID__5CD6CB2B" FromRole="Diary" ToRole="Quests" />
+          <NavigationProperty Name="People" Relationship="Self.Diary_has_Person" FromRole="Diary" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diaries" Relationship="Self.FK__Diary__Items_ID__5BE2A6F2" FromRole="Items" ToRole="Diary" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clan_ID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Race" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dead" Type="Boolean" />
+          <Property Name="Alignement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Comment_2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clan" Relationship="Self.FK__Person__Clan_ID__59063A47" FromRole="Person" ToRole="Clan" />
+          <NavigationProperty Name="Diaries" Relationship="Self.Diary_has_Person" FromRole="Person" ToRole="Diary" />
+        </EntityType>
+        <EntityType Name="Place">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Continent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Building" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comment_2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diaries" Relationship="Self.FK__Diary__Place_ID__5DCAEF64" FromRole="Place" ToRole="Diary" />
+        </EntityType>
+        <EntityType Name="Quest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Diaries" Relationship="Self.FK__Diary__Quests_ID__5CD6CB2B" FromRole="Quests" ToRole="Diary" />
+        </EntityType>
+        <Association Name="FK__Person__Clan_ID__59063A47">
+          <End Role="Clan" Type="Self.Clan" Multiplicity="0..1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="Clan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary__Items_ID__5BE2A6F2">
+          <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary">
+              <PropertyRef Name="Items_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary__Place_ID__5DCAEF64">
+          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Place">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary">
+              <PropertyRef Name="Place_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Diary__Quests_ID__5CD6CB2B">
+          <End Role="Quests" Type="Self.Quest" Multiplicity="0..1" />
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quests">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Diary">
+              <PropertyRef Name="Quests_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Diary_has_Person">
+          <End Role="Diary" Type="Self.Diary" Multiplicity="*" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="dnd_hotdqEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clans" EntityType="Self.Clan" />
+          <EntitySet Name="Diaries" EntityType="Self.Diary" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="Places" EntityType="Self.Place" />
+          <EntitySet Name="Quests" EntityType="Self.Quest" />
+          <AssociationSet Name="FK__Person__Clan_ID__59063A47" Association="Self.FK__Person__Clan_ID__59063A47">
+            <End Role="Clan" EntitySet="Clans" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary__Items_ID__5BE2A6F2" Association="Self.FK__Diary__Items_ID__5BE2A6F2">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Diary" EntitySet="Diaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary__Place_ID__5DCAEF64" Association="Self.FK__Diary__Place_ID__5DCAEF64">
+            <End Role="Place" EntitySet="Places" />
+            <End Role="Diary" EntitySet="Diaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Diary__Quests_ID__5CD6CB2B" Association="Self.FK__Diary__Quests_ID__5CD6CB2B">
+            <End Role="Quests" EntitySet="Quests" />
+            <End Role="Diary" EntitySet="Diaries" />
+          </AssociationSet>
+          <AssociationSet Name="Diary_has_Person" Association="Self.Diary_has_Person">
+            <End Role="Diary" EntitySet="Diaries" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dnd_hotdqModelStoreContainer" CdmEntityContainer="dnd_hotdqEntities">
+          <EntitySetMapping Name="Clans">
+            <EntityTypeMapping TypeName="dnd_hotdqModel.Clan">
+              <MappingFragment StoreEntitySet="Clan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diaries">
+            <EntityTypeMapping TypeName="dnd_hotdqModel.Diary">
+              <MappingFragment StoreEntitySet="Diary">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Place_ID" ColumnName="Place_ID" />
+                <ScalarProperty Name="Quests_ID" ColumnName="Quests_ID" />
+                <ScalarProperty Name="Items_ID" ColumnName="Items_ID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="IngameDay" ColumnName="IngameDay" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="dnd_hotdqModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="dnd_hotdqModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Clan_ID" ColumnName="Clan_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Dead" ColumnName="Dead" />
+                <ScalarProperty Name="Alignement" ColumnName="Alignement" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Comment_2" ColumnName="Comment_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="dnd_hotdqModel.Place">
+              <MappingFragment StoreEntitySet="Place">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Comment_2" ColumnName="Comment_2" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quests">
+            <EntityTypeMapping TypeName="dnd_hotdqModel.Quest">
+              <MappingFragment StoreEntitySet="Quests">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Diary_has_Person" TypeName="dnd_hotdqModel.Diary_has_Person" StoreEntitySet="Diary_has_Person">
+            <EndProperty Name="Diary">
+              <ScalarProperty Name="ID" ColumnName="Diary_ID" />
+            </EndProperty>
+            <EndProperty Name="Person">
+              <ScalarProperty Name="ID" ColumnName="Person_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
