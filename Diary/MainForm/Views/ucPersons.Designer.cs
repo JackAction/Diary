@@ -1,13 +1,13 @@
 ﻿namespace MainForm
 {
-    partial class Diary
+    partial class ucPersons
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,23 +20,22 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.SuspendLayout();
             // 
-            // Diary
+            // ucPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 613);
-            this.Name = "Diary";
-            this.Text = "D&D Diary";
+            this.Name = "ucPersons";
+            this.Size = new System.Drawing.Size(717, 468);
             this.ResumeLayout(false);
 
         }
@@ -44,4 +43,3 @@
         #endregion
     }
 }
-
