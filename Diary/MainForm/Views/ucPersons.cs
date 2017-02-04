@@ -16,5 +16,12 @@ namespace MainForm
         {
             InitializeComponent();
         }
+
+        public object DataSource
+        {
+            get { return personBindingSource.DataSource; }
+            set { personBindingSource.DataSource = value; }
+            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
+        }
     }
 }

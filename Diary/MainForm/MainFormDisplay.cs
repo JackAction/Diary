@@ -12,9 +12,16 @@ namespace MainForm
 {
     public partial class MainFormDisplay : Form
     {
+        dnd_hotdqEntities db;
         public MainFormDisplay()
         {
             InitializeComponent();
+        }
+
+        private void MainFormDisplay_Load(object sender, EventArgs e)
+        {
+            db = new dnd_hotdqEntities();
+            ucPersons1.DataSource = db.People.Include("Clan").ToList(); //Wird include benötitg?
         }
     }
 }
