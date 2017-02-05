@@ -87,6 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelEnhancements.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -127,6 +128,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Diary.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
