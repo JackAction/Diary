@@ -22,6 +22,7 @@ namespace MainForm
         {
             db = new dnd_hotdqEntities();
             ucPersons1.DataSourcePerson = db.People.Include("Clan").ToList(); //Wird include benötitg?
+
         }
     }
 }

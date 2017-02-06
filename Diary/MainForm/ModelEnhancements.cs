@@ -14,7 +14,39 @@ namespace MainForm
     {
         public override string ToString()
         {
-            return Name;
+            return Name ?? "Not Set";
+        }
+    }
+
+    public partial class Item
+    {
+        public override string ToString()
+        {
+            return Name ?? "Not Set";
+        }
+    }
+
+    public partial class Person
+    {
+        public override string ToString()
+        {
+            return Name ?? "Not Set";
+        }
+    }
+
+    public partial class Place
+    {
+        public override string ToString()
+        {
+            return Name ?? "Not Set";
+        }
+    }
+
+    public partial class Quest
+    {
+        public override string ToString()
+        {
+            return Name ?? "Not Set";
         }
     }
 }

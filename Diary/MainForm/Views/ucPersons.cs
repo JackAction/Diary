@@ -43,5 +43,10 @@ namespace MainForm
                 ShowDiaryEntries();
             }
         }
+
+        private void ucPersons_Load(object sender, EventArgs e)
+        {
+            ShowDiaryEntries();
+        }
     }
 }

@@ -105,7 +105,7 @@
             this.dbgrdDiary.DataSource = this.diaryBindingSource;
             this.dbgrdDiary.Location = new System.Drawing.Point(58, 21);
             this.dbgrdDiary.Name = "dbgrdDiary";
-            this.dbgrdDiary.Size = new System.Drawing.Size(240, 150);
+            this.dbgrdDiary.Size = new System.Drawing.Size(565, 150);
             this.dbgrdDiary.TabIndex = 1;
             // 
             // iDDataGridViewTextBoxColumn1
@@ -262,6 +262,7 @@
             this.Controls.Add(this.dbgrdPersons);
             this.Name = "ucPersons";
             this.Size = new System.Drawing.Size(717, 468);
+            this.Load += new System.EventHandler(this.ucPersons_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
