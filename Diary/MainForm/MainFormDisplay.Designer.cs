@@ -32,7 +32,9 @@
             this.tabDiary = new System.Windows.Forms.TabPage();
             this.tabPerson = new System.Windows.Forms.TabPage();
             this.ucPersons1 = new MainForm.ucPersons();
+            this.ucDiary1 = new MainForm.ucDiary();
             this.mstControl.SuspendLayout();
+            this.tabDiary.SuspendLayout();
             this.tabPerson.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +50,7 @@
             // 
             // tabDiary
             // 
+            this.tabDiary.Controls.Add(this.ucDiary1);
             this.tabDiary.Location = new System.Drawing.Point(4, 22);
             this.tabDiary.Name = "tabDiary";
             this.tabDiary.Padding = new System.Windows.Forms.Padding(3);
@@ -69,10 +72,19 @@
             // 
             // ucPersons1
             // 
+            this.ucPersons1.DataSourcePerson = typeof(MainForm.Person);
             this.ucPersons1.Location = new System.Drawing.Point(142, 233);
             this.ucPersons1.Name = "ucPersons1";
             this.ucPersons1.Size = new System.Drawing.Size(717, 468);
             this.ucPersons1.TabIndex = 0;
+            // 
+            // ucDiary1
+            // 
+            this.ucDiary1.DataSourceDiary = typeof(MainForm.Diary);
+            this.ucDiary1.Location = new System.Drawing.Point(113, 176);
+            this.ucDiary1.Name = "ucDiary1";
+            this.ucDiary1.Size = new System.Drawing.Size(697, 427);
+            this.ucDiary1.TabIndex = 0;
             // 
             // MainFormDisplay
             // 
@@ -84,6 +96,7 @@
             this.Text = "D&D Diary";
             this.Load += new System.EventHandler(this.MainFormDisplay_Load);
             this.mstControl.ResumeLayout(false);
+            this.tabDiary.ResumeLayout(false);
             this.tabPerson.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -95,6 +108,7 @@
         private System.Windows.Forms.TabPage tabDiary;
         private System.Windows.Forms.TabPage tabPerson;
         private ucPersons ucPersons1;
+        private ucDiary ucDiary1;
     }
 }
 

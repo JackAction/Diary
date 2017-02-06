@@ -99,6 +99,12 @@
     <Compile Include="Quest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\ucDiary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucDiary.Designer.cs">
+      <DependentUpon>ucDiary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucPersons.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +123,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\ucDiary.resx">
+      <DependentUpon>ucDiary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ucPersons.resx">
       <DependentUpon>ucPersons.cs</DependentUpon>
     </EmbeddedResource>

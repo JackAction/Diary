@@ -21,8 +21,8 @@ namespace MainForm
         private void MainFormDisplay_Load(object sender, EventArgs e)
         {
             db = new dnd_hotdqEntities();
-            ucPersons1.DataSourcePerson = db.People.Include("Clan").ToList(); //Wird include benötitg?
-
+            ucPersons1.DataSourcePerson = db.People.ToList(); //Wird include benötitg? .Include("Clan")
+            ucDiary1.DataSourceDiary = db.Diaries.ToList();
         }
     }
 }
