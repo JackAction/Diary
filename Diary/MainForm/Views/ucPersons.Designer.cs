@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +45,8 @@
             this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Place1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +58,10 @@
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diariesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dbgrdPersons
@@ -68,6 +70,8 @@
             this.dbgrdPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbgrdPersons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
+            this.Place,
+            this.Place1,
             this.clanIDDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
@@ -85,6 +89,10 @@
             this.dbgrdPersons.Size = new System.Drawing.Size(622, 242);
             this.dbgrdPersons.TabIndex = 0;
             this.dbgrdPersons.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellClick);
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(MainForm.Person);
             // 
             // dbgrdDiary
             // 
@@ -184,6 +192,18 @@
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             // 
+            // Place
+            // 
+            this.Place.DataPropertyName = "Place";
+            this.Place.HeaderText = "Place";
+            this.Place.Name = "Place";
+            // 
+            // Place1
+            // 
+            this.Place1.DataPropertyName = "Place1";
+            this.Place1.HeaderText = "Place1";
+            this.Place1.Name = "Place1";
+            // 
             // clanIDDataGridViewTextBoxColumn
             // 
             this.clanIDDataGridViewTextBoxColumn.DataPropertyName = "Clan_ID";
@@ -250,10 +270,6 @@
             this.diariesDataGridViewTextBoxColumn.HeaderText = "Diaries";
             this.diariesDataGridViewTextBoxColumn.Name = "diariesDataGridViewTextBoxColumn";
             // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(MainForm.Person);
-            // 
             // ucPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,9 +280,9 @@
             this.Size = new System.Drawing.Size(717, 468);
             this.Load += new System.EventHandler(this.ucPersons_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,18 +290,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dbgrdPersons;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clanIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn raceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alignementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diariesDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource personBindingSource;
         private System.Windows.Forms.DataGridView dbgrdDiary;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
@@ -300,5 +304,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn questDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn peopleDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource diaryBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Place1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clanIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alignementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diariesDataGridViewTextBoxColumn;
     }
 }

@@ -18,6 +18,8 @@ namespace MainForm
         public Place()
         {
             this.Diaries = new HashSet<Diary>();
+            this.People = new HashSet<Person>();
+            this.People1 = new HashSet<Person>();
         }
     
         public int ID { get; set; }
@@ -31,5 +33,9 @@ namespace MainForm
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Diary> Diaries { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Person> People { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Person> People1 { get; set; }
     }
 }

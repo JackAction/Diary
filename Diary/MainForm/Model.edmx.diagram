@@ -16,6 +16,8 @@
         <AssociationConnector Association="dnd_hotdqModel.FK__Diary__Place_ID__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="dnd_hotdqModel.FK__Diary__Quests_ID__5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="dnd_hotdqModel.Diary_has_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="dnd_hotdqModel.FK__Person__Place_La__1332DBDC" />
+        <AssociationConnector Association="dnd_hotdqModel.FK__Person__Place_Me__123EB7A3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

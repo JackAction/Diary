@@ -30,9 +30,13 @@ namespace MainForm
         public string Alignement { get; set; }
         public string Details { get; set; }
         public string Comment_2 { get; set; }
+        public Nullable<int> Place_LastKnown { get; set; }
+        public Nullable<int> Place_Met { get; set; }
     
         public virtual Clan Clan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Diary> Diaries { get; set; }
+        public virtual Place Place { get; set; }
+        public virtual Place Place1 { get; set; }
     }
 }
