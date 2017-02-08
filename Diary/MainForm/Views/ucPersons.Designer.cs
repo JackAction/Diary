@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@
             this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Place1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,9 +59,9 @@
             this.clanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diariesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dbgrdPersons
@@ -89,10 +89,6 @@
             this.dbgrdPersons.Size = new System.Drawing.Size(622, 242);
             this.dbgrdPersons.TabIndex = 0;
             this.dbgrdPersons.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellClick);
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(MainForm.Person);
             // 
             // dbgrdDiary
             // 
@@ -186,6 +182,10 @@
             // 
             this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
             // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(MainForm.Person);
+            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
@@ -195,13 +195,13 @@
             // Place
             // 
             this.Place.DataPropertyName = "Place";
-            this.Place.HeaderText = "Place";
+            this.Place.HeaderText = "Last known Place";
             this.Place.Name = "Place";
             // 
             // Place1
             // 
             this.Place1.DataPropertyName = "Place1";
-            this.Place1.HeaderText = "Place1";
+            this.Place1.HeaderText = "Met Place";
             this.Place1.Name = "Place1";
             // 
             // clanIDDataGridViewTextBoxColumn
@@ -280,9 +280,9 @@
             this.Size = new System.Drawing.Size(717, 468);
             this.Load += new System.EventHandler(this.ucPersons_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

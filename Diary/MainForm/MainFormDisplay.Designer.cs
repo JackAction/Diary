@@ -30,18 +30,22 @@
         {
             this.mstControl = new System.Windows.Forms.TabControl();
             this.tabDiary = new System.Windows.Forms.TabPage();
+            this.ucDiary1 = new MainForm.ucDiary();
             this.tabPerson = new System.Windows.Forms.TabPage();
             this.ucPersons1 = new MainForm.ucPersons();
-            this.ucDiary1 = new MainForm.ucDiary();
+            this.tabClans = new System.Windows.Forms.TabPage();
+            this.ucClan1 = new MainForm.ucClan();
             this.mstControl.SuspendLayout();
             this.tabDiary.SuspendLayout();
             this.tabPerson.SuspendLayout();
+            this.tabClans.SuspendLayout();
             this.SuspendLayout();
             // 
             // mstControl
             // 
             this.mstControl.Controls.Add(this.tabDiary);
             this.mstControl.Controls.Add(this.tabPerson);
+            this.mstControl.Controls.Add(this.tabClans);
             this.mstControl.Location = new System.Drawing.Point(12, 52);
             this.mstControl.Name = "mstControl";
             this.mstControl.SelectedIndex = 0;
@@ -58,6 +62,14 @@
             this.tabDiary.TabIndex = 0;
             this.tabDiary.Text = "Diary";
             this.tabDiary.UseVisualStyleBackColor = true;
+            // 
+            // ucDiary1
+            // 
+            this.ucDiary1.DataSourceDiary = typeof(MainForm.Diary);
+            this.ucDiary1.Location = new System.Drawing.Point(113, 176);
+            this.ucDiary1.Name = "ucDiary1";
+            this.ucDiary1.Size = new System.Drawing.Size(697, 427);
+            this.ucDiary1.TabIndex = 0;
             // 
             // tabPerson
             // 
@@ -78,13 +90,24 @@
             this.ucPersons1.Size = new System.Drawing.Size(717, 468);
             this.ucPersons1.TabIndex = 0;
             // 
-            // ucDiary1
+            // tabClans
             // 
-            this.ucDiary1.DataSourceDiary = typeof(MainForm.Diary);
-            this.ucDiary1.Location = new System.Drawing.Point(113, 176);
-            this.ucDiary1.Name = "ucDiary1";
-            this.ucDiary1.Size = new System.Drawing.Size(697, 427);
-            this.ucDiary1.TabIndex = 0;
+            this.tabClans.Controls.Add(this.ucClan1);
+            this.tabClans.Location = new System.Drawing.Point(4, 22);
+            this.tabClans.Name = "tabClans";
+            this.tabClans.Padding = new System.Windows.Forms.Padding(3);
+            this.tabClans.Size = new System.Drawing.Size(1249, 783);
+            this.tabClans.TabIndex = 2;
+            this.tabClans.Text = "Clans";
+            this.tabClans.UseVisualStyleBackColor = true;
+            // 
+            // ucClan1
+            // 
+            this.ucClan1.DataSourceClan = typeof(MainForm.Clan);
+            this.ucClan1.Location = new System.Drawing.Point(120, 90);
+            this.ucClan1.Name = "ucClan1";
+            this.ucClan1.Size = new System.Drawing.Size(887, 622);
+            this.ucClan1.TabIndex = 0;
             // 
             // MainFormDisplay
             // 
@@ -98,6 +121,7 @@
             this.mstControl.ResumeLayout(false);
             this.tabDiary.ResumeLayout(false);
             this.tabPerson.ResumeLayout(false);
+            this.tabClans.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -109,6 +133,8 @@
         private System.Windows.Forms.TabPage tabPerson;
         private ucPersons ucPersons1;
         private ucDiary ucDiary1;
+        private System.Windows.Forms.TabPage tabClans;
+        private ucClan ucClan1;
     }
 }
 

@@ -23,6 +23,7 @@ namespace MainForm
             db = new dnd_hotdqEntities();
             ucPersons1.DataSourcePerson = db.People.ToList(); //Wird include benötitg? .Include("Clan")
             ucDiary1.DataSourceDiary = db.Diaries.ToList();
+            ucClan1.DataSourceClan = db.Clans.ToList();
         }
     }
 }

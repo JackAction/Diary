@@ -99,6 +99,12 @@
     <Compile Include="Quest.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\ucClan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucClan.Designer.cs">
+      <DependentUpon>ucClan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucDiary.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\ucClan.resx">
+      <DependentUpon>ucClan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ucDiary.resx">
       <DependentUpon>ucDiary.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Clan.datasource" />
     <None Include="Properties\DataSources\Diary.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\Settings.settings">
