@@ -43,7 +43,7 @@ namespace MainForm
             return esb.ToString();
         }
         /// <summary>
-        /// Sichert die Datenbank
+        /// Sichert die Datenbank auf das Dateisystem
         /// </summary>
         public void BackupDB()
         {
@@ -51,6 +51,16 @@ namespace MainForm
             backup.Devices.AddDevice(BackupLocations[Environment.MachineName], DeviceType.File);
             backup.Initialize = true;
             backup.SqlBackup(SQLServer);
+        }
+        /// <summary>
+        /// Lädt das Datenbankbackup vom Dateisystem
+        /// </summary>
+        public void RestoreDB()
+        {
+            SQLServer.KillAllProcesses(DBName);
+            Restore restore = new Restore() { Action = RestoreActionType.Database, Database = DBName, NoRecovery = false, ReplaceDatabase = true };
+            restore.Devices.AddDevice(BackupLocations[Environment.MachineName], DeviceType.File);
+            restore.SqlRestore(SQLServer);
         }
     }
 

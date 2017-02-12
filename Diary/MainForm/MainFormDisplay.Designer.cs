@@ -32,10 +32,12 @@
             this.tabDiary = new System.Windows.Forms.TabPage();
             this.tabPerson = new System.Windows.Forms.TabPage();
             this.tabClans = new System.Windows.Forms.TabPage();
+            this.btnSaveDB = new System.Windows.Forms.Button();
+            this.btnLoadDB = new System.Windows.Forms.Button();
             this.ucDiary1 = new MainForm.ucDiary();
             this.ucPersons1 = new MainForm.ucPersons();
             this.ucClan1 = new MainForm.ucClan();
-            this.btnSaveDB = new System.Windows.Forms.Button();
+            this.btnLoadDBBackup = new System.Windows.Forms.Button();
             this.mstControl.SuspendLayout();
             this.tabDiary.SuspendLayout();
             this.tabPerson.SuspendLayout();
@@ -86,6 +88,26 @@
             this.tabClans.Text = "Clans";
             this.tabClans.UseVisualStyleBackColor = true;
             // 
+            // btnSaveDB
+            // 
+            this.btnSaveDB.Location = new System.Drawing.Point(935, 13);
+            this.btnSaveDB.Name = "btnSaveDB";
+            this.btnSaveDB.Size = new System.Drawing.Size(127, 33);
+            this.btnSaveDB.TabIndex = 1;
+            this.btnSaveDB.Text = "Datenbank speichern";
+            this.btnSaveDB.UseVisualStyleBackColor = true;
+            this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
+            // 
+            // btnLoadDB
+            // 
+            this.btnLoadDB.Location = new System.Drawing.Point(802, 13);
+            this.btnLoadDB.Name = "btnLoadDB";
+            this.btnLoadDB.Size = new System.Drawing.Size(127, 33);
+            this.btnLoadDB.TabIndex = 1;
+            this.btnLoadDB.Text = "Datenbank laden";
+            this.btnLoadDB.UseVisualStyleBackColor = true;
+            this.btnLoadDB.Click += new System.EventHandler(this.btnLoadDB_Click);
+            // 
             // ucDiary1
             // 
             this.ucDiary1.DataSourceDiary = typeof(MainForm.Diary);
@@ -110,21 +132,23 @@
             this.ucClan1.Size = new System.Drawing.Size(887, 622);
             this.ucClan1.TabIndex = 0;
             // 
-            // btnSaveDB
+            // btnLoadDBBackup
             // 
-            this.btnSaveDB.Location = new System.Drawing.Point(935, 13);
-            this.btnSaveDB.Name = "btnSaveDB";
-            this.btnSaveDB.Size = new System.Drawing.Size(185, 33);
-            this.btnSaveDB.TabIndex = 1;
-            this.btnSaveDB.Text = "Datenbank speichern";
-            this.btnSaveDB.UseVisualStyleBackColor = true;
-            this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
+            this.btnLoadDBBackup.Location = new System.Drawing.Point(624, 13);
+            this.btnLoadDBBackup.Name = "btnLoadDBBackup";
+            this.btnLoadDBBackup.Size = new System.Drawing.Size(172, 33);
+            this.btnLoadDBBackup.TabIndex = 1;
+            this.btnLoadDBBackup.Text = "Datenbankbackup laden";
+            this.btnLoadDBBackup.UseVisualStyleBackColor = true;
+            this.btnLoadDBBackup.Click += new System.EventHandler(this.btnLoadDBBackup_Click);
             // 
             // MainFormDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1281, 873);
+            this.Controls.Add(this.btnLoadDBBackup);
+            this.Controls.Add(this.btnLoadDB);
             this.Controls.Add(this.btnSaveDB);
             this.Controls.Add(this.mstControl);
             this.Name = "MainFormDisplay";
@@ -148,6 +172,8 @@
         private System.Windows.Forms.TabPage tabClans;
         private ucClan ucClan1;
         private System.Windows.Forms.Button btnSaveDB;
+        private System.Windows.Forms.Button btnLoadDB;
+        private System.Windows.Forms.Button btnLoadDBBackup;
     }
 }
 
