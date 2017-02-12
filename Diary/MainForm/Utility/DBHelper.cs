@@ -9,21 +9,29 @@ using System.Threading.Tasks;
 
 namespace MainForm
 {
-    public static class DBHelper
+    public class DBHelper
     {
-        public static string dbName { get; set; }
+        public string DBName { get; set; }
+        public Server SQLServer { get; }
+        public Dictionary<string,string> BackupLocations { get; set; }
+
+    public DBHelper()
+        {
+            DBName = "dnd_hotdq";
+            SQLServer = new Server($"{Environment.MachineName}\\SQLEXPRESS");
+            BackupLocations = new Dictionary<string, string>();
+            BackupLocations.Add("SSDEVO250", $"C:\\Users\\JackAction\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
+            BackupLocations.Add("Klappi", $"C:\\Users\\Fabian\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
+        }
 
         /// <summary>
         /// Liefert den Connectionstring zu einer DB zurück.
         /// https://www.codeproject.com/Tips/798392/Changing-Databases-at-Run-time-using-Entity-Framew
         /// </summary>
-        /// <param name="DataSource">SQL Server Name</param>
-        /// <param name="Database">Name der DB</param>
-        /// <returns></returns>
-        public static String BuildConnectionString(String DataSource, String Database)
+        /// <returns>Kompletten Connectionstring</returns>
+        public String BuildConnectionString()
         {
-            // Build the connection string from the provided datasource and database
-            String connString = $"data source={ DataSource };initial catalog={ Database };integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;";
+            String connString = $"data source={ SQLServer.Name };initial catalog={ DBName };integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;";
 
             // Build the MetaData... feel free to copy/paste it from the connection string in the config file.
             EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
@@ -34,14 +42,17 @@ namespace MainForm
             // Generate the full string and return it
             return esb.ToString();
         }
-
-        public static void BackupDB()
+        /// <summary>
+        /// Sichert die Datenbank
+        /// </summary>
+        public void BackupDB()
         {
-            Server server = new Server($"{Environment.MachineName}\\SQLEXPRESS");
-            Backup backup = new Backup() { Action = BackupActionType.Database, Database = dbName };
-            backup.Devices.AddDevice(@"C:\Users\JackAction\Dropbox\_Meins\DnD\_DiaryDB\dnd_hotdq.bak", DeviceType.File);
+            //string backupLocation = () ? 
+
+            Backup backup = new Backup() { Action = BackupActionType.Database, Database = DBName };
+            backup.Devices.AddDevice(BackupLocations[Environment.MachineName], DeviceType.File);
             backup.Initialize = true;
-            backup.SqlBackup(server);
+            backup.SqlBackup(SQLServer);
         }
     }
 
