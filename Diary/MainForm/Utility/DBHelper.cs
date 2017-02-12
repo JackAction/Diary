@@ -21,7 +21,7 @@ namespace MainForm
             SQLServer = new Server($"{Environment.MachineName}\\SQLEXPRESS");
             BackupLocations = new Dictionary<string, string>();
             BackupLocations.Add("SSDEVO250", $"C:\\Users\\JackAction\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
-            BackupLocations.Add("Klappi", $"C:\\Users\\Fabian\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
+            BackupLocations.Add("KLAPPI", $"C:\\Users\\Fabian\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
         }
 
         /// <summary>
