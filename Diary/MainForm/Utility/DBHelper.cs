@@ -47,8 +47,6 @@ namespace MainForm
         /// </summary>
         public void BackupDB()
         {
-            //string backupLocation = () ? 
-
             Backup backup = new Backup() { Action = BackupActionType.Database, Database = DBName };
             backup.Devices.AddDevice(BackupLocations[Environment.MachineName], DeviceType.File);
             backup.Initialize = true;
