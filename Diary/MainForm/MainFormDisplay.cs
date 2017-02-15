@@ -36,9 +36,7 @@ namespace MainForm
             try
             {
                 db = new dnd_hotdqEntities(dbHelper.BuildConnectionString());
-                ucPersons1.DataSourcePerson = db.People.ToList(); //Wird include benötitg? .Include("Clan")
-                ucDiary1.DataSourceDiary = db.Diaries.ToList();
-                ucClan1.DataSourceClan = db.Clans.ToList();
+                setDatasourcess();
             }
             catch (Exception)
             {
@@ -47,10 +45,41 @@ namespace MainForm
             }
         }
 
+        private void setDatasourcess()
+        {
+            ucPersons1.DataSourcePerson = db.People.ToList(); //Wird include benötitg? .Include("Clan")
+            ucDiary1.DataSourceDiary = db.Diaries.ToList();
+            ucClan1.DataSourceClan = db.Clans.ToList();
+        }
+
         private void btnLoadDBBackup_Click(object sender, EventArgs e)
         {
             dbHelper.RestoreDB();
             btnLoadDB_Click(null,null);
+        }
+
+        private async void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await db.SaveChangesAsync(); // Führt die änderungen auf dem db c# objekt effektiv auf der DB aus
+
+                MessageBox.Show("Save success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDiscard_Click(object sender, EventArgs e)
+        {
+            foreach (var entity in db.ChangeTracker.Entries())
+            {
+                entity.Reload();
+                setDatasourcess();
+            }
+
         }
     }
 }
