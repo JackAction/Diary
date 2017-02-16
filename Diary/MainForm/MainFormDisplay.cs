@@ -63,7 +63,7 @@ namespace MainForm
             try
             {
                 await db.SaveChangesAsync(); // Führt die änderungen auf dem db c# objekt effektiv auf der DB aus
-
+                
                 MessageBox.Show("Save success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -77,9 +77,8 @@ namespace MainForm
             foreach (var entity in db.ChangeTracker.Entries())
             {
                 entity.Reload();
-                setDatasourcess();
             }
-
+            setDatasourcess();
         }
     }
 }
