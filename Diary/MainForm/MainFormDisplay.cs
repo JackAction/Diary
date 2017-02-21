@@ -13,8 +13,8 @@ namespace MainForm
 {
     public partial class MainFormDisplay : Form
     {
-        dnd_hotdqEntities db;
-        DBHelper dbHelper;
+        EntityManager entityManager;
+
         public MainFormDisplay()
         {
             InitializeComponent();
@@ -22,20 +22,19 @@ namespace MainForm
 
         private void MainFormDisplay_Load(object sender, EventArgs e)
         {
-            dbHelper = new DBHelper();
-
+            entityManager = new EntityManager();
         }
 
         private void btnSaveDB_Click(object sender, EventArgs e)
         {
-            dbHelper.BackupDB();
+            entityManager.BackupDB();
         }
 
         private void btnLoadDB_Click(object sender, EventArgs e)
         {
             try
             {
-                db = new dnd_hotdqEntities(dbHelper.BuildConnectionString());
+                entityManager.LoadDatafromDB();
                 setDatasourcess();
             }
             catch (Exception)
@@ -47,23 +46,23 @@ namespace MainForm
 
         private void setDatasourcess()
         {
-            ucPersons1.DataSourcePerson = db.People.ToList(); //Wird include benötitg? .Include("Clan")
-            ucDiary1.DataSourceDiary = db.Diaries.ToList();
-            ucClan1.DataSourceClan = db.Clans.ToList();
+            ucPersons1.DataSourcePerson = entityManager.GetPersons();
+            ucDiary1.DataSourceDiary = entityManager.GetDiaryEntries();
+            ucClan1.DataSourceClan = entityManager.GetClans();
         }
 
         private void btnLoadDBBackup_Click(object sender, EventArgs e)
         {
-            dbHelper.RestoreDB();
+            entityManager.RestoreDB();
             btnLoadDB_Click(null,null);
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                await db.SaveChangesAsync(); // Führt die änderungen auf dem db c# objekt effektiv auf der DB aus
-                
+                entityManager.SaveChangesToDB(); // Führt die änderungen auf dem db c# objekt effektiv auf der DB aus
+
                 MessageBox.Show("Save success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -74,10 +73,7 @@ namespace MainForm
 
         private void btnDiscard_Click(object sender, EventArgs e)
         {
-            foreach (var entity in db.ChangeTracker.Entries())
-            {
-                entity.Reload();
-            }
+            entityManager.DiscardChanges();
             setDatasourcess();
         }
     }

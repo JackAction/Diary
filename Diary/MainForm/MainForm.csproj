@@ -64,6 +64,7 @@
     <Compile Include="Clan.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityManager.cs" />
     <Compile Include="Utility\DBHelper.cs" />
     <Compile Include="Diary.cs">
       <DependentUpon>Model.tt</DependentUpon>

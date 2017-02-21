@@ -63,18 +63,4 @@ namespace MainForm
             restore.SqlRestore(SQLServer);
         }
     }
-
-
-
-
-    /// <summary>
-    /// Fügt einen Konstruktor zu Model.Context.cs hinzu, welchem ein ConnectionString übergeben werden kann
-    /// </summary>
-    public partial class dnd_hotdqEntities : DbContext
-    {
-        public dnd_hotdqEntities(String connString)
-            : base(connString)
-        {
-        }
-    }
 }
