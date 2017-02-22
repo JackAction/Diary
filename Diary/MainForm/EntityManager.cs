@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,20 @@ namespace MainForm
 
         public void DiscardChanges()
         {
-            foreach (var entity in db.ChangeTracker.Entries())
+            foreach (DbEntityEntry entry in db.ChangeTracker.Entries())
             {
-                entity.Reload();
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        entry.State = EntityState.Detached;
+                        break;
+                    case EntityState.Modified:
+                        entry.State = EntityState.Unchanged;
+                        break;
+                    case EntityState.Deleted:
+                        entry.Reload();
+                        break;
+                }
             }
         }
 
@@ -62,6 +74,11 @@ namespace MainForm
         public List<Clan> GetClans()
         {
             return db.Clans.ToList();
+        }
+
+        public void AddDiaryEntry(Diary d)
+        {
+            db.Diaries.Add(d);
         }
 
     }

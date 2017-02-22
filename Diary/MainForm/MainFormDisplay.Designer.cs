@@ -30,15 +30,15 @@
         {
             this.mstControl = new System.Windows.Forms.TabControl();
             this.tabDiary = new System.Windows.Forms.TabPage();
+            this.ucDiary1 = new MainForm.ucDiary();
             this.tabPerson = new System.Windows.Forms.TabPage();
+            this.ucPersons1 = new MainForm.ucPersons();
             this.tabClans = new System.Windows.Forms.TabPage();
+            this.ucClan1 = new MainForm.ucClan();
             this.btnSaveDB = new System.Windows.Forms.Button();
             this.btnLoadDB = new System.Windows.Forms.Button();
             this.btnLoadDBBackup = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ucDiary1 = new MainForm.ucDiary();
-            this.ucPersons1 = new MainForm.ucPersons();
-            this.ucClan1 = new MainForm.ucClan();
             this.btnDiscard = new System.Windows.Forms.Button();
             this.mstControl.SuspendLayout();
             this.tabDiary.SuspendLayout();
@@ -51,124 +51,118 @@
             this.mstControl.Controls.Add(this.tabDiary);
             this.mstControl.Controls.Add(this.tabPerson);
             this.mstControl.Controls.Add(this.tabClans);
-            this.mstControl.Location = new System.Drawing.Point(18, 80);
-            this.mstControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mstControl.Location = new System.Drawing.Point(12, 52);
             this.mstControl.Name = "mstControl";
             this.mstControl.SelectedIndex = 0;
-            this.mstControl.Size = new System.Drawing.Size(1886, 1245);
+            this.mstControl.Size = new System.Drawing.Size(1257, 809);
             this.mstControl.TabIndex = 0;
             // 
             // tabDiary
             // 
             this.tabDiary.Controls.Add(this.ucDiary1);
-            this.tabDiary.Location = new System.Drawing.Point(4, 29);
-            this.tabDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabDiary.Location = new System.Drawing.Point(4, 22);
             this.tabDiary.Name = "tabDiary";
-            this.tabDiary.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabDiary.Size = new System.Drawing.Size(1878, 1212);
+            this.tabDiary.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabDiary.Size = new System.Drawing.Size(1249, 783);
             this.tabDiary.TabIndex = 0;
             this.tabDiary.Text = "Diary";
             this.tabDiary.UseVisualStyleBackColor = true;
             // 
+            // ucDiary1
+            // 
+            this.ucDiary1.Location = new System.Drawing.Point(113, 176);
+            this.ucDiary1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucDiary1.Name = "ucDiary1";
+            this.ucDiary1.Size = new System.Drawing.Size(697, 427);
+            this.ucDiary1.TabIndex = 0;
+            // 
             // tabPerson
             // 
             this.tabPerson.Controls.Add(this.ucPersons1);
-            this.tabPerson.Location = new System.Drawing.Point(4, 29);
-            this.tabPerson.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPerson.Location = new System.Drawing.Point(4, 22);
             this.tabPerson.Name = "tabPerson";
-            this.tabPerson.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabPerson.Size = new System.Drawing.Size(1878, 1212);
+            this.tabPerson.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPerson.Size = new System.Drawing.Size(1249, 783);
             this.tabPerson.TabIndex = 1;
             this.tabPerson.Text = "Persons";
             this.tabPerson.UseVisualStyleBackColor = true;
             // 
+            // ucPersons1
+            // 
+            this.ucPersons1.DataSourcePerson = typeof(MainForm.Person);
+            this.ucPersons1.Location = new System.Drawing.Point(142, 233);
+            this.ucPersons1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucPersons1.Name = "ucPersons1";
+            this.ucPersons1.Size = new System.Drawing.Size(717, 468);
+            this.ucPersons1.TabIndex = 0;
+            // 
             // tabClans
             // 
             this.tabClans.Controls.Add(this.ucClan1);
-            this.tabClans.Location = new System.Drawing.Point(4, 29);
-            this.tabClans.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabClans.Location = new System.Drawing.Point(4, 22);
             this.tabClans.Name = "tabClans";
-            this.tabClans.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabClans.Size = new System.Drawing.Size(1878, 1212);
+            this.tabClans.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClans.Size = new System.Drawing.Size(1249, 783);
             this.tabClans.TabIndex = 2;
             this.tabClans.Text = "Clans";
             this.tabClans.UseVisualStyleBackColor = true;
             // 
+            // ucClan1
+            // 
+            this.ucClan1.DataSourceClan = typeof(MainForm.Clan);
+            this.ucClan1.Location = new System.Drawing.Point(120, 90);
+            this.ucClan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucClan1.Name = "ucClan1";
+            this.ucClan1.Size = new System.Drawing.Size(887, 622);
+            this.ucClan1.TabIndex = 0;
+            // 
             // btnSaveDB
             // 
-            this.btnSaveDB.Location = new System.Drawing.Point(1402, 20);
-            this.btnSaveDB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSaveDB.Location = new System.Drawing.Point(935, 13);
             this.btnSaveDB.Name = "btnSaveDB";
-            this.btnSaveDB.Size = new System.Drawing.Size(190, 51);
+            this.btnSaveDB.Size = new System.Drawing.Size(125, 36);
             this.btnSaveDB.TabIndex = 1;
-            this.btnSaveDB.Text = "Datenbank speichern";
+            this.btnSaveDB.Text = "Datenbank Backup speichern";
             this.btnSaveDB.UseVisualStyleBackColor = true;
             this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
             // 
             // btnLoadDB
             // 
-            this.btnLoadDB.Location = new System.Drawing.Point(1203, 20);
-            this.btnLoadDB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLoadDB.Location = new System.Drawing.Point(802, 13);
             this.btnLoadDB.Name = "btnLoadDB";
-            this.btnLoadDB.Size = new System.Drawing.Size(190, 51);
+            this.btnLoadDB.Size = new System.Drawing.Size(127, 36);
             this.btnLoadDB.TabIndex = 1;
-            this.btnLoadDB.Text = "Datenbank laden";
+            this.btnLoadDB.Text = "Daten aus lokaler Datenbank laden";
             this.btnLoadDB.UseVisualStyleBackColor = true;
             this.btnLoadDB.Click += new System.EventHandler(this.btnLoadDB_Click);
             // 
             // btnLoadDBBackup
             // 
-            this.btnLoadDBBackup.Location = new System.Drawing.Point(936, 20);
-            this.btnLoadDBBackup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLoadDBBackup.Location = new System.Drawing.Point(667, 13);
             this.btnLoadDBBackup.Name = "btnLoadDBBackup";
-            this.btnLoadDBBackup.Size = new System.Drawing.Size(258, 51);
+            this.btnLoadDBBackup.Size = new System.Drawing.Size(129, 36);
             this.btnLoadDBBackup.TabIndex = 1;
-            this.btnLoadDBBackup.Text = "Datenbankbackup laden";
+            this.btnLoadDBBackup.Text = "Datenbank Backup laden";
             this.btnLoadDBBackup.UseVisualStyleBackColor = true;
             this.btnLoadDBBackup.Click += new System.EventHandler(this.btnLoadDBBackup_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(429, 20);
+            this.btnSave.Location = new System.Drawing.Point(286, 13);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(134, 55);
+            this.btnSave.Size = new System.Drawing.Size(89, 36);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ucDiary1
-            // 
-            this.ucDiary1.DataSourceDiary = typeof(MainForm.Diary);
-            this.ucDiary1.Location = new System.Drawing.Point(170, 271);
-            this.ucDiary1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucDiary1.Name = "ucDiary1";
-            this.ucDiary1.Size = new System.Drawing.Size(1046, 657);
-            this.ucDiary1.TabIndex = 0;
-            // 
-            // ucPersons1
-            // 
-            this.ucPersons1.DataSourcePerson = typeof(MainForm.Person);
-            this.ucPersons1.Location = new System.Drawing.Point(213, 358);
-            this.ucPersons1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucPersons1.Name = "ucPersons1";
-            this.ucPersons1.Size = new System.Drawing.Size(1076, 720);
-            this.ucPersons1.TabIndex = 0;
-            // 
-            // ucClan1
-            // 
-            this.ucClan1.DataSourceClan = typeof(MainForm.Clan);
-            this.ucClan1.Location = new System.Drawing.Point(180, 138);
-            this.ucClan1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucClan1.Name = "ucClan1";
-            this.ucClan1.Size = new System.Drawing.Size(1330, 957);
-            this.ucClan1.TabIndex = 0;
-            // 
             // btnDiscard
             // 
-            this.btnDiscard.Location = new System.Drawing.Point(569, 20);
+            this.btnDiscard.Location = new System.Drawing.Point(379, 13);
+            this.btnDiscard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDiscard.Name = "btnDiscard";
-            this.btnDiscard.Size = new System.Drawing.Size(134, 55);
+            this.btnDiscard.Size = new System.Drawing.Size(89, 36);
             this.btnDiscard.TabIndex = 2;
             this.btnDiscard.Text = "Discard";
             this.btnDiscard.UseVisualStyleBackColor = true;
@@ -176,16 +170,15 @@
             // 
             // MainFormDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1922, 1110);
+            this.ClientSize = new System.Drawing.Size(1281, 721);
             this.Controls.Add(this.btnDiscard);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoadDBBackup);
             this.Controls.Add(this.btnLoadDB);
             this.Controls.Add(this.btnSaveDB);
             this.Controls.Add(this.mstControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainFormDisplay";
             this.Text = "D&D Diary";
             this.Load += new System.EventHandler(this.MainFormDisplay_Load);

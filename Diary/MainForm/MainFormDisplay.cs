@@ -13,16 +13,22 @@ namespace MainForm
 {
     public partial class MainFormDisplay : Form
     {
+        private ApplicationState applicationState;
         EntityManager entityManager;
 
         public MainFormDisplay()
         {
+            applicationState = ApplicationState.Starting;
             InitializeComponent();
         }
 
         private void MainFormDisplay_Load(object sender, EventArgs e)
         {
             entityManager = new EntityManager();
+
+            // Eventhandlers
+            ucDiary1.DiaryRowAdded += new EventHandler(ucDiary1_dbgrdDiary_RowsAdded);
+            applicationState = ApplicationState.Started;
         }
 
         private void btnSaveDB_Click(object sender, EventArgs e)
@@ -34,6 +40,7 @@ namespace MainForm
         {
             try
             {
+                applicationState = ApplicationState.DBInteraction;
                 entityManager.LoadDatafromDB();
                 setDatasourcess();
             }
@@ -41,13 +48,16 @@ namespace MainForm
             {
 
                 MessageBox.Show("Datenbankverbindung konnte nicht hergestellt werden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } finally
+            {
+                applicationState = ApplicationState.Started;
             }
         }
 
         private void setDatasourcess()
         {
             ucPersons1.DataSourcePerson = entityManager.GetPersons();
-            ucDiary1.DataSourceDiary = entityManager.GetDiaryEntries();
+            ucDiary1.DataSourceDiary.DataSource = entityManager.GetDiaryEntries();
             ucClan1.DataSourceClan = entityManager.GetClans();
         }
 
@@ -75,6 +85,14 @@ namespace MainForm
         {
             entityManager.DiscardChanges();
             setDatasourcess();
+        }
+
+        private void ucDiary1_dbgrdDiary_RowsAdded(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.Started)
+            {
+                entityManager.AddDiaryEntry((Diary)ucDiary1.DataSourceDiary.Current);
+            }
         }
     }
 }

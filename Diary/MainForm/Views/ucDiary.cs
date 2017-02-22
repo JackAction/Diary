@@ -17,11 +17,20 @@ namespace MainForm
             InitializeComponent();
         }
 
-        public object DataSourceDiary
+        [Description("Binding Source für Diary."), Category("Data")]
+        public BindingSource DataSourceDiary
         {
-            get { return diaryBindingSource.DataSource; }
-            set { diaryBindingSource.DataSource = value; }
+            get { return diaryBindingSource; }
+            set { diaryBindingSource = value; }
             // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
+        }
+
+        [Description("Neue Zeile wurde zu Diary DataGrid hinzugefügt."), Category("Data")]
+        public event EventHandler DiaryRowAdded;
+
+        private void dbgrdDiary_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            DiaryRowAdded?.Invoke(sender, e);
         }
     }
 }

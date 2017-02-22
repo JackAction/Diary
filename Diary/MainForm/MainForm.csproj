@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utility\ApplicationState.cs" />
     <Compile Include="Clan.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
