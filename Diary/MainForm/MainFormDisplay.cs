@@ -56,9 +56,9 @@ namespace MainForm
 
         private void setDatasourcess()
         {
-            ucPersons1.DataSourcePerson = entityManager.GetPersons();
+            ucPersons1.DataSourcePerson.DataSource = entityManager.GetPersons();
             ucDiary1.DataSourceDiary.DataSource = entityManager.GetDiaryEntries();
-            ucClan1.DataSourceClan = entityManager.GetClans();
+            ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
         }
 
         private void btnLoadDBBackup_Click(object sender, EventArgs e)

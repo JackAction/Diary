@@ -89,7 +89,6 @@
             // 
             // ucPersons1
             // 
-            this.ucPersons1.DataSourcePerson = typeof(MainForm.Person);
             this.ucPersons1.Location = new System.Drawing.Point(142, 233);
             this.ucPersons1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPersons1.Name = "ucPersons1";
@@ -109,7 +108,6 @@
             // 
             // ucClan1
             // 
-            this.ucClan1.DataSourceClan = typeof(MainForm.Clan);
             this.ucClan1.Location = new System.Drawing.Point(120, 90);
             this.ucClan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucClan1.Name = "ucClan1";
