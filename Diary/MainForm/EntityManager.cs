@@ -78,7 +78,26 @@ namespace MainForm
 
         public void AddDiaryEntry(Diary d)
         {
-            db.Diaries.Add(d);
+            if (d != null)
+            {
+                db.Diaries.Add(d); 
+            }
+        }
+
+        public void AddClanEntry(Clan c)
+        {
+            if (c != null)
+            {
+                db.Clans.Add(c); 
+            }
+        }
+
+        public void AddPersonEntry(Person p)
+        {
+            if (p != null)
+            {
+                db.People.Add(p); 
+            }
         }
 
     }

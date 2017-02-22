@@ -25,6 +25,14 @@ namespace MainForm
             // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
+        [Description("Neue Zeile wurde zu Clan DataGrid hinzugefügt."), Category("Data")]
+        public event EventHandler ClanRowAdded;
+
+        private void dbgrdClans_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ClanRowAdded?.Invoke(sender, e);
+        }
+
         private void ShowMembers()
         {
             Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
@@ -67,5 +75,6 @@ namespace MainForm
             ShowMembers();
             ShowDiaryEntries();
         }
+
     }
 }

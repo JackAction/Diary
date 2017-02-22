@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mstControl = new System.Windows.Forms.TabControl();
             this.tabDiary = new System.Windows.Forms.TabPage();
             this.ucDiary1 = new MainForm.ucDiary();
@@ -51,7 +52,7 @@
             this.mstControl.Controls.Add(this.tabDiary);
             this.mstControl.Controls.Add(this.tabPerson);
             this.mstControl.Controls.Add(this.tabClans);
-            this.mstControl.Location = new System.Drawing.Point(12, 52);
+            this.mstControl.Location = new System.Drawing.Point(12, 54);
             this.mstControl.Name = "mstControl";
             this.mstControl.SelectedIndex = 0;
             this.mstControl.Size = new System.Drawing.Size(1257, 809);
@@ -62,7 +63,7 @@
             this.tabDiary.Controls.Add(this.ucDiary1);
             this.tabDiary.Location = new System.Drawing.Point(4, 22);
             this.tabDiary.Name = "tabDiary";
-            this.tabDiary.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabDiary.Padding = new System.Windows.Forms.Padding(3);
             this.tabDiary.Size = new System.Drawing.Size(1249, 783);
             this.tabDiary.TabIndex = 0;
             this.tabDiary.Text = "Diary";
@@ -81,7 +82,7 @@
             this.tabPerson.Controls.Add(this.ucPersons1);
             this.tabPerson.Location = new System.Drawing.Point(4, 22);
             this.tabPerson.Name = "tabPerson";
-            this.tabPerson.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPerson.Padding = new System.Windows.Forms.Padding(3);
             this.tabPerson.Size = new System.Drawing.Size(1249, 783);
             this.tabPerson.TabIndex = 1;
             this.tabPerson.Text = "Persons";
@@ -100,7 +101,7 @@
             this.tabClans.Controls.Add(this.ucClan1);
             this.tabClans.Location = new System.Drawing.Point(4, 22);
             this.tabClans.Name = "tabClans";
-            this.tabClans.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClans.Padding = new System.Windows.Forms.Padding(3);
             this.tabClans.Size = new System.Drawing.Size(1249, 783);
             this.tabClans.TabIndex = 2;
             this.tabClans.Text = "Clans";
@@ -147,7 +148,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(286, 13);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(89, 36);
             this.btnSave.TabIndex = 2;
@@ -158,7 +159,7 @@
             // btnDiscard
             // 
             this.btnDiscard.Location = new System.Drawing.Point(379, 13);
-            this.btnDiscard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiscard.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiscard.Name = "btnDiscard";
             this.btnDiscard.Size = new System.Drawing.Size(89, 36);
             this.btnDiscard.TabIndex = 2;

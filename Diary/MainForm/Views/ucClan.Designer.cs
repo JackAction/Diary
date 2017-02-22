@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dbgrdClans = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,13 +53,7 @@
             this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.place1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
-            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,10 +65,11 @@
             this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.peopleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdClans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +89,35 @@
             this.dbgrdClans.Size = new System.Drawing.Size(240, 150);
             this.dbgrdClans.TabIndex = 0;
             this.dbgrdClans.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdClans_CellClick);
+            this.dbgrdClans.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdClans_RowsAdded);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // detailsDataGridViewTextBoxColumn
+            // 
+            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
+            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
+            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
+            // 
+            // peopleDataGridViewTextBoxColumn
+            // 
+            this.peopleDataGridViewTextBoxColumn.DataPropertyName = "People";
+            this.peopleDataGridViewTextBoxColumn.HeaderText = "People";
+            this.peopleDataGridViewTextBoxColumn.Name = "peopleDataGridViewTextBoxColumn";
+            // 
+            // clanBindingSource
+            // 
+            this.clanBindingSource.DataSource = typeof(MainForm.Clan);
             // 
             // dbgrdPersons
             // 
@@ -217,34 +246,6 @@
             // 
             this.personBindingSource.DataSource = typeof(MainForm.Person);
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // detailsDataGridViewTextBoxColumn
-            // 
-            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
-            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
-            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
-            // 
-            // peopleDataGridViewTextBoxColumn
-            // 
-            this.peopleDataGridViewTextBoxColumn.DataPropertyName = "People";
-            this.peopleDataGridViewTextBoxColumn.HeaderText = "People";
-            this.peopleDataGridViewTextBoxColumn.Name = "peopleDataGridViewTextBoxColumn";
-            // 
-            // clanBindingSource
-            // 
-            this.clanBindingSource.DataSource = typeof(MainForm.Clan);
-            // 
             // dbgrdDiary
             // 
             this.dbgrdDiary.AutoGenerateColumns = false;
@@ -266,10 +267,6 @@
             this.dbgrdDiary.Name = "dbgrdDiary";
             this.dbgrdDiary.Size = new System.Drawing.Size(240, 150);
             this.dbgrdDiary.TabIndex = 2;
-            // 
-            // diaryBindingSource
-            // 
-            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
             // 
             // iDDataGridViewTextBoxColumn2
             // 
@@ -337,6 +334,10 @@
             this.peopleDataGridViewTextBoxColumn1.HeaderText = "People";
             this.peopleDataGridViewTextBoxColumn1.Name = "peopleDataGridViewTextBoxColumn1";
             // 
+            // diaryBindingSource
+            // 
+            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
+            // 
             // ucClan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,9 +349,9 @@
             this.Size = new System.Drawing.Size(887, 622);
             this.Load += new System.EventHandler(this.ucClan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdClans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
             this.ResumeLayout(false);

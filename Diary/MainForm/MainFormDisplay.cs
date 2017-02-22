@@ -28,6 +28,8 @@ namespace MainForm
 
             // Eventhandlers
             ucDiary1.DiaryRowAdded += new EventHandler(ucDiary1_dbgrdDiary_RowsAdded);
+            ucClan1.ClanRowAdded += new EventHandler(ucClan1_dbgrdClan_RowsAdded);
+            ucPersons1.PersonRowAdded += new EventHandler(ucPersons1_dbgrdPerson_RowsAdded);
             applicationState = ApplicationState.Started;
         }
 
@@ -92,6 +94,22 @@ namespace MainForm
             if (applicationState == ApplicationState.Started)
             {
                 entityManager.AddDiaryEntry((Diary)ucDiary1.DataSourceDiary.Current);
+            }
+        }
+
+        private void ucClan1_dbgrdClan_RowsAdded(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.Started)
+            {
+                entityManager.AddClanEntry((Clan)ucClan1.DataSourceClan.Current);
+            }
+        }
+
+        private void ucPersons1_dbgrdPerson_RowsAdded(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.Started)
+            {
+                entityManager.AddPersonEntry((Person)ucPersons1.DataSourcePerson.Current);
             }
         }
     }

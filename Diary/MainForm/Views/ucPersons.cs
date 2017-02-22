@@ -25,6 +25,14 @@ namespace MainForm
             // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
+        [Description("Neue Zeile wurde zu Person DataGrid hinzugefügt."), Category("Data")]
+        public event EventHandler PersonRowAdded;
+
+        private void dbgrdPersons_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            PersonRowAdded?.Invoke(sender, e);
+        }
+
         private void ShowDiaryEntries()
         {
             Person obj = personBindingSource.Current as Person; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid

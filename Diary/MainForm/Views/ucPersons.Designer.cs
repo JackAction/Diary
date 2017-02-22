@@ -30,20 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
-            this.dbgrdDiary = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Place1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,10 +44,24 @@
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diariesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbgrdDiary = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dbgrdPersons
@@ -89,6 +89,95 @@
             this.dbgrdPersons.Size = new System.Drawing.Size(622, 242);
             this.dbgrdPersons.TabIndex = 0;
             this.dbgrdPersons.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellClick);
+            this.dbgrdPersons.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPersons_RowsAdded);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // Place
+            // 
+            this.Place.DataPropertyName = "Place";
+            this.Place.HeaderText = "Last known Place";
+            this.Place.Name = "Place";
+            // 
+            // Place1
+            // 
+            this.Place1.DataPropertyName = "Place1";
+            this.Place1.HeaderText = "Met Place";
+            this.Place1.Name = "Place1";
+            // 
+            // clanIDDataGridViewTextBoxColumn
+            // 
+            this.clanIDDataGridViewTextBoxColumn.DataPropertyName = "Clan_ID";
+            this.clanIDDataGridViewTextBoxColumn.HeaderText = "Clan_ID";
+            this.clanIDDataGridViewTextBoxColumn.Name = "clanIDDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // rankDataGridViewTextBoxColumn
+            // 
+            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
+            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
+            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
+            // 
+            // raceDataGridViewTextBoxColumn
+            // 
+            this.raceDataGridViewTextBoxColumn.DataPropertyName = "Race";
+            this.raceDataGridViewTextBoxColumn.HeaderText = "Race";
+            this.raceDataGridViewTextBoxColumn.Name = "raceDataGridViewTextBoxColumn";
+            // 
+            // deadDataGridViewTextBoxColumn
+            // 
+            this.deadDataGridViewTextBoxColumn.DataPropertyName = "Dead";
+            this.deadDataGridViewTextBoxColumn.HeaderText = "Dead";
+            this.deadDataGridViewTextBoxColumn.Name = "deadDataGridViewTextBoxColumn";
+            // 
+            // alignementDataGridViewTextBoxColumn
+            // 
+            this.alignementDataGridViewTextBoxColumn.DataPropertyName = "Alignement";
+            this.alignementDataGridViewTextBoxColumn.HeaderText = "Alignement";
+            this.alignementDataGridViewTextBoxColumn.Name = "alignementDataGridViewTextBoxColumn";
+            // 
+            // detailsDataGridViewTextBoxColumn
+            // 
+            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
+            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
+            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
+            // 
+            // comment2DataGridViewTextBoxColumn
+            // 
+            this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
+            this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment_2";
+            this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
+            // 
+            // clanDataGridViewTextBoxColumn
+            // 
+            this.clanDataGridViewTextBoxColumn.DataPropertyName = "Clan";
+            this.clanDataGridViewTextBoxColumn.HeaderText = "Clan";
+            this.clanDataGridViewTextBoxColumn.Name = "clanDataGridViewTextBoxColumn";
+            // 
+            // diariesDataGridViewTextBoxColumn
+            // 
+            this.diariesDataGridViewTextBoxColumn.DataPropertyName = "Diaries";
+            this.diariesDataGridViewTextBoxColumn.HeaderText = "Diaries";
+            this.diariesDataGridViewTextBoxColumn.Name = "diariesDataGridViewTextBoxColumn";
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(MainForm.Person);
             // 
             // dbgrdDiary
             // 
@@ -182,94 +271,6 @@
             // 
             this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
             // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(MainForm.Person);
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // Place
-            // 
-            this.Place.DataPropertyName = "Place";
-            this.Place.HeaderText = "Last known Place";
-            this.Place.Name = "Place";
-            // 
-            // Place1
-            // 
-            this.Place1.DataPropertyName = "Place1";
-            this.Place1.HeaderText = "Met Place";
-            this.Place1.Name = "Place1";
-            // 
-            // clanIDDataGridViewTextBoxColumn
-            // 
-            this.clanIDDataGridViewTextBoxColumn.DataPropertyName = "Clan_ID";
-            this.clanIDDataGridViewTextBoxColumn.HeaderText = "Clan_ID";
-            this.clanIDDataGridViewTextBoxColumn.Name = "clanIDDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            // 
-            // rankDataGridViewTextBoxColumn
-            // 
-            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
-            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
-            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
-            // 
-            // raceDataGridViewTextBoxColumn
-            // 
-            this.raceDataGridViewTextBoxColumn.DataPropertyName = "Race";
-            this.raceDataGridViewTextBoxColumn.HeaderText = "Race";
-            this.raceDataGridViewTextBoxColumn.Name = "raceDataGridViewTextBoxColumn";
-            // 
-            // deadDataGridViewTextBoxColumn
-            // 
-            this.deadDataGridViewTextBoxColumn.DataPropertyName = "Dead";
-            this.deadDataGridViewTextBoxColumn.HeaderText = "Dead";
-            this.deadDataGridViewTextBoxColumn.Name = "deadDataGridViewTextBoxColumn";
-            // 
-            // alignementDataGridViewTextBoxColumn
-            // 
-            this.alignementDataGridViewTextBoxColumn.DataPropertyName = "Alignement";
-            this.alignementDataGridViewTextBoxColumn.HeaderText = "Alignement";
-            this.alignementDataGridViewTextBoxColumn.Name = "alignementDataGridViewTextBoxColumn";
-            // 
-            // detailsDataGridViewTextBoxColumn
-            // 
-            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
-            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
-            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
-            // 
-            // comment2DataGridViewTextBoxColumn
-            // 
-            this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
-            this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment_2";
-            this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
-            // 
-            // clanDataGridViewTextBoxColumn
-            // 
-            this.clanDataGridViewTextBoxColumn.DataPropertyName = "Clan";
-            this.clanDataGridViewTextBoxColumn.HeaderText = "Clan";
-            this.clanDataGridViewTextBoxColumn.Name = "clanDataGridViewTextBoxColumn";
-            // 
-            // diariesDataGridViewTextBoxColumn
-            // 
-            this.diariesDataGridViewTextBoxColumn.DataPropertyName = "Diaries";
-            this.diariesDataGridViewTextBoxColumn.HeaderText = "Diaries";
-            this.diariesDataGridViewTextBoxColumn.Name = "diariesDataGridViewTextBoxColumn";
-            // 
             // ucPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,9 +281,9 @@
             this.Size = new System.Drawing.Size(717, 468);
             this.Load += new System.EventHandler(this.ucPersons_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
