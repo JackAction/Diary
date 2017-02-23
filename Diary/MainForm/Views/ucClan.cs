@@ -30,7 +30,10 @@ namespace MainForm
 
         private void dbgrdClans_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ClanRowAdded?.Invoke(sender, e);
+            if (e.RowIndex > clanBindingSource.Count - 1)
+            {
+                ClanRowAdded?.Invoke(sender, e); 
+            }
         }
 
         private void ShowMembers()

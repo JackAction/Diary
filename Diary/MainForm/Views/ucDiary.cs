@@ -30,7 +30,10 @@ namespace MainForm
 
         private void dbgrdDiary_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            DiaryRowAdded?.Invoke(sender, e);
+            if (e.RowIndex > diaryBindingSource.Count - 1)
+            {
+                DiaryRowAdded?.Invoke(sender, e); 
+            }
         }
     }
 }
