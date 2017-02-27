@@ -65,7 +65,7 @@
     <Compile Include="Clan.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityManager.cs" />
+    <Compile Include="Utility\EntityManager.cs" />
     <Compile Include="Utility\DBHelper.cs" />
     <Compile Include="Diary.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -158,8 +158,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>

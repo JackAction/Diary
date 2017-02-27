@@ -26,6 +26,11 @@ namespace MainForm
         {
             entityManager = new EntityManager();
 
+            if (Environment.MachineName == "KLAPPI")
+            {
+                WindowState = FormWindowState.Maximized; 
+            }
+
             // Eventhandlers
             ucDiary1.DiaryRowAdded += new EventHandler(ucDiary1_dbgrdDiary_RowsAdded);
             ucClan1.ClanRowAdded += new EventHandler(ucClan1_dbgrdClan_RowsAdded);
