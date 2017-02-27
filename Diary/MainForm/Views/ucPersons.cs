@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MainForm
 {
-    public partial class ucPersons : UserControl
+    public partial class ucPersons : ucBase
     {
         public ucPersons()
         {

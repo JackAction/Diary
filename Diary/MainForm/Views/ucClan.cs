@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MainForm
 {
-    public partial class ucClan : UserControl
+    public partial class ucClan : ucBase
     {
         public ucClan()
         {
