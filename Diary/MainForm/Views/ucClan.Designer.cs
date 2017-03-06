@@ -177,6 +177,8 @@
             // 
             // dbgrdDiary
             // 
+            this.dbgrdDiary.AllowUserToAddRows = false;
+            this.dbgrdDiary.AllowUserToDeleteRows = false;
             this.dbgrdDiary.AutoGenerateColumns = false;
             this.dbgrdDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbgrdDiary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -195,6 +197,7 @@
             this.dbgrdDiary.Location = new System.Drawing.Point(39, 78);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
+            this.dbgrdDiary.ReadOnly = true;
             this.dbgrdDiary.Size = new System.Drawing.Size(695, 231);
             this.dbgrdDiary.TabIndex = 2;
             // 
@@ -203,6 +206,7 @@
             this.sessionIDDataGridViewTextBoxColumn.DataPropertyName = "SessionID";
             this.sessionIDDataGridViewTextBoxColumn.HeaderText = "S";
             this.sessionIDDataGridViewTextBoxColumn.Name = "sessionIDDataGridViewTextBoxColumn";
+            this.sessionIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.sessionIDDataGridViewTextBoxColumn.Width = 20;
             // 
             // ingameDayDataGridViewTextBoxColumn
@@ -210,42 +214,49 @@
             this.ingameDayDataGridViewTextBoxColumn.DataPropertyName = "IngameDay";
             this.ingameDayDataGridViewTextBoxColumn.HeaderText = "IngameDay";
             this.ingameDayDataGridViewTextBoxColumn.Name = "ingameDayDataGridViewTextBoxColumn";
+            this.ingameDayDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // entryDataGridViewTextBoxColumn
             // 
             this.entryDataGridViewTextBoxColumn.DataPropertyName = "Entry";
             this.entryDataGridViewTextBoxColumn.HeaderText = "Entry";
             this.entryDataGridViewTextBoxColumn.Name = "entryDataGridViewTextBoxColumn";
+            this.entryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // itemDataGridViewTextBoxColumn
             // 
             this.itemDataGridViewTextBoxColumn.DataPropertyName = "Item";
             this.itemDataGridViewTextBoxColumn.HeaderText = "Item";
             this.itemDataGridViewTextBoxColumn.Name = "itemDataGridViewTextBoxColumn";
+            this.itemDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // placeDataGridViewTextBoxColumn1
             // 
             this.placeDataGridViewTextBoxColumn1.DataPropertyName = "Place";
             this.placeDataGridViewTextBoxColumn1.HeaderText = "Place";
             this.placeDataGridViewTextBoxColumn1.Name = "placeDataGridViewTextBoxColumn1";
+            this.placeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // questDataGridViewTextBoxColumn
             // 
             this.questDataGridViewTextBoxColumn.DataPropertyName = "Quest";
             this.questDataGridViewTextBoxColumn.HeaderText = "Quest";
             this.questDataGridViewTextBoxColumn.Name = "questDataGridViewTextBoxColumn";
+            this.questDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // peopleDataGridViewTextBoxColumn1
             // 
             this.peopleDataGridViewTextBoxColumn1.DataPropertyName = "People";
             this.peopleDataGridViewTextBoxColumn1.HeaderText = "People";
             this.peopleDataGridViewTextBoxColumn1.Name = "peopleDataGridViewTextBoxColumn1";
+            this.peopleDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // iDDataGridViewTextBoxColumn2
             // 
             this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
+            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
             this.iDDataGridViewTextBoxColumn2.Width = 20;
             // 
             // placeIDDataGridViewTextBoxColumn
@@ -253,6 +264,7 @@
             this.placeIDDataGridViewTextBoxColumn.DataPropertyName = "Place_ID";
             this.placeIDDataGridViewTextBoxColumn.HeaderText = "Place_ID";
             this.placeIDDataGridViewTextBoxColumn.Name = "placeIDDataGridViewTextBoxColumn";
+            this.placeIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.placeIDDataGridViewTextBoxColumn.Width = 20;
             // 
             // questsIDDataGridViewTextBoxColumn
@@ -260,6 +272,7 @@
             this.questsIDDataGridViewTextBoxColumn.DataPropertyName = "Quests_ID";
             this.questsIDDataGridViewTextBoxColumn.HeaderText = "Quests_ID";
             this.questsIDDataGridViewTextBoxColumn.Name = "questsIDDataGridViewTextBoxColumn";
+            this.questsIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.questsIDDataGridViewTextBoxColumn.Width = 20;
             // 
             // itemsIDDataGridViewTextBoxColumn
@@ -267,6 +280,7 @@
             this.itemsIDDataGridViewTextBoxColumn.DataPropertyName = "Items_ID";
             this.itemsIDDataGridViewTextBoxColumn.HeaderText = "Items_ID";
             this.itemsIDDataGridViewTextBoxColumn.Name = "itemsIDDataGridViewTextBoxColumn";
+            this.itemsIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.itemsIDDataGridViewTextBoxColumn.Width = 20;
             // 
             // diaryBindingSource
