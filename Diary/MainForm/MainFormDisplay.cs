@@ -34,9 +34,11 @@ namespace MainForm
             // Eventhandlers
             ucDiary1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucClan1.ClanRowAdded += new EventHandler(Clan_RowsAdded);
+            ucClan1.PersonRowAdded += new EventHandler(Person_RowsAdded);
             ucPersons1.PersonRowAdded += new EventHandler(Person_RowsAdded);
             ucPersons1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
+            ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             applicationState = ApplicationState.Started;
         }
 
@@ -111,6 +113,9 @@ namespace MainForm
                     case "tabPerson":
                         entityManager.AddDiaryEntry((Diary)ucPersons1.DataSourceDiary.Current);
                         break;
+                    case "tabPlaces":
+                        entityManager.AddDiaryEntry((Diary)ucPlace1.DataSourceDiary.Current);
+                        break;
                     default:
                         break;
                 }
@@ -129,7 +134,17 @@ namespace MainForm
         {
             if (applicationState == ApplicationState.Started)
             {
-                entityManager.AddPersonEntry((Person)ucPersons1.DataSourcePerson.Current);
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabPerson":
+                        entityManager.AddPersonEntry((Person)ucPersons1.DataSourcePerson.Current);
+                        break;
+                    case "tabClans":
+                        entityManager.AddPersonEntry((Person)ucClan1.DataSourcePerson.Current);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -146,10 +161,17 @@ namespace MainForm
             switch (mstControl.SelectedTab.Name)
             {
                 case "tabDiary":
-                    
+                    // Zurzeit kein weiteres Datagrid, somit nicht benötigt.
                     break;
                 case "tabPerson":
                     ucPersons1.ShowDiaryEntries();
+                    break;
+                case "tabPlaces":
+                    ucPlace1.ShowDiaryEntries();
+                    break;
+                case "tabClans":
+                    ucClan1.ShowMembers();
+                    ucClan1.ShowDiaryEntries();
                     break;
                 default:
                     break;

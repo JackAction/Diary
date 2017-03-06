@@ -125,6 +125,7 @@
             this.dbgrdPersons.Name = "dbgrdPersons";
             this.dbgrdPersons.Size = new System.Drawing.Size(1125, 231);
             this.dbgrdPersons.TabIndex = 1;
+            this.dbgrdPersons.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPersons_RowsAdded);
             // 
             // nameDataGridViewTextBoxColumn1
             // 
