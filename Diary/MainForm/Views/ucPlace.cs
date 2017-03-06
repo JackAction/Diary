@@ -62,13 +62,6 @@ namespace MainForm
             }
         }
 
-        private void dbgrdPlaces_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                ShowDiaryEntries();
-            }
-        }
         public void ShowDiaryEntries()
         {
             Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
@@ -80,6 +73,14 @@ namespace MainForm
                 }
             }
         }
+        private void dbgrdPlaces_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ShowDiaryEntries();
+            }
+        }
+
         private void ucPlace_Load(object sender, EventArgs e)
         {
             ShowDiaryEntries();

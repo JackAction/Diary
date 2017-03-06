@@ -31,7 +31,7 @@ namespace MainForm
                 WindowState = FormWindowState.Maximized; 
             }
 
-            // Eventhandlers
+            // Delegate Eventhandlers von User Controls
             ucDiary1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucClan1.ClanRowAdded += new EventHandler(Clan_RowsAdded);
             ucClan1.PersonRowAdded += new EventHandler(Person_RowsAdded);
@@ -39,14 +39,25 @@ namespace MainForm
             ucPersons1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
             ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
+
             applicationState = ApplicationState.Started;
         }
 
+        /// <summary>
+        /// Event Handler Button: Datenbankbackup auf Dropbox speichern.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveDB_Click(object sender, EventArgs e)
         {
             entityManager.BackupDB();
         }
 
+        /// <summary>
+        /// Event Handler Button: Lokale Datenbank laden
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoadDB_Click(object sender, EventArgs e)
         {
             try
@@ -74,12 +85,22 @@ namespace MainForm
             ucPlace1.DataSourcePlace.DataSource = entityManager.GetPlaces();
         }
 
+        /// <summary>
+        /// Event Handler Button: Datenbankbackup von Dropbox laden.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLoadDBBackup_Click(object sender, EventArgs e)
         {
             entityManager.RestoreDB();
             btnLoadDB_Click(null,null);
         }
 
+        /// <summary>
+        /// Event Handler Button: Lokale Datenbank sichern
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -156,6 +177,11 @@ namespace MainForm
             }
         }
 
+        /// <summary>
+        /// Event Handler bei Tab-wechsel: Benötigt um zusätzliche Datagrids zu aktualisieren aufgrund aktuell selektierter Zeile in Hauptdatagrid des Tabs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mstControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (mstControl.SelectedTab.Name)
