@@ -10,6 +10,14 @@ namespace MainForm
     {
     }
 
+    public partial class Diary
+    {
+        public override string ToString()
+        {
+            return Entry ?? "Not Set";
+        }
+    }
+
     public partial class Clan
     {
         public override string ToString()

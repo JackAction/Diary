@@ -100,6 +100,14 @@ namespace MainForm
             }
         }
 
+        public void AddPlaceEntry(Place p)
+        {
+            if (p != null)
+            {
+                db.Places.Add(p);
+            }
+        }
+
     }
 
 

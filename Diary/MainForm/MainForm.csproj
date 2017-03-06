@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\ucPlace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucPlace.Designer.cs">
+      <DependentUpon>ucPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utility\ApplicationState.cs" />
     <Compile Include="Clan.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -142,6 +148,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\ucPlace.resx">
+      <DependentUpon>ucPlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ucBase.resx">
       <DependentUpon>ucBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +174,7 @@
     <None Include="Properties\DataSources\Clan.datasource" />
     <None Include="Properties\DataSources\Diary.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
+    <None Include="Properties\DataSources\Place.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

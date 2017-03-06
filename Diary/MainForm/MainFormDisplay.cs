@@ -32,9 +32,11 @@ namespace MainForm
             }
 
             // Eventhandlers
-            ucDiary1.DiaryRowAdded += new EventHandler(ucDiary1_dbgrdDiary_RowsAdded);
-            ucClan1.ClanRowAdded += new EventHandler(ucClan1_dbgrdClan_RowsAdded);
-            ucPersons1.PersonRowAdded += new EventHandler(ucPersons1_dbgrdPerson_RowsAdded);
+            ucDiary1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
+            ucClan1.ClanRowAdded += new EventHandler(Clan_RowsAdded);
+            ucPersons1.PersonRowAdded += new EventHandler(Person_RowsAdded);
+            ucPersons1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
+            ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
             applicationState = ApplicationState.Started;
         }
 
@@ -50,6 +52,7 @@ namespace MainForm
                 applicationState = ApplicationState.DBInteraction;
                 entityManager.LoadDatafromDB();
                 setDatasourcess();
+                mstControl_SelectedIndexChanged(null, null);
             }
             catch (Exception)
             {
@@ -66,6 +69,7 @@ namespace MainForm
             ucPersons1.DataSourcePerson.DataSource = entityManager.GetPersons();
             ucDiary1.DataSourceDiary.DataSource = entityManager.GetDiaryEntries();
             ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
+            ucPlace1.DataSourcePlace.DataSource = entityManager.GetPlaces();
         }
 
         private void btnLoadDBBackup_Click(object sender, EventArgs e)
@@ -86,6 +90,7 @@ namespace MainForm
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            setDatasourcess();
         }
 
         private void btnDiscard_Click(object sender, EventArgs e)
@@ -94,15 +99,25 @@ namespace MainForm
             setDatasourcess();
         }
 
-        private void ucDiary1_dbgrdDiary_RowsAdded(object sender, EventArgs e)
+        private void Diary_RowsAdded(object sender, EventArgs e)
         {
             if (applicationState == ApplicationState.Started)
             {
-                entityManager.AddDiaryEntry((Diary)ucDiary1.DataSourceDiary.Current);
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabDiary":
+                        entityManager.AddDiaryEntry((Diary)ucDiary1.DataSourceDiary.Current);
+                        break;
+                    case "tabPerson":
+                        entityManager.AddDiaryEntry((Diary)ucPersons1.DataSourceDiary.Current);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
-        private void ucClan1_dbgrdClan_RowsAdded(object sender, EventArgs e)
+        private void Clan_RowsAdded(object sender, EventArgs e)
         {
             if (applicationState == ApplicationState.Started)
             {
@@ -110,11 +125,34 @@ namespace MainForm
             }
         }
 
-        private void ucPersons1_dbgrdPerson_RowsAdded(object sender, EventArgs e)
+        private void Person_RowsAdded(object sender, EventArgs e)
         {
             if (applicationState == ApplicationState.Started)
             {
                 entityManager.AddPersonEntry((Person)ucPersons1.DataSourcePerson.Current);
+            }
+        }
+
+        private void Place_RowsAdded(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.Started)
+            {
+                entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
+            }
+        }
+
+        private void mstControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (mstControl.SelectedTab.Name)
+            {
+                case "tabDiary":
+                    
+                    break;
+                case "tabPerson":
+                    ucPersons1.ShowDiaryEntries();
+                    break;
+                default:
+                    break;
             }
         }
     }
