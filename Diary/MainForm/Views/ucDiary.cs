@@ -15,6 +15,7 @@ namespace MainForm
         public ucDiary()
         {
             InitializeComponent();
+            ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
         }
 
         [Description("Binding Source für Diary."), Category("Data")]
@@ -41,6 +42,30 @@ namespace MainForm
                 DiaryRowAdded?.Invoke(sender, e); 
             }
         }
+
+
+        [Description("New Place."), Category("Data")]
+        public Place NewPlace
+        {
+            get
+            {
+                return ucAddNewPlace1.NewPlace;
+            }
+        }
+
+        [Description("Neuer Place wird hinzugefügt."), Category("Data")]
+        public event EventHandler PlaceAdded;
+
+        private void ucPlaceAdded(object sender, EventArgs e)
+        {
+            PlaceAdded?.Invoke(sender, e);
+        }
+
+
+
+
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -70,7 +95,5 @@ namespace MainForm
 
             }
         }
-
-
     }
 }

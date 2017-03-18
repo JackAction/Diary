@@ -10,6 +10,7 @@ namespace MainForm
     {
         Starting,
         Started,
+        DBLoaded,
         DBInteraction,
 
     }

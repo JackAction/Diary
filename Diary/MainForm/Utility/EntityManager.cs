@@ -32,9 +32,12 @@ namespace MainForm
             db = new dnd_hotdqEntities(dbHelper.BuildConnectionString());
         }
 
-        public async void SaveChangesToDB()
+        public void SaveChangesToDB()
         {
-            await db.SaveChangesAsync();
+            if (db.ChangeTracker.HasChanges())
+            {
+                db.SaveChanges(); 
+            }
         }
 
         public void DiscardChanges()

@@ -46,6 +46,7 @@
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
@@ -192,10 +193,20 @@
             // 
             this.personBindingSource.DataSource = typeof(MainForm.Person);
             // 
+            // ucAddNewPlace1
+            // 
+            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewPlace1.Location = new System.Drawing.Point(817, 336);
+            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
+            this.ucAddNewPlace1.Size = new System.Drawing.Size(396, 288);
+            this.ucAddNewPlace1.TabIndex = 7;
+            // 
             // ucDiary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ucAddNewPlace1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblDiaryEntries);
             this.Controls.Add(this.dbgrdDiary);
@@ -230,5 +241,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn questsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemsIDDataGridViewTextBoxColumn;
+        private ucAddNewPlace ucAddNewPlace1;
     }
 }

@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Small\ucAddNewPlace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Small\ucAddNewPlace.Designer.cs">
+      <DependentUpon>ucAddNewPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucPlace.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,7 +109,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModelEnhancements.cs" />
+    <Compile Include="Model\ModelEnhancements.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -151,6 +157,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Small\ucAddNewPlace.resx">
+      <DependentUpon>ucAddNewPlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ucPlace.resx">
       <DependentUpon>ucPlace.cs</DependentUpon>
     </EmbeddedResource>

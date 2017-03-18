@@ -39,6 +39,7 @@ namespace MainForm
             ucPersons1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
             ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
+            ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
 
             applicationState = ApplicationState.Started;
         }
@@ -73,7 +74,7 @@ namespace MainForm
                 MessageBox.Show("Datenbankverbindung konnte nicht hergestellt werden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } finally
             {
-                applicationState = ApplicationState.Started;
+                applicationState = ApplicationState.DBLoaded;
             }
         }
 
@@ -108,7 +109,7 @@ namespace MainForm
             {
                 entityManager.SaveChangesToDB(); // Führt die änderungen auf dem db c# objekt effektiv auf der DB aus
 
-                MessageBox.Show("Save success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Save success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -125,7 +126,7 @@ namespace MainForm
 
         private void Diary_RowsAdded(object sender, EventArgs e)
         {
-            if (applicationState == ApplicationState.Started)
+            if (applicationState == ApplicationState.DBLoaded)
             {
                 switch (mstControl.SelectedTab.Name)
                 {
@@ -146,7 +147,7 @@ namespace MainForm
 
         private void Clan_RowsAdded(object sender, EventArgs e)
         {
-            if (applicationState == ApplicationState.Started)
+            if (applicationState == ApplicationState.DBLoaded)
             {
                 entityManager.AddClanEntry((Clan)ucClan1.DataSourceClan.Current);
             }
@@ -154,7 +155,7 @@ namespace MainForm
 
         private void Person_RowsAdded(object sender, EventArgs e)
         {
-            if (applicationState == ApplicationState.Started)
+            if (applicationState == ApplicationState.DBLoaded)
             {
                 switch (mstControl.SelectedTab.Name)
                 {
@@ -172,9 +173,21 @@ namespace MainForm
 
         private void Place_RowsAdded(object sender, EventArgs e)
         {
-            if (applicationState == ApplicationState.Started)
+            if (applicationState == ApplicationState.DBLoaded)
             {
-                entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabDiary":
+                        entityManager.AddPlaceEntry(ucDiary1.NewPlace);
+                        break;
+                    case "tabPlaces":
+                        entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
+                        break;
+                    default:
+                        break;
+                }
+
+                
             }
         }
 
@@ -185,6 +198,12 @@ namespace MainForm
         /// <param name="e"></param>
         private void mstControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Damit alles in DB gespeichert wird und aktuell ist 
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                btnSave_Click(null, null); 
+            }
+
             switch (mstControl.SelectedTab.Name)
             {
                 case "tabDiary":
