@@ -82,6 +82,7 @@ namespace MainForm
         private void setDatasourcess()
         {
             ucPersons1.DataSourcePerson.DataSource = entityManager.GetPersons();
+            ucPersons1.DataSourcePlace.DataSource = entityManager.GetPlaces();
             ucDiary1.DataSourceDiary.DataSource = entityManager.GetDiaryEntries();
             ucDiary1.DataSourcePlace.DataSource = entityManager.GetPlaces();
             ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
@@ -180,9 +181,11 @@ namespace MainForm
                 {
                     case "tabDiary":
                         entityManager.AddPlaceEntry(ucDiary1.NewPlace);
+                        btnSave_Click(null, null);
                         break;
                     case "tabPerson":
                         entityManager.AddPlaceEntry(ucPersons1.NewPlace);
+                        btnSave_Click(null, null);
                         break;
                     case "tabPlaces":
                         entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
