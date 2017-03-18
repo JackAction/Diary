@@ -60,6 +60,7 @@
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblPersons = new System.Windows.Forms.Label();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
+            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
@@ -89,7 +90,7 @@
             this.dbgrdPersons.Location = new System.Drawing.Point(42, 306);
             this.dbgrdPersons.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdPersons.Name = "dbgrdPersons";
-            this.dbgrdPersons.Size = new System.Drawing.Size(933, 307);
+            this.dbgrdPersons.Size = new System.Drawing.Size(933, 255);
             this.dbgrdPersons.TabIndex = 0;
             this.dbgrdPersons.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellClick);
             this.dbgrdPersons.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPersons_RowsAdded);
@@ -300,10 +301,20 @@
             this.lblDiaryEntries.TabIndex = 3;
             this.lblDiaryEntries.Text = "Diary Entries";
             // 
+            // ucAddNewPlace1
+            // 
+            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewPlace1.Location = new System.Drawing.Point(25, 571);
+            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
+            this.ucAddNewPlace1.Size = new System.Drawing.Size(1006, 60);
+            this.ucAddNewPlace1.TabIndex = 4;
+            // 
             // ucPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ucAddNewPlace1);
             this.Controls.Add(this.lblDiaryEntries);
             this.Controls.Add(this.lblPersons);
             this.Controls.Add(this.dbgrdDiary);
@@ -354,5 +365,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn questsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemsIDDataGridViewTextBoxColumn;
+        private ucAddNewPlace ucAddNewPlace1;
     }
 }

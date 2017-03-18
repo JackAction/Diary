@@ -15,6 +15,7 @@ namespace MainForm
         public ucPersons()
         {
             InitializeComponent();
+            ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
         }
 
         [Description("Binding Source für Person."), Category("Data")]
@@ -84,6 +85,23 @@ namespace MainForm
         private void ucPersons_Load(object sender, EventArgs e)
         {
             ShowDiaryEntries();
+        }
+
+        [Description("New Place."), Category("Data")]
+        public Place NewPlace
+        {
+            get
+            {
+                return ucAddNewPlace1.NewPlace;
+            }
+        }
+
+        [Description("Neuer Place wird hinzugefügt."), Category("Data")]
+        public event EventHandler PlaceAdded;
+
+        private void ucPlaceAdded(object sender, EventArgs e)
+        {
+            PlaceAdded?.Invoke(sender, e);
         }
     }
 }

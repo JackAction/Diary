@@ -40,6 +40,7 @@ namespace MainForm
             ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
             ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
+            ucPersons1.PlaceAdded += new EventHandler(Place_RowsAdded);
 
             applicationState = ApplicationState.Started;
         }
@@ -179,6 +180,9 @@ namespace MainForm
                 {
                     case "tabDiary":
                         entityManager.AddPlaceEntry(ucDiary1.NewPlace);
+                        break;
+                    case "tabPerson":
+                        entityManager.AddPlaceEntry(ucPersons1.NewPlace);
                         break;
                     case "tabPlaces":
                         entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
