@@ -48,7 +48,7 @@ namespace MainForm
 
         private void dbgrdPersons_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > diaryBindingSource.Count - 1)
+            if (e.RowIndex > personBindingSource.Count - 1)
             {
                 Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
                 if (obj != null)
