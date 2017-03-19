@@ -130,19 +130,27 @@ namespace MainForm
         {
             if (applicationState == ApplicationState.DBLoaded)
             {
+                Diary newDiary;
                 switch (mstControl.SelectedTab.Name)
                 {
                     case "tabDiary":
-                        entityManager.AddDiaryEntry((Diary)ucDiary1.DataSourceDiary.Current);
+                        newDiary = (Diary)ucDiary1.DataSourceDiary.Current;
                         break;
                     case "tabPerson":
-                        entityManager.AddDiaryEntry((Diary)ucPersons1.DataSourceDiary.Current);
+                        newDiary = (Diary)ucPersons1.DataSourceDiary.Current;
                         break;
                     case "tabPlaces":
-                        entityManager.AddDiaryEntry((Diary)ucPlace1.DataSourceDiary.Current);
+                        newDiary = (Diary)ucPlace1.DataSourceDiary.Current;
                         break;
                     default:
+                        newDiary = new Diary();
                         break;
+                }
+                // Überschreibe die SessionID mit dem entsprechenden Eingabefeldwert
+                if (newDiary != null)
+                {
+                    newDiary.SessionID = (int)txtSessionID.Value;
+                    entityManager.AddDiaryEntry(newDiary); 
                 }
             }
         }

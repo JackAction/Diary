@@ -110,5 +110,13 @@ namespace MainForm
         {
             PlaceAdded?.Invoke(sender, e);
         }
+
+        private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.RowIndex == 0)
+            {
+                MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

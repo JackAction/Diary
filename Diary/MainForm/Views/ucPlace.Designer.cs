@@ -43,8 +43,6 @@
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
-            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblPlaces = new System.Windows.Forms.Label();
             this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +53,8 @@
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblPlaces = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
@@ -179,20 +179,8 @@
             this.dbgrdDiary.Name = "dbgrdDiary";
             this.dbgrdDiary.Size = new System.Drawing.Size(848, 231);
             this.dbgrdDiary.TabIndex = 4;
+            this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
-            // 
-            // diaryBindingSource
-            // 
-            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
-            // 
-            // lblPlaces
-            // 
-            this.lblPlaces.AutoSize = true;
-            this.lblPlaces.Location = new System.Drawing.Point(17, 320);
-            this.lblPlaces.Name = "lblPlaces";
-            this.lblPlaces.Size = new System.Drawing.Size(56, 20);
-            this.lblPlaces.TabIndex = 6;
-            this.lblPlaces.Text = "Places";
             // 
             // sessionIDDataGridViewTextBoxColumn
             // 
@@ -258,6 +246,19 @@
             this.itemsIDDataGridViewTextBoxColumn.HeaderText = "Items_ID";
             this.itemsIDDataGridViewTextBoxColumn.Name = "itemsIDDataGridViewTextBoxColumn";
             this.itemsIDDataGridViewTextBoxColumn.Width = 20;
+            // 
+            // diaryBindingSource
+            // 
+            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
+            // 
+            // lblPlaces
+            // 
+            this.lblPlaces.AutoSize = true;
+            this.lblPlaces.Location = new System.Drawing.Point(17, 320);
+            this.lblPlaces.Name = "lblPlaces";
+            this.lblPlaces.Size = new System.Drawing.Size(56, 20);
+            this.lblPlaces.TabIndex = 6;
+            this.lblPlaces.Text = "Places";
             // 
             // ucPlace
             // 
