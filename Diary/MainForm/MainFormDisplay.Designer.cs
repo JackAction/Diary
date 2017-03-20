@@ -32,9 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormDisplay));
             this.mstControl = new System.Windows.Forms.TabControl();
             this.tabDiary = new System.Windows.Forms.TabPage();
+            this.ucDiary1 = new MainForm.ucDiary();
             this.tabPerson = new System.Windows.Forms.TabPage();
+            this.btnAddPeopleToDiary = new System.Windows.Forms.Button();
+            this.ucPersons1 = new MainForm.ucPersons();
             this.tabClans = new System.Windows.Forms.TabPage();
+            this.ucClan1 = new MainForm.ucClan();
             this.tabPlaces = new System.Windows.Forms.TabPage();
+            this.ucPlace1 = new MainForm.ucPlace();
             this.btnSaveDB = new System.Windows.Forms.Button();
             this.btnLoadDB = new System.Windows.Forms.Button();
             this.btnLoadDBBackup = new System.Windows.Forms.Button();
@@ -42,10 +47,6 @@
             this.btnDiscard = new System.Windows.Forms.Button();
             this.lblSessionID = new System.Windows.Forms.Label();
             this.txtSessionID = new System.Windows.Forms.NumericUpDown();
-            this.ucDiary1 = new MainForm.ucDiary();
-            this.ucPersons1 = new MainForm.ucPersons();
-            this.ucClan1 = new MainForm.ucClan();
-            this.ucPlace1 = new MainForm.ucPlace();
             this.mstControl.SuspendLayout();
             this.tabDiary.SuspendLayout();
             this.tabPerson.SuspendLayout();
@@ -75,44 +76,100 @@
             this.tabDiary.Controls.Add(this.ucDiary1);
             this.tabDiary.Location = new System.Drawing.Point(4, 49);
             this.tabDiary.Name = "tabDiary";
-            this.tabDiary.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabDiary.Padding = new System.Windows.Forms.Padding(3);
             this.tabDiary.Size = new System.Drawing.Size(1249, 756);
             this.tabDiary.TabIndex = 0;
             this.tabDiary.Text = "Diary";
             this.tabDiary.UseVisualStyleBackColor = true;
             // 
+            // ucDiary1
+            // 
+            this.ucDiary1.AutoSize = true;
+            this.ucDiary1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucDiary1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucDiary1.Location = new System.Drawing.Point(3, 3);
+            this.ucDiary1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucDiary1.Name = "ucDiary1";
+            this.ucDiary1.Size = new System.Drawing.Size(1243, 472);
+            this.ucDiary1.TabIndex = 0;
+            // 
             // tabPerson
             // 
+            this.tabPerson.Controls.Add(this.btnAddPeopleToDiary);
             this.tabPerson.Controls.Add(this.ucPersons1);
             this.tabPerson.Location = new System.Drawing.Point(4, 49);
             this.tabPerson.Name = "tabPerson";
-            this.tabPerson.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPerson.Padding = new System.Windows.Forms.Padding(3);
             this.tabPerson.Size = new System.Drawing.Size(1249, 756);
             this.tabPerson.TabIndex = 1;
             this.tabPerson.Text = "Persons";
             this.tabPerson.UseVisualStyleBackColor = true;
+            // 
+            // btnAddPeopleToDiary
+            // 
+            this.btnAddPeopleToDiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPeopleToDiary.Location = new System.Drawing.Point(975, 141);
+            this.btnAddPeopleToDiary.Name = "btnAddPeopleToDiary";
+            this.btnAddPeopleToDiary.Size = new System.Drawing.Size(100, 50);
+            this.btnAddPeopleToDiary.TabIndex = 1;
+            this.btnAddPeopleToDiary.Text = "Add to Diary Entry";
+            this.btnAddPeopleToDiary.UseVisualStyleBackColor = true;
+            this.btnAddPeopleToDiary.Visible = false;
+            this.btnAddPeopleToDiary.Click += new System.EventHandler(this.btnAddPeopleToDiary_Click);
+            // 
+            // ucPersons1
+            // 
+            this.ucPersons1.AutoSize = true;
+            this.ucPersons1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucPersons1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucPersons1.Location = new System.Drawing.Point(3, 3);
+            this.ucPersons1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucPersons1.Name = "ucPersons1";
+            this.ucPersons1.Size = new System.Drawing.Size(1243, 636);
+            this.ucPersons1.TabIndex = 0;
             // 
             // tabClans
             // 
             this.tabClans.Controls.Add(this.ucClan1);
             this.tabClans.Location = new System.Drawing.Point(4, 49);
             this.tabClans.Name = "tabClans";
-            this.tabClans.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClans.Padding = new System.Windows.Forms.Padding(3);
             this.tabClans.Size = new System.Drawing.Size(1249, 756);
             this.tabClans.TabIndex = 2;
             this.tabClans.Text = "Clans";
             this.tabClans.UseVisualStyleBackColor = true;
+            // 
+            // ucClan1
+            // 
+            this.ucClan1.AutoSize = true;
+            this.ucClan1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucClan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucClan1.Location = new System.Drawing.Point(3, 3);
+            this.ucClan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucClan1.Name = "ucClan1";
+            this.ucClan1.Size = new System.Drawing.Size(1243, 596);
+            this.ucClan1.TabIndex = 0;
             // 
             // tabPlaces
             // 
             this.tabPlaces.Controls.Add(this.ucPlace1);
             this.tabPlaces.Location = new System.Drawing.Point(4, 49);
             this.tabPlaces.Name = "tabPlaces";
-            this.tabPlaces.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPlaces.Padding = new System.Windows.Forms.Padding(3);
             this.tabPlaces.Size = new System.Drawing.Size(1249, 756);
             this.tabPlaces.TabIndex = 3;
             this.tabPlaces.Text = "Places";
             this.tabPlaces.UseVisualStyleBackColor = true;
+            // 
+            // ucPlace1
+            // 
+            this.ucPlace1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucPlace1.Location = new System.Drawing.Point(3, 3);
+            this.ucPlace1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.ucPlace1.Name = "ucPlace1";
+            this.ucPlace1.Size = new System.Drawing.Size(1243, 764);
+            this.ucPlace1.TabIndex = 0;
             // 
             // btnSaveDB
             // 
@@ -147,7 +204,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(286, 13);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(89, 36);
             this.btnSave.TabIndex = 2;
@@ -158,7 +215,7 @@
             // btnDiscard
             // 
             this.btnDiscard.Location = new System.Drawing.Point(379, 13);
-            this.btnDiscard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiscard.Margin = new System.Windows.Forms.Padding(2);
             this.btnDiscard.Name = "btnDiscard";
             this.btnDiscard.Size = new System.Drawing.Size(89, 36);
             this.btnDiscard.TabIndex = 2;
@@ -181,49 +238,6 @@
             this.txtSessionID.Name = "txtSessionID";
             this.txtSessionID.Size = new System.Drawing.Size(42, 20);
             this.txtSessionID.TabIndex = 5;
-            // 
-            // ucDiary1
-            // 
-            this.ucDiary1.AutoSize = true;
-            this.ucDiary1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucDiary1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucDiary1.Location = new System.Drawing.Point(3, 3);
-            this.ucDiary1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucDiary1.Name = "ucDiary1";
-            this.ucDiary1.Size = new System.Drawing.Size(1243, 472);
-            this.ucDiary1.TabIndex = 0;
-            // 
-            // ucPersons1
-            // 
-            this.ucPersons1.AutoSize = true;
-            this.ucPersons1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucPersons1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPersons1.Location = new System.Drawing.Point(3, 3);
-            this.ucPersons1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucPersons1.Name = "ucPersons1";
-            this.ucPersons1.Size = new System.Drawing.Size(1243, 636);
-            this.ucPersons1.TabIndex = 0;
-            // 
-            // ucClan1
-            // 
-            this.ucClan1.AutoSize = true;
-            this.ucClan1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucClan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucClan1.Location = new System.Drawing.Point(3, 3);
-            this.ucClan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucClan1.Name = "ucClan1";
-            this.ucClan1.Size = new System.Drawing.Size(1243, 596);
-            this.ucClan1.TabIndex = 0;
-            // 
-            // ucPlace1
-            // 
-            this.ucPlace1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPlace1.Location = new System.Drawing.Point(3, 3);
-            this.ucPlace1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.ucPlace1.Name = "ucPlace1";
-            this.ucPlace1.Size = new System.Drawing.Size(1243, 764);
-            this.ucPlace1.TabIndex = 0;
             // 
             // MainFormDisplay
             // 
@@ -274,6 +288,7 @@
         private ucPlace ucPlace1;
         private System.Windows.Forms.Label lblSessionID;
         private System.Windows.Forms.NumericUpDown txtSessionID;
+        private System.Windows.Forms.Button btnAddPeopleToDiary;
     }
 }
 

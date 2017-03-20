@@ -28,7 +28,8 @@ namespace MainForm
         [Description("Binding Source für Diary."), Category("Data")]
         public BindingSource DataSourceDiary
         {
-            get { return diaryBindingSource; }
+            get { return diaryBindingSource; } 
+            set { diaryBindingSource = value; }
             // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
@@ -117,6 +118,75 @@ namespace MainForm
             {
                 MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Fügt der Personenliste eine Checkboxspalte hinzu und markiert jene, welche im aktuellen Diaryeintrag vorhanden sind. Setzt danach den DiaryEditMode.
+        /// </summary>
+        public void AddCheckboxesToPersonList()
+        {
+            DataGridViewCheckBoxColumn cbColumn = new DataGridViewCheckBoxColumn();
+            cbColumn.HeaderText = "";
+            cbColumn.FalseValue = "0";
+            cbColumn.TrueValue = "1";
+            cbColumn.Width = 20;
+            dbgrdPersons.Columns.Insert(0, cbColumn);
+
+            foreach (DataGridViewRow row in dbgrdPersons.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+
+                Person currentPerson = row.DataBoundItem as Person;
+                Diary currentDiary = DataSourceDiary.Current as Diary;
+
+                if (currentDiary != null)
+                {
+                    if (currentDiary.People.Contains(currentPerson))
+                    {
+                        cell.Value = cell.TrueValue;
+                    } 
+                }
+            }
+            setDiaryMode();
+        }
+
+        private void setDiaryMode()
+        {
+            dbgrdDiary.Visible = false;
+            Diary currentDiary = DataSourceDiary.Current as Diary;
+            if (currentDiary != null)
+            {
+                lblDiaryEntries.Text = $"Person entries for Diaryentry: {currentDiary.Entry}"; 
+            }
+        }
+
+        public void setNormalMode()
+        {
+            dbgrdDiary.Visible = true;
+            lblDiaryEntries.Text = "Diary Entries";
+            dbgrdPersons.Columns.RemoveAt(0);
+        }
+
+        /// <summary>
+        /// Liefert alle Personen, welche in der Checkboxspalte markiert sind.
+        /// </summary>
+        /// <returns>Alle Personen, welche in der Checkboxspalte markiert sind</returns>
+        public List<Person> GetCheckedPeople()
+        {
+            List<Person> personsWithCheck = new List<Person>();
+            foreach (DataGridViewRow row in dbgrdPersons.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+
+                if (cell.Value != null)
+                {
+                    if (cell.Value == cell.TrueValue)
+                    {
+                        personsWithCheck.Add((row.DataBoundItem as Person));
+                    }
+                }
+            }
+            return personsWithCheck;
         }
     }
 }

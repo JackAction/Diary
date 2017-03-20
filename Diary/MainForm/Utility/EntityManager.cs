@@ -111,6 +111,14 @@ namespace MainForm
             }
         }
 
+        public void ChangeDiary(Diary d)
+        {
+            if (d != null)
+            {
+                db.Diaries.Attach(d);
+            }
+        }
+
     }
 
 

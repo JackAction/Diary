@@ -73,6 +73,7 @@
             this.dbgrdDiary.Name = "dbgrdDiary";
             this.dbgrdDiary.Size = new System.Drawing.Size(1239, 334);
             this.dbgrdDiary.TabIndex = 0;
+            this.dbgrdDiary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellClick);
             this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
             // 

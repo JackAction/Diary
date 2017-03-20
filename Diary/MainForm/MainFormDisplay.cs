@@ -41,6 +41,7 @@ namespace MainForm
             ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
             ucPersons1.PlaceAdded += new EventHandler(Place_RowsAdded);
+            ucDiary1.ChangePeopleOfDiaryEntry += new EventHandler(ChangePeopleOfDiaryEntry);
 
             applicationState = ApplicationState.Started;
         }
@@ -206,6 +207,31 @@ namespace MainForm
             }
         }
 
+        private void ChangePeopleOfDiaryEntry(object sender, EventArgs e)
+        {
+            mstControl.SelectTab("tabPerson");
+            tmp = ucPersons1.DataSourceDiary;
+            ucPersons1.DataSourceDiary = ucDiary1.DataSourceDiary;
+            ucPersons1.AddCheckboxesToPersonList();
+            btnAddPeopleToDiary.Visible = true;
+        }
+
+        private BindingSource tmp;
+
+        private void btnAddPeopleToDiary_Click(object sender, EventArgs e)
+        {
+            Diary currentDiary = ucDiary1.DataSourceDiary.Current as Diary;
+            if (currentDiary != null)
+            {
+                currentDiary.People = ucPersons1.GetCheckedPeople(); 
+            }
+            entityManager.ChangeDiary(currentDiary);
+            ucPersons1.DataSourceDiary = tmp;
+            ucPersons1.setNormalMode();
+            mstControl.SelectTab("tabDiary");
+            btnAddPeopleToDiary.Visible = false;
+        }
+
         /// <summary>
         /// Event Handler bei Tab-wechsel: Benötigt um zusätzliche Datagrids zu aktualisieren aufgrund aktuell selektierter Zeile in Hauptdatagrid des Tabs.
         /// </summary>
@@ -238,5 +264,7 @@ namespace MainForm
                     break;
             }
         }
+
+
     }
 }

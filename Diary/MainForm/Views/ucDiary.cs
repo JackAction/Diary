@@ -103,5 +103,16 @@ namespace MainForm
                 MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        [Description("Personen zu einem Diary Eintrag ändern."), Category("Data")]
+        public event EventHandler ChangePeopleOfDiaryEntry;
+
+        private void dbgrdDiary_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3 && e.RowIndex >= 0)
+            {
+                ChangePeopleOfDiaryEntry?.Invoke(sender, e);
+            }
+        }
     }
 }
