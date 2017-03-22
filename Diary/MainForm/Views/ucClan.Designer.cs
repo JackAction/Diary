@@ -54,7 +54,7 @@
             this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -188,7 +188,7 @@
             this.itemDataGridViewTextBoxColumn,
             this.placeDataGridViewTextBoxColumn1,
             this.questDataGridViewTextBoxColumn,
-            this.peopleDataGridViewTextBoxColumn1,
+            this.PeopleString,
             this.iDDataGridViewTextBoxColumn2,
             this.placeIDDataGridViewTextBoxColumn,
             this.questsIDDataGridViewTextBoxColumn,
@@ -275,12 +275,12 @@
             this.questDataGridViewTextBoxColumn.Name = "questDataGridViewTextBoxColumn";
             this.questDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // peopleDataGridViewTextBoxColumn1
+            // PeopleString
             // 
-            this.peopleDataGridViewTextBoxColumn1.DataPropertyName = "People";
-            this.peopleDataGridViewTextBoxColumn1.HeaderText = "People";
-            this.peopleDataGridViewTextBoxColumn1.Name = "peopleDataGridViewTextBoxColumn1";
-            this.peopleDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.PeopleString.DataPropertyName = "PeopleString";
+            this.PeopleString.HeaderText = "People";
+            this.PeopleString.Name = "PeopleString";
+            this.PeopleString.ReadOnly = true;
             // 
             // iDDataGridViewTextBoxColumn2
             // 
@@ -366,7 +366,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn questDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn peopleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn questsIDDataGridViewTextBoxColumn;

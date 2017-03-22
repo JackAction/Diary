@@ -47,20 +47,20 @@
             this.clanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
+            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblPersons = new System.Windows.Forms.Label();
+            this.lblDiaryEntries = new System.Windows.Forms.Label();
+            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblPersons = new System.Windows.Forms.Label();
-            this.lblDiaryEntries = new System.Windows.Forms.Label();
-            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
@@ -209,7 +209,7 @@
             this.ingameDayDataGridViewTextBoxColumn,
             this.entryDataGridViewTextBoxColumn,
             this.placeIDDataGridViewTextBoxColumn,
-            this.peopleDataGridViewTextBoxColumn,
+            this.PeopleString,
             this.itemDataGridViewTextBoxColumn,
             this.questDataGridViewTextBoxColumn,
             this.iDDataGridViewTextBoxColumn1,
@@ -223,6 +223,37 @@
             this.dbgrdDiary.TabIndex = 1;
             this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
+            // 
+            // diaryBindingSource
+            // 
+            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
+            // 
+            // lblPersons
+            // 
+            this.lblPersons.AutoSize = true;
+            this.lblPersons.Location = new System.Drawing.Point(38, 281);
+            this.lblPersons.Name = "lblPersons";
+            this.lblPersons.Size = new System.Drawing.Size(67, 20);
+            this.lblPersons.TabIndex = 2;
+            this.lblPersons.Text = "Persons";
+            // 
+            // lblDiaryEntries
+            // 
+            this.lblDiaryEntries.AutoSize = true;
+            this.lblDiaryEntries.Location = new System.Drawing.Point(83, 7);
+            this.lblDiaryEntries.Name = "lblDiaryEntries";
+            this.lblDiaryEntries.Size = new System.Drawing.Size(99, 20);
+            this.lblDiaryEntries.TabIndex = 3;
+            this.lblDiaryEntries.Text = "Diary Entries";
+            // 
+            // ucAddNewPlace1
+            // 
+            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewPlace1.Location = new System.Drawing.Point(25, 571);
+            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
+            this.ucAddNewPlace1.Size = new System.Drawing.Size(1006, 60);
+            this.ucAddNewPlace1.TabIndex = 4;
             // 
             // sessionIDDataGridViewTextBoxColumn
             // 
@@ -254,11 +285,12 @@
             this.placeIDDataGridViewTextBoxColumn.ValueMember = "ID";
             this.placeIDDataGridViewTextBoxColumn.Width = 150;
             // 
-            // peopleDataGridViewTextBoxColumn
+            // PeopleString
             // 
-            this.peopleDataGridViewTextBoxColumn.DataPropertyName = "People";
-            this.peopleDataGridViewTextBoxColumn.HeaderText = "People";
-            this.peopleDataGridViewTextBoxColumn.Name = "peopleDataGridViewTextBoxColumn";
+            this.PeopleString.DataPropertyName = "PeopleString";
+            this.PeopleString.HeaderText = "People";
+            this.PeopleString.Name = "PeopleString";
+            this.PeopleString.ReadOnly = true;
             // 
             // itemDataGridViewTextBoxColumn
             // 
@@ -292,37 +324,6 @@
             this.itemsIDDataGridViewTextBoxColumn.HeaderText = "Items_ID";
             this.itemsIDDataGridViewTextBoxColumn.Name = "itemsIDDataGridViewTextBoxColumn";
             this.itemsIDDataGridViewTextBoxColumn.Width = 20;
-            // 
-            // diaryBindingSource
-            // 
-            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
-            // 
-            // lblPersons
-            // 
-            this.lblPersons.AutoSize = true;
-            this.lblPersons.Location = new System.Drawing.Point(38, 281);
-            this.lblPersons.Name = "lblPersons";
-            this.lblPersons.Size = new System.Drawing.Size(67, 20);
-            this.lblPersons.TabIndex = 2;
-            this.lblPersons.Text = "Persons";
-            // 
-            // lblDiaryEntries
-            // 
-            this.lblDiaryEntries.AutoSize = true;
-            this.lblDiaryEntries.Location = new System.Drawing.Point(83, 7);
-            this.lblDiaryEntries.Name = "lblDiaryEntries";
-            this.lblDiaryEntries.Size = new System.Drawing.Size(99, 20);
-            this.lblDiaryEntries.TabIndex = 3;
-            this.lblDiaryEntries.Text = "Diary Entries";
-            // 
-            // ucAddNewPlace1
-            // 
-            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewPlace1.Location = new System.Drawing.Point(25, 571);
-            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
-            this.ucAddNewPlace1.Size = new System.Drawing.Size(1006, 60);
-            this.ucAddNewPlace1.TabIndex = 4;
             // 
             // ucPersons
             // 
@@ -375,7 +376,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn placeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn peopleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn questDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;

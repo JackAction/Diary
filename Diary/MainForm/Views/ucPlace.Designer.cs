@@ -30,16 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dbgrdPlaces = new System.Windows.Forms.DataGridView();
-            this.continentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.districtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buildingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.people1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
@@ -48,13 +38,21 @@
             this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblPlaces = new System.Windows.Forms.Label();
+            this.continentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.districtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buildingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
@@ -73,8 +71,6 @@
             this.nameDataGridViewTextBoxColumn,
             this.comment2DataGridViewTextBoxColumn,
             this.detailsDataGridViewTextBoxColumn,
-            this.peopleDataGridViewTextBoxColumn1,
-            this.people1DataGridViewTextBoxColumn,
             this.iDDataGridViewTextBoxColumn1});
             this.dbgrdPlaces.DataSource = this.placeBindingSource;
             this.dbgrdPlaces.Location = new System.Drawing.Point(21, 343);
@@ -83,67 +79,6 @@
             this.dbgrdPlaces.TabIndex = 0;
             this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
             this.dbgrdPlaces.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPlaces_RowsAdded);
-            // 
-            // continentDataGridViewTextBoxColumn
-            // 
-            this.continentDataGridViewTextBoxColumn.DataPropertyName = "Continent";
-            this.continentDataGridViewTextBoxColumn.HeaderText = "Continent";
-            this.continentDataGridViewTextBoxColumn.Name = "continentDataGridViewTextBoxColumn";
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            // 
-            // districtDataGridViewTextBoxColumn
-            // 
-            this.districtDataGridViewTextBoxColumn.DataPropertyName = "District";
-            this.districtDataGridViewTextBoxColumn.HeaderText = "District";
-            this.districtDataGridViewTextBoxColumn.Name = "districtDataGridViewTextBoxColumn";
-            // 
-            // buildingDataGridViewTextBoxColumn
-            // 
-            this.buildingDataGridViewTextBoxColumn.DataPropertyName = "Building";
-            this.buildingDataGridViewTextBoxColumn.HeaderText = "Building";
-            this.buildingDataGridViewTextBoxColumn.Name = "buildingDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // comment2DataGridViewTextBoxColumn
-            // 
-            this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
-            this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment_2";
-            this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
-            // 
-            // detailsDataGridViewTextBoxColumn
-            // 
-            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
-            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
-            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
-            // 
-            // peopleDataGridViewTextBoxColumn1
-            // 
-            this.peopleDataGridViewTextBoxColumn1.DataPropertyName = "People";
-            this.peopleDataGridViewTextBoxColumn1.HeaderText = "People";
-            this.peopleDataGridViewTextBoxColumn1.Name = "peopleDataGridViewTextBoxColumn1";
-            // 
-            // people1DataGridViewTextBoxColumn
-            // 
-            this.people1DataGridViewTextBoxColumn.DataPropertyName = "People1";
-            this.people1DataGridViewTextBoxColumn.HeaderText = "People1";
-            this.people1DataGridViewTextBoxColumn.Name = "people1DataGridViewTextBoxColumn";
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.Width = 20;
             // 
             // placeBindingSource
             // 
@@ -168,7 +103,7 @@
             this.entryDataGridViewTextBoxColumn,
             this.itemDataGridViewTextBoxColumn,
             this.questDataGridViewTextBoxColumn,
-            this.peopleDataGridViewTextBoxColumn,
+            this.PeopleString,
             this.iDDataGridViewTextBoxColumn,
             this.placeIDDataGridViewTextBoxColumn,
             this.questsIDDataGridViewTextBoxColumn,
@@ -213,11 +148,12 @@
             this.questDataGridViewTextBoxColumn.HeaderText = "Quest";
             this.questDataGridViewTextBoxColumn.Name = "questDataGridViewTextBoxColumn";
             // 
-            // peopleDataGridViewTextBoxColumn
+            // PeopleString
             // 
-            this.peopleDataGridViewTextBoxColumn.DataPropertyName = "People";
-            this.peopleDataGridViewTextBoxColumn.HeaderText = "People";
-            this.peopleDataGridViewTextBoxColumn.Name = "peopleDataGridViewTextBoxColumn";
+            this.PeopleString.DataPropertyName = "PeopleString";
+            this.PeopleString.HeaderText = "People";
+            this.PeopleString.Name = "PeopleString";
+            this.PeopleString.ReadOnly = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -260,6 +196,55 @@
             this.lblPlaces.TabIndex = 6;
             this.lblPlaces.Text = "Places";
             // 
+            // continentDataGridViewTextBoxColumn
+            // 
+            this.continentDataGridViewTextBoxColumn.DataPropertyName = "Continent";
+            this.continentDataGridViewTextBoxColumn.HeaderText = "Continent";
+            this.continentDataGridViewTextBoxColumn.Name = "continentDataGridViewTextBoxColumn";
+            // 
+            // cityDataGridViewTextBoxColumn
+            // 
+            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
+            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
+            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            // 
+            // districtDataGridViewTextBoxColumn
+            // 
+            this.districtDataGridViewTextBoxColumn.DataPropertyName = "District";
+            this.districtDataGridViewTextBoxColumn.HeaderText = "District";
+            this.districtDataGridViewTextBoxColumn.Name = "districtDataGridViewTextBoxColumn";
+            // 
+            // buildingDataGridViewTextBoxColumn
+            // 
+            this.buildingDataGridViewTextBoxColumn.DataPropertyName = "Building";
+            this.buildingDataGridViewTextBoxColumn.HeaderText = "Building";
+            this.buildingDataGridViewTextBoxColumn.Name = "buildingDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // comment2DataGridViewTextBoxColumn
+            // 
+            this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
+            this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment_2";
+            this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
+            // 
+            // detailsDataGridViewTextBoxColumn
+            // 
+            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
+            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
+            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.Width = 20;
+            // 
             // ucPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -288,6 +273,17 @@
         private System.Windows.Forms.DataGridView dbgrdDiary;
         private System.Windows.Forms.BindingSource diaryBindingSource;
         private System.Windows.Forms.Label lblPlaces;
+        private System.Windows.Forms.BindingSource placeBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn questDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn questsIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn continentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn districtDataGridViewTextBoxColumn;
@@ -295,19 +291,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn peopleDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn people1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource placeBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn questDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn peopleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn questsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemsIDDataGridViewTextBoxColumn;
     }
 }
