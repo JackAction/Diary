@@ -39,7 +39,6 @@
             this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peopleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.itemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +60,6 @@
             this.sessionIDDataGridViewTextBoxColumn,
             this.ingameDayDataGridViewTextBoxColumn,
             this.entryDataGridViewTextBoxColumn,
-            this.peopleDataGridViewTextBoxColumn,
             this.PeopleString,
             this.placeIDDataGridViewTextBoxColumn,
             this.itemDataGridViewTextBoxColumn,
@@ -142,18 +140,10 @@
             this.entryDataGridViewTextBoxColumn.Name = "entryDataGridViewTextBoxColumn";
             this.entryDataGridViewTextBoxColumn.Width = 500;
             // 
-            // peopleDataGridViewTextBoxColumn
-            // 
-            this.peopleDataGridViewTextBoxColumn.DataPropertyName = "People";
-            this.peopleDataGridViewTextBoxColumn.HeaderText = "People";
-            this.peopleDataGridViewTextBoxColumn.Name = "peopleDataGridViewTextBoxColumn";
-            this.peopleDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.peopleDataGridViewTextBoxColumn.Width = 200;
-            // 
             // PeopleString
             // 
             this.PeopleString.DataPropertyName = "PeopleString";
-            this.PeopleString.HeaderText = "PeopleString";
+            this.PeopleString.HeaderText = "People";
             this.PeopleString.Name = "PeopleString";
             this.PeopleString.ReadOnly = true;
             this.PeopleString.Width = 200;
@@ -237,7 +227,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn peopleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
         private System.Windows.Forms.DataGridViewComboBoxColumn placeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDataGridViewTextBoxColumn;
