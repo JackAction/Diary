@@ -111,7 +111,7 @@ namespace MainForm
                 List<Diary> query =
                     diaryList.FindAll(delegate (Diary obj)
                     {
-                        return obj.Entry.Contains((sender as TextBox).Text);
+                        return obj.Entry.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
                     });
 
                 DataSourceDiary.DataSource = query.ToList();
