@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dbgrdPlaces = new System.Windows.Forms.DataGridView();
-            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lblPlaces = new System.Windows.Forms.Label();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
             this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +45,7 @@
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblPlaces = new System.Windows.Forms.Label();
+            this.dbgrdPlaces = new System.Windows.Forms.DataGridView();
             this.continentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.districtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,36 +54,21 @@
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
+            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dbgrdPlaces
+            // lblPlaces
             // 
-            this.dbgrdPlaces.AutoGenerateColumns = false;
-            this.dbgrdPlaces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbgrdPlaces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.continentDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.districtDataGridViewTextBoxColumn,
-            this.buildingDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.comment2DataGridViewTextBoxColumn,
-            this.detailsDataGridViewTextBoxColumn,
-            this.iDDataGridViewTextBoxColumn1});
-            this.dbgrdPlaces.DataSource = this.placeBindingSource;
-            this.dbgrdPlaces.Location = new System.Drawing.Point(21, 343);
-            this.dbgrdPlaces.Name = "dbgrdPlaces";
-            this.dbgrdPlaces.Size = new System.Drawing.Size(981, 235);
-            this.dbgrdPlaces.TabIndex = 0;
-            this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
-            this.dbgrdPlaces.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPlaces_RowsAdded);
-            // 
-            // placeBindingSource
-            // 
-            this.placeBindingSource.DataSource = typeof(MainForm.Place);
+            this.lblPlaces.AutoSize = true;
+            this.lblPlaces.Location = new System.Drawing.Point(17, 320);
+            this.lblPlaces.Name = "lblPlaces";
+            this.lblPlaces.Size = new System.Drawing.Size(56, 20);
+            this.lblPlaces.TabIndex = 6;
+            this.lblPlaces.Text = "Places";
             // 
             // lblDiaryEntries
             // 
@@ -96,6 +82,7 @@
             // dbgrdDiary
             // 
             this.dbgrdDiary.AutoGenerateColumns = false;
+            this.dbgrdDiary.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dbgrdDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbgrdDiary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.sessionIDDataGridViewTextBoxColumn,
@@ -112,6 +99,8 @@
             this.dbgrdDiary.Location = new System.Drawing.Point(68, 65);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dbgrdDiary.Size = new System.Drawing.Size(848, 231);
             this.dbgrdDiary.TabIndex = 4;
             this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
@@ -187,14 +176,29 @@
             // 
             this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
             // 
-            // lblPlaces
+            // dbgrdPlaces
             // 
-            this.lblPlaces.AutoSize = true;
-            this.lblPlaces.Location = new System.Drawing.Point(17, 320);
-            this.lblPlaces.Name = "lblPlaces";
-            this.lblPlaces.Size = new System.Drawing.Size(56, 20);
-            this.lblPlaces.TabIndex = 6;
-            this.lblPlaces.Text = "Places";
+            this.dbgrdPlaces.AutoGenerateColumns = false;
+            this.dbgrdPlaces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.dbgrdPlaces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dbgrdPlaces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.continentDataGridViewTextBoxColumn,
+            this.cityDataGridViewTextBoxColumn,
+            this.districtDataGridViewTextBoxColumn,
+            this.buildingDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.comment2DataGridViewTextBoxColumn,
+            this.detailsDataGridViewTextBoxColumn,
+            this.iDDataGridViewTextBoxColumn1});
+            this.dbgrdPlaces.DataSource = this.placeBindingSource;
+            this.dbgrdPlaces.Location = new System.Drawing.Point(21, 343);
+            this.dbgrdPlaces.Name = "dbgrdPlaces";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dbgrdPlaces.Size = new System.Drawing.Size(981, 235);
+            this.dbgrdPlaces.TabIndex = 0;
+            this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
+            this.dbgrdPlaces.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPlaces_RowsAdded);
             // 
             // continentDataGridViewTextBoxColumn
             // 
@@ -245,6 +249,10 @@
             this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
             this.iDDataGridViewTextBoxColumn1.Width = 20;
             // 
+            // placeBindingSource
+            // 
+            this.placeBindingSource.DataSource = typeof(MainForm.Place);
+            // 
             // ucPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -257,10 +265,10 @@
             this.Name = "ucPlace";
             this.Size = new System.Drawing.Size(1038, 621);
             this.Load += new System.EventHandler(this.ucPlace_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
