@@ -209,11 +209,15 @@ namespace MainForm
 
         private void ChangePeopleOfDiaryEntry(object sender, EventArgs e)
         {
-            mstControl.SelectTab("tabPerson");
+            
             tmp = ucPersons1.DataSourceDiary;
             ucPersons1.DataSourceDiary = ucDiary1.DataSourceDiary;
             ucPersons1.AddCheckboxesToPersonList();
             btnAddPeopleToDiary.Visible = true;
+            mstControl.TabPages.Remove(tabDiary);
+            mstControl.TabPages.Remove(tabClans);
+            mstControl.TabPages.Remove(tabPlaces);
+            mstControl.SelectTab("tabPerson");
         }
 
         private BindingSource tmp;
@@ -228,8 +232,11 @@ namespace MainForm
             entityManager.ChangeDiary(currentDiary);
             ucPersons1.DataSourceDiary = tmp;
             ucPersons1.setNormalMode();
-            mstControl.SelectTab("tabDiary");
             btnAddPeopleToDiary.Visible = false;
+            mstControl.TabPages.Insert(0, tabDiary);
+            mstControl.TabPages.Insert(2, tabClans);
+            mstControl.TabPages.Insert(3, tabPlaces);
+            mstControl.SelectTab("tabDiary");
         }
 
         /// <summary>
