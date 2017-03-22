@@ -215,10 +215,9 @@ namespace MainForm
             currentDiary = ucDiary1.DataSourceDiary.Current as Diary;
             ucPersons1.AddCheckboxesToPersonList();
             btnAddPeopleToDiary.Visible = true;
-            //mstControl.TabPages.Remove(tabDiary);
-            //mstControl.TabPages.Remove(tabClans);
-            //mstControl.TabPages.Remove(tabPlaces);
-            //mstControl.SelectTab("tabPerson");
+            mstControl.TabPages.Remove(tabDiary);
+            mstControl.TabPages.Remove(tabClans);
+            mstControl.TabPages.Remove(tabPlaces);
         }
 
         private BindingSource tmp;
@@ -232,12 +231,11 @@ namespace MainForm
             }
             ucPersons1.DataSourceDiary = tmp;
             ucPersons1.setNormalMode();
-            mstControl.SelectTab("tabDiary");
             btnAddPeopleToDiary.Visible = false;
-            //mstControl.TabPages.Insert(0, tabDiary);
-            //mstControl.TabPages.Insert(2, tabClans);
-            //mstControl.TabPages.Insert(3, tabPlaces);
-            //mstControl.SelectTab("tabDiary");
+            mstControl.TabPages.Insert(0, tabDiary);
+            mstControl.TabPages.Insert(2, tabClans);
+            mstControl.TabPages.Insert(3, tabPlaces);
+            mstControl.SelectTab("tabDiary");
         }
 
         /// <summary>
