@@ -69,31 +69,8 @@ namespace MainForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dbgrdDiary.Rows.Count-1; i++)
-            {
-                DataGridViewComboBoxCell comboCell = (DataGridViewComboBoxCell)dbgrdDiary.Rows[i].Cells["peopleDataGridViewTextBoxColumn"];
-                Diary obj = diaryBindingSource.List[i] as Diary;
-                if (obj != null)
-                {
-                    if (obj.People != null)
-                    {
-
-                        comboCell.Items.Clear();
-                        foreach (object itemToAdd in obj.People.ToList())
-                        {
-                            comboCell.Items.Add(itemToAdd);
-                        }
-
-                        //comboCell.DataSource = obj.People.ToList();
-                        //comboCell.ValueType = typeof(List<Person>);
-                        ////comboCell.Value = 1;
-                        //comboCell.ValueMember = "ID";
-                        //comboCell.DisplayMember = "Name";
-                        ////comboCell.Value = obj.People.ToList().First();
-                    }
-                }
-
-            }
+            diaryBindingSource.Filter = string.Format("{0}='{1}'", "Entry", "Krog");
+            
         }
 
         private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -113,6 +90,34 @@ namespace MainForm
             {
                 ChangePeopleOfDiaryEntry?.Invoke(sender, e);
             }
+        }
+
+        private List<Diary> diaryList;
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (diaryList == null)
+            {
+                diaryList = DataSourceDiary.DataSource as List<Diary>; 
+            }
+
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                DataSourceDiary.DataSource = diaryList;
+            }
+            else
+            {
+
+                List<Diary> query =
+                    diaryList.FindAll(delegate (Diary obj)
+                    {
+                        return obj.Entry.Contains((sender as TextBox).Text);
+                    });
+
+                DataSourceDiary.DataSource = query.ToList();
+            }
+
+
         }
     }
 }
