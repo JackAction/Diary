@@ -12,6 +12,13 @@ namespace MainForm
 
     public partial class Diary
     {
+        public string PeopleString
+        {
+            get
+            {
+                return String.Join(", ", People);
+            }
+        }
         public override string ToString()
         {
             return Entry ?? "Not Set";

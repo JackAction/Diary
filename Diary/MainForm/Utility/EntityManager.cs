@@ -110,15 +110,6 @@ namespace MainForm
                 db.Places.Add(p);
             }
         }
-
-        public void ChangeDiary(Diary d)
-        {
-            if (d != null)
-            {
-                db.Diaries.Attach(d);
-            }
-        }
-
     }
 
 
