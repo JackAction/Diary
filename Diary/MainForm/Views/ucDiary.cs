@@ -16,6 +16,7 @@ namespace MainForm
         {
             InitializeComponent();
             ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
+            cbxFilterColumn.SelectedIndex = 2;
         }
 
         [Description("Binding Source für Diary."), Category("Data")]
@@ -69,8 +70,11 @@ namespace MainForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            diaryBindingSource.Filter = string.Format("{0}='{1}'", "Entry", "Krog");
-            
+            dbgrdDiary.ClearSelection();
+            dbgrdDiary.Rows[1].Selected = false;
+            dbgrdDiary.Rows[2].Selected = true;
+            dbgrdDiary.CurrentCell = dbgrdDiary[0, 0];
+            dbgrdDiary.Rows[1].Visible = false;
         }
 
         private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -104,20 +108,92 @@ namespace MainForm
             if (string.IsNullOrEmpty((sender as TextBox).Text))
             {
                 DataSourceDiary.DataSource = diaryList;
+                foreach (DataGridViewRow row in dbgrdDiary.Rows)
+                {
+                    row.Visible = true;
+                }
             }
             else
             {
-
-                List<Diary> query =
-                    diaryList.FindAll(delegate (Diary obj)
-                    {
-                        return obj.Entry.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
-                    });
-
-                DataSourceDiary.DataSource = query.ToList();
+                if (cbxFilterColumn.SelectedItem.ToString() == "All")
+                {
+                    FullTextSearch((sender as TextBox).Text);
+                }
+                else
+                {
+                    List<Diary> query =
+                        diaryList.FindAll(delegate (Diary obj)
+                        {
+                            switch (cbxFilterColumn.SelectedItem.ToString())
+                            {
+                                case "SessionID":
+                                    if (obj.SessionID == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.SessionID.ToString().IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "IngameDay":
+                                    if (obj.IngameDay == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.IngameDay.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Entry":
+                                    if (obj.Entry == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Entry.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "People":
+                                    if (obj.PeopleString == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.PeopleString.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Place":
+                                    if (obj.Place == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Place.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Item":
+                                    if (obj.Item == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Item.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Quest":
+                                    if (obj.Quest == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Quest.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                default:
+                                    return false;
+                            }
+                        });
+                    DataSourceDiary.DataSource = query;
+                }
             }
+        }
 
-
+        private void FullTextSearch(string searchText)
+        {
+            dbgrdDiary.CurrentCell = dbgrdDiary[0, dbgrdDiary.RowCount-1]; //Benötigt, damit CurrencyMangerfehler nicht auftritt (aktuelle row kann nicht ausgeblendet werrden).
+            foreach (DataGridViewRow row in dbgrdDiary.Rows)
+            {
+                if (row.Index != dbgrdDiary.RowCount - 1)
+                {
+                    row.Visible = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value ?? "").ToString().Contains(searchText))
+                        {
+                            row.Visible = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }

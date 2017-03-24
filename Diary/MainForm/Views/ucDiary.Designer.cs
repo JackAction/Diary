@@ -42,6 +42,7 @@
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
@@ -71,7 +73,8 @@
             this.questDataGridViewTextBoxColumn,
             this.iDDataGridViewTextBoxColumn,
             this.questsIDDataGridViewTextBoxColumn,
-            this.itemsIDDataGridViewTextBoxColumn});
+            this.itemsIDDataGridViewTextBoxColumn,
+            this.Place});
             this.dbgrdDiary.DataSource = this.diaryBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -172,6 +175,13 @@
             this.itemsIDDataGridViewTextBoxColumn.Name = "itemsIDDataGridViewTextBoxColumn";
             this.itemsIDDataGridViewTextBoxColumn.Width = 20;
             // 
+            // Place
+            // 
+            this.Place.DataPropertyName = "Place";
+            this.Place.HeaderText = "Place";
+            this.Place.Name = "Place";
+            this.Place.Visible = false;
+            // 
             // diaryBindingSource
             // 
             this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
@@ -220,10 +230,28 @@
             this.txtSearch.TabIndex = 8;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // cbxFilterColumn
+            // 
+            this.cbxFilterColumn.FormattingEnabled = true;
+            this.cbxFilterColumn.Items.AddRange(new object[] {
+            "All",
+            "SessionID",
+            "IngameDay",
+            "Entry",
+            "People",
+            "Place",
+            "Item",
+            "Quest"});
+            this.cbxFilterColumn.Location = new System.Drawing.Point(68, 539);
+            this.cbxFilterColumn.Name = "cbxFilterColumn";
+            this.cbxFilterColumn.Size = new System.Drawing.Size(121, 28);
+            this.cbxFilterColumn.TabIndex = 9;
+            // 
             // ucDiary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbxFilterColumn);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ucAddNewPlace1);
             this.Controls.Add(this.button1);
@@ -251,6 +279,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource placeBindingSource;
         private ucAddNewPlace ucAddNewPlace1;
+        private System.Windows.Forms.BindingSource clanBindingSource;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
@@ -261,7 +291,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn questsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource clanBindingSource;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Place;
+        private System.Windows.Forms.ComboBox cbxFilterColumn;
     }
 }
