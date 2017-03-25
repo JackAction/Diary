@@ -32,6 +32,7 @@ namespace MainForm
         public string Comment_2 { get; set; }
         public Nullable<int> Place_LastKnown { get; set; }
         public Nullable<int> Place_Met { get; set; }
+        public string BildPfad { get; set; }
     
         public virtual Clan Clan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

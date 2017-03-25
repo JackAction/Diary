@@ -12,6 +12,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Details" Type="varchar" MaxLength="1000" />
+          <Property Name="BildPfad" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Diary">
           <Key>
@@ -56,6 +57,7 @@
           <Property Name="Alignement" Type="varchar" MaxLength="50" />
           <Property Name="Details" Type="varchar" MaxLength="1000" />
           <Property Name="Comment_2" Type="varchar" MaxLength="1000" />
+          <Property Name="BildPfad" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Place">
           <Key>
@@ -69,6 +71,7 @@
           <Property Name="Comment_2" Type="varchar" MaxLength="1000" />
           <Property Name="Details" Type="varchar" MaxLength="1000" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="BildPfad" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Quests">
           <Key>
@@ -226,6 +229,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="People" Relationship="Self.FK__Person__Clan_ID__59063A47" FromRole="Clan" ToRole="Person" />
+          <Property Name="BildPfad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Diary">
           <Key>
@@ -271,6 +275,7 @@
           <Property Name="Place_Met" Type="Int32" />
           <NavigationProperty Name="Place" Relationship="dnd_hotdqModel.FK__Person__Place_La__1332DBDC" FromRole="Person" ToRole="Place" />
           <NavigationProperty Name="Place1" Relationship="dnd_hotdqModel.FK__Person__Place_Me__123EB7A3" FromRole="Person" ToRole="Place" />
+          <Property Name="BildPfad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Place">
           <Key>
@@ -287,6 +292,7 @@
           <NavigationProperty Name="Diaries" Relationship="Self.FK__Diary__Place_ID__5DCAEF64" FromRole="Place" ToRole="Diary" />
           <NavigationProperty Name="People" Relationship="dnd_hotdqModel.FK__Person__Place_La__1332DBDC" FromRole="Place" ToRole="Person" />
           <NavigationProperty Name="People1" Relationship="dnd_hotdqModel.FK__Person__Place_Me__123EB7A3" FromRole="Place" ToRole="Person" />
+          <Property Name="BildPfad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Quest">
           <Key>
@@ -417,6 +423,7 @@
           <EntitySetMapping Name="Clans">
             <EntityTypeMapping TypeName="dnd_hotdqModel.Clan">
               <MappingFragment StoreEntitySet="Clan">
+                <ScalarProperty Name="BildPfad" ColumnName="BildPfad" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Details" ColumnName="Details" />
@@ -447,6 +454,7 @@
           <EntitySetMapping Name="People">
             <EntityTypeMapping TypeName="dnd_hotdqModel.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="BildPfad" ColumnName="BildPfad" />
                 <ScalarProperty Name="Place_Met" ColumnName="Place_Met" />
                 <ScalarProperty Name="Place_LastKnown" ColumnName="Place_LastKnown" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -465,6 +473,7 @@
           <EntitySetMapping Name="Places">
             <EntityTypeMapping TypeName="dnd_hotdqModel.Place">
               <MappingFragment StoreEntitySet="Place">
+                <ScalarProperty Name="BildPfad" ColumnName="BildPfad" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Continent" ColumnName="Continent" />
                 <ScalarProperty Name="City" ColumnName="City" />

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPlaces = new System.Windows.Forms.Label();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
@@ -47,7 +47,6 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPlaces = new System.Windows.Forms.DataGridView();
-            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.continentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.districtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +56,7 @@
             this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeletePlace = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
@@ -102,8 +102,8 @@
             this.dbgrdDiary.Location = new System.Drawing.Point(68, 65);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dbgrdDiary.Size = new System.Drawing.Size(848, 231);
             this.dbgrdDiary.TabIndex = 4;
             this.dbgrdDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellContentClick);
@@ -214,18 +214,14 @@
             this.dbgrdPlaces.DataSource = this.placeBindingSource;
             this.dbgrdPlaces.Location = new System.Drawing.Point(21, 343);
             this.dbgrdPlaces.Name = "dbgrdPlaces";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dbgrdPlaces.Size = new System.Drawing.Size(981, 235);
             this.dbgrdPlaces.TabIndex = 0;
             this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
             this.dbgrdPlaces.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellContentClick);
             this.dbgrdPlaces.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPlaces_RowsAdded);
             this.dbgrdPlaces.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdPlaces_KeyDown);
-            // 
-            // placeBindingSource
-            // 
-            this.placeBindingSource.DataSource = typeof(MainForm.Place);
             // 
             // continentDataGridViewTextBoxColumn
             // 
@@ -286,6 +282,10 @@
             this.DeletePlace.UseColumnTextForButtonValue = true;
             this.DeletePlace.Width = 70;
             // 
+            // placeBindingSource
+            // 
+            this.placeBindingSource.DataSource = typeof(MainForm.Place);
+            // 
             // ucPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -296,7 +296,7 @@
             this.Controls.Add(this.dbgrdPlaces);
             this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "ucPlace";
-            this.Size = new System.Drawing.Size(1038, 621);
+            this.Size = new System.Drawing.Size(1301, 621);
             this.Load += new System.EventHandler(this.ucPlace_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
