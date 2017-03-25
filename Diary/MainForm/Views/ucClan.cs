@@ -78,7 +78,7 @@ namespace MainForm
         {
             if (personBindingSource.Count > 0)
             {
-                Person obj = personBindingSource.List[0] as Person; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+                Person obj = personBindingSource.Current as Person; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
                 if (obj.Diaries != null)
                 {
                     diaryBindingSource.DataSource = obj.Diaries.ToList();
@@ -99,11 +99,18 @@ namespace MainForm
             }
         }
 
+        private void dbgrdPersons_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ShowDiaryEntries();
+            }
+        }
+
         private void ucClan_Load(object sender, EventArgs e)
         {
             ShowMembers();
             ShowDiaryEntries();
         }
-
     }
 }
