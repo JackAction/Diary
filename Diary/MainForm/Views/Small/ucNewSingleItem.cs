@@ -30,7 +30,7 @@ namespace MainForm
             {
                 _name = value;
                 lblName.Text = value;
-                btnAddNewSingleItem.Text = $"New {value}:";
+                btnAddNewSingleItem.Text = $"New {value}";
             }
         }
 
@@ -53,7 +53,7 @@ namespace MainForm
             }
         }
 
-        [Description("Neuer Place wird hinzugefügt."), Category("Data")]
+        [Description("Neues SingleItem wird hinzugefügt."), Category("Data")]
         public event EventHandler SingleItemAdded;
 
         private void btnAddNewSingleItem_Click(object sender, EventArgs e)

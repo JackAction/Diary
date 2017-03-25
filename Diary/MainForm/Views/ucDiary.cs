@@ -17,7 +17,7 @@ namespace MainForm
             InitializeComponent();
             ucAddNewItem.Type = "Item";
             ucAddNewQuest.Type = "Quest";
-            ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
+            ucAddNewPlace.PlaceAdded += new EventHandler(ucPlaceAdded);
             ucAddNewItem.SingleItemAdded += new EventHandler(ucItemAdded);
             ucAddNewQuest.SingleItemAdded += new EventHandler(ucQuestAdded);
             cbxFilterColumn.SelectedIndex = 2;
@@ -67,7 +67,7 @@ namespace MainForm
         {
             get
             {
-                return ucAddNewPlace1.NewPlace;
+                return ucAddNewPlace.NewPlace;
             }
         }
 

@@ -31,27 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
-            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblDiaryEntries = new System.Windows.Forms.Label();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
-            this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
-            this.ucAddNewItem = new MainForm.ucNewSingleItem();
-            this.ucAddNewQuest = new MainForm.ucNewSingleItem();
             this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblDiaryEntries = new System.Windows.Forms.Label();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ucAddNewPlace = new MainForm.ucAddNewPlace();
+            this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
+            this.ucAddNewItem = new MainForm.ucNewSingleItem();
+            this.ucAddNewQuest = new MainForm.ucNewSingleItem();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
@@ -96,93 +96,6 @@
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
             this.dbgrdDiary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdDiary_KeyDown);
             // 
-            // placeBindingSource
-            // 
-            this.placeBindingSource.DataSource = typeof(MainForm.Place);
-            // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataSource = typeof(MainForm.Item);
-            // 
-            // questBindingSource
-            // 
-            this.questBindingSource.DataSource = typeof(MainForm.Quest);
-            // 
-            // diaryBindingSource
-            // 
-            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
-            // 
-            // lblDiaryEntries
-            // 
-            this.lblDiaryEntries.AutoSize = true;
-            this.lblDiaryEntries.Location = new System.Drawing.Point(3, 30);
-            this.lblDiaryEntries.Name = "lblDiaryEntries";
-            this.lblDiaryEntries.Size = new System.Drawing.Size(99, 20);
-            this.lblDiaryEntries.TabIndex = 5;
-            this.lblDiaryEntries.Text = "Diary Entries";
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(MainForm.Person);
-            // 
-            // ucAddNewPlace1
-            // 
-            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewPlace1.Location = new System.Drawing.Point(230, 412);
-            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
-            this.ucAddNewPlace1.Size = new System.Drawing.Size(1009, 55);
-            this.ucAddNewPlace1.TabIndex = 7;
-            // 
-            // clanBindingSource
-            // 
-            this.clanBindingSource.DataSource = typeof(MainForm.Clan);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(195, 541);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(270, 26);
-            this.txtSearch.TabIndex = 8;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // cbxFilterColumn
-            // 
-            this.cbxFilterColumn.FormattingEnabled = true;
-            this.cbxFilterColumn.Items.AddRange(new object[] {
-            "All",
-            "SessionID",
-            "IngameDay",
-            "Entry",
-            "People",
-            "Place",
-            "Item",
-            "Quest"});
-            this.cbxFilterColumn.Location = new System.Drawing.Point(68, 539);
-            this.cbxFilterColumn.Name = "cbxFilterColumn";
-            this.cbxFilterColumn.Size = new System.Drawing.Size(121, 28);
-            this.cbxFilterColumn.TabIndex = 9;
-            // 
-            // ucAddNewItem
-            // 
-            this.ucAddNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewItem.Location = new System.Drawing.Point(935, 477);
-            this.ucAddNewItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucAddNewItem.Name = "ucAddNewItem";
-            this.ucAddNewItem.Size = new System.Drawing.Size(304, 60);
-            this.ucAddNewItem.TabIndex = 10;
-            this.ucAddNewItem.Type = null;
-            // 
-            // ucAddNewQuest
-            // 
-            this.ucAddNewQuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewQuest.Location = new System.Drawing.Point(935, 547);
-            this.ucAddNewQuest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucAddNewQuest.Name = "ucAddNewQuest";
-            this.ucAddNewQuest.Size = new System.Drawing.Size(304, 60);
-            this.ucAddNewQuest.TabIndex = 11;
-            this.ucAddNewQuest.Type = null;
-            // 
             // sessionIDDataGridViewTextBoxColumn
             // 
             this.sessionIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -226,6 +139,10 @@
             this.placeIDDataGridViewTextBoxColumn.ValueMember = "ID";
             this.placeIDDataGridViewTextBoxColumn.Width = 150;
             // 
+            // placeBindingSource
+            // 
+            this.placeBindingSource.DataSource = typeof(MainForm.Place);
+            // 
             // itemsIDDataGridViewTextBoxColumn
             // 
             this.itemsIDDataGridViewTextBoxColumn.DataPropertyName = "Items_ID";
@@ -238,6 +155,10 @@
             this.itemsIDDataGridViewTextBoxColumn.ValueMember = "ID";
             this.itemsIDDataGridViewTextBoxColumn.Width = 150;
             // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(MainForm.Item);
+            // 
             // questsIDDataGridViewTextBoxColumn
             // 
             this.questsIDDataGridViewTextBoxColumn.DataPropertyName = "Quests_ID";
@@ -249,6 +170,10 @@
             this.questsIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.questsIDDataGridViewTextBoxColumn.ValueMember = "ID";
             this.questsIDDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // questBindingSource
+            // 
+            this.questBindingSource.DataSource = typeof(MainForm.Quest);
             // 
             // Delete
             // 
@@ -265,6 +190,81 @@
             this.Place.Name = "Place";
             this.Place.Visible = false;
             // 
+            // diaryBindingSource
+            // 
+            this.diaryBindingSource.DataSource = typeof(MainForm.Diary);
+            // 
+            // lblDiaryEntries
+            // 
+            this.lblDiaryEntries.AutoSize = true;
+            this.lblDiaryEntries.Location = new System.Drawing.Point(3, 30);
+            this.lblDiaryEntries.Name = "lblDiaryEntries";
+            this.lblDiaryEntries.Size = new System.Drawing.Size(99, 20);
+            this.lblDiaryEntries.TabIndex = 5;
+            this.lblDiaryEntries.Text = "Diary Entries";
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(MainForm.Person);
+            // 
+            // ucAddNewPlace
+            // 
+            this.ucAddNewPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewPlace.Location = new System.Drawing.Point(230, 412);
+            this.ucAddNewPlace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewPlace.Name = "ucAddNewPlace";
+            this.ucAddNewPlace.Size = new System.Drawing.Size(1009, 55);
+            this.ucAddNewPlace.TabIndex = 7;
+            // 
+            // clanBindingSource
+            // 
+            this.clanBindingSource.DataSource = typeof(MainForm.Clan);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(276, 547);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(270, 26);
+            this.txtSearch.TabIndex = 8;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // cbxFilterColumn
+            // 
+            this.cbxFilterColumn.FormattingEnabled = true;
+            this.cbxFilterColumn.Items.AddRange(new object[] {
+            "All",
+            "SessionID",
+            "IngameDay",
+            "Entry",
+            "People",
+            "Place",
+            "Item",
+            "Quest"});
+            this.cbxFilterColumn.Location = new System.Drawing.Point(149, 545);
+            this.cbxFilterColumn.Name = "cbxFilterColumn";
+            this.cbxFilterColumn.Size = new System.Drawing.Size(121, 28);
+            this.cbxFilterColumn.TabIndex = 9;
+            // 
+            // ucAddNewItem
+            // 
+            this.ucAddNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewItem.Location = new System.Drawing.Point(935, 477);
+            this.ucAddNewItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewItem.Name = "ucAddNewItem";
+            this.ucAddNewItem.Size = new System.Drawing.Size(304, 60);
+            this.ucAddNewItem.TabIndex = 10;
+            this.ucAddNewItem.Type = null;
+            // 
+            // ucAddNewQuest
+            // 
+            this.ucAddNewQuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewQuest.Location = new System.Drawing.Point(935, 547);
+            this.ucAddNewQuest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewQuest.Name = "ucAddNewQuest";
+            this.ucAddNewQuest.Size = new System.Drawing.Size(304, 60);
+            this.ucAddNewQuest.TabIndex = 11;
+            this.ucAddNewQuest.Type = null;
+            // 
             // ucDiary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -273,7 +273,7 @@
             this.Controls.Add(this.ucAddNewItem);
             this.Controls.Add(this.cbxFilterColumn);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.ucAddNewPlace1);
+            this.Controls.Add(this.ucAddNewPlace);
             this.Controls.Add(this.lblDiaryEntries);
             this.Controls.Add(this.dbgrdDiary);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -298,7 +298,7 @@
         private System.Windows.Forms.BindingSource personBindingSource;
         private System.Windows.Forms.Label lblDiaryEntries;
         private System.Windows.Forms.BindingSource placeBindingSource;
-        private ucAddNewPlace ucAddNewPlace1;
+        private ucAddNewPlace ucAddNewPlace;
         private System.Windows.Forms.BindingSource clanBindingSource;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ComboBox cbxFilterColumn;

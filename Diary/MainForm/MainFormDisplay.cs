@@ -32,24 +32,31 @@ namespace MainForm
             }
 
             // Delegate Eventhandlers von User Controls
+            // Diary Handling
             ucDiary1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
-            ucClan1.ClanRowAdded += new EventHandler(Clan_RowsAdded);
-            ucClan1.PersonRowAdded += new EventHandler(Person_RowsAdded);
-            ucPersons1.PersonRowAdded += new EventHandler(Person_RowsAdded);
             ucPersons1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
-            ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
             ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
-            ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
-            ucPersons1.PlaceAdded += new EventHandler(Place_RowsAdded);
-            ucDiary1.ChangePersonModeTo_DiaryDetailEdit += new EventHandler(ChangePersonModeTo_DiaryDetailEdit);
-            ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
-            ucDiary1.QuestAdded += new EventHandler(Quest_RowsAdded);
             ucDiary1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
             ucPersons1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
             ucPlace1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
+            // Person Handling
+            ucPersons1.PersonRowAdded += new EventHandler(Person_RowsAdded);
+            ucClan1.PersonRowAdded += new EventHandler(Person_RowsAdded);
             ucPersons1.PersonRowDeleted += new EventHandler(Person_RowsDeleted);
             ucClan1.PersonRowDeleted += new EventHandler(Person_RowsDeleted);
+            // Place Handling
+            ucPlace1.PlaceRowAdded += new EventHandler(Place_RowsAdded);
+            ucPersons1.PlaceAdded += new EventHandler(Place_RowsAdded);
+            ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
             ucPlace1.PlaceRowDeleted += new EventHandler(Place_RowsDeleted);
+            // Clan Handling
+            ucClan1.ClanRowAdded += new EventHandler(Clan_RowsAdded);
+            // Item Handling
+            ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
+            // Quest Handling
+            ucDiary1.QuestAdded += new EventHandler(Quest_RowsAdded);
+            // Other
+            ucDiary1.ChangePersonModeTo_DiaryDetailEdit += new EventHandler(ChangePersonModeTo_DiaryDetailEdit);
 
             applicationState = ApplicationState.Started;
         }
