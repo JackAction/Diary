@@ -365,6 +365,7 @@ namespace MainForm
                     break;
                 case "tabPlaces":
                     ucPlace1.ShowDiaryEntries();
+                    ucPlace1.ShowPicture();
                     break;
                 case "tabClans":
                     ucClan1.ShowMembers();

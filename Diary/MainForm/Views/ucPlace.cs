@@ -15,6 +15,7 @@ namespace MainForm
         public ucPlace()
         {
             InitializeComponent();
+            ucPicture1.PictureAdded += new EventHandler(PictureAdded);
         }
 
         [Description("Binding Source für Place."), Category("Data")]
@@ -87,17 +88,29 @@ namespace MainForm
                 }
             }
         }
+
+        public void ShowPicture()
+        {
+            Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+            if (obj != null)
+            {
+                ucPicture1.Image = obj.Picture;
+            }
+        }
+
         private void dbgrdPlaces_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 ShowDiaryEntries();
+                ShowPicture();
             }
         }
 
         private void ucPlace_Load(object sender, EventArgs e)
         {
             ShowDiaryEntries();
+            ShowPicture();
         }
 
         private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -162,6 +175,11 @@ namespace MainForm
                 PlaceRowDeleted?.Invoke(sender, e);
                 placeBindingSource.RemoveCurrent();
             }
+        }
+
+        private void PictureAdded(object sender, EventArgs e)
+        {
+            (placeBindingSource.Current as Place).Picture = ucPicture1.Image;
         }
     }
 }
