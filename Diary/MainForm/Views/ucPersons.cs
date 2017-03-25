@@ -230,5 +230,33 @@ namespace MainForm
                 diaryBindingSource.RemoveCurrent();
             }
         }
+
+        private void dbgrdPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dbgrdPersons.Columns[e.ColumnIndex].Name == "DeletePerson")
+            {
+                personRowDeleted(sender, e);
+            }
+        }
+
+        private void dbgrdPersons_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                personRowDeleted(sender, e);
+            }
+        }
+
+        [Description("Zeile wurde aus Diary DataGrid gelöscht."), Category("Data")]
+        public event EventHandler PersonRowDeleted;
+
+        private void personRowDeleted(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wirklich löschen?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                PersonRowDeleted?.Invoke(sender, e);
+                personBindingSource.RemoveCurrent();
+            }
+        }
     }
 }
