@@ -136,6 +136,54 @@ namespace MainForm
                 db.Quests.Add(q);
             }
         }
+
+        public void DeleteDiaryEntry(Diary d)
+        {
+            if (d != null)
+            {
+                db.Diaries.Remove(d);
+            }
+        }
+
+        public void DeleteClanEntry(Clan c)
+        {
+            if (c != null)
+            {
+                db.Clans.Remove(c);
+            }
+        }
+
+        public void DeletePersonEntry(Person p)
+        {
+            if (p != null)
+            {
+                db.People.Remove(p);
+            }
+        }
+
+        public void DeletePlaceEntry(Place p)
+        {
+            if (p != null)
+            {
+                db.Places.Remove(p);
+            }
+        }
+
+        public void DeleteItemEntry(Item i)
+        {
+            if (i != null)
+            {
+                db.Items.Remove(i);
+            }
+        }
+
+        public void DeleteQuestEntry(Quest q)
+        {
+            if (q != null)
+            {
+                db.Quests.Remove(q);
+            }
+        }
     }
 
 

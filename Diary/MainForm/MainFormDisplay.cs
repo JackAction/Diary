@@ -44,6 +44,7 @@ namespace MainForm
             ucDiary1.ChangePeopleOfDiaryEntry += new EventHandler(ChangePeopleOfDiaryEntry);
             ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
             ucDiary1.QuestAdded += new EventHandler(Quest_RowsAdded);
+            ucDiary1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
 
             applicationState = ApplicationState.Started;
         }
@@ -152,7 +153,7 @@ namespace MainForm
                         newDiary = (Diary)ucPlace1.DataSourceDiary.Current;
                         break;
                     default:
-                        newDiary = new Diary();
+                        newDiary = null;
                         break;
                 }
                 // Überschreibe die SessionID mit dem entsprechenden Eingabefeldwert
@@ -160,6 +161,33 @@ namespace MainForm
                 {
                     newDiary.SessionID = (int)txtSessionID.Value;
                     entityManager.AddDiaryEntry(newDiary); 
+                }
+            }
+        }
+
+        private void Diary_RowsDeleted(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                Diary deletedDiary;
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabDiary":
+                        deletedDiary = (Diary)ucDiary1.DataSourceDiary.Current;
+                        break;
+                    case "tabPerson":
+                        deletedDiary = (Diary)ucPersons1.DataSourceDiary.Current;
+                        break;
+                    case "tabPlaces":
+                        deletedDiary = (Diary)ucPlace1.DataSourceDiary.Current;
+                        break;
+                    default:
+                        deletedDiary = new Diary();
+                        break;
+                }
+                if (deletedDiary != null)
+                {
+                    entityManager.DeleteDiaryEntry(deletedDiary);
                 }
             }
         }

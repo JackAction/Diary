@@ -62,7 +62,6 @@ namespace MainForm
             }
         }
 
-
         [Description("New Place."), Category("Data")]
         public Place NewPlace
         {
@@ -140,7 +139,7 @@ namespace MainForm
 
         private void dbgrdDiary_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3 && e.RowIndex >= 0)
+            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "PeopleString" && e.RowIndex >= 0)
             {
                 ChangePeopleOfDiaryEntry?.Invoke(sender, e);
             }
@@ -243,6 +242,37 @@ namespace MainForm
                         }
                     }
                 }
+            }
+        }
+
+        private void dbgrdDiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "Delete")
+            {
+
+                diaryRowDeleted(sender, e);
+
+            }
+        }
+
+        private void dbgrdDiary_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                diaryRowDeleted(sender, e);
+            }
+        }
+
+
+        [Description("Zeile wurde aus Diary DataGrid gelöscht."), Category("Data")]
+        public event EventHandler DiaryRowDeleted;
+
+        private void diaryRowDeleted(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wirklich löschen?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DiaryRowDeleted?.Invoke(sender, e);
+                diaryBindingSource.RemoveCurrent();
             }
         }
     }
