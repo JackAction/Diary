@@ -15,6 +15,7 @@ namespace MainForm
         public ucClan()
         {
             InitializeComponent();
+            ucPicture1.PictureAdded += new EventHandler(PictureAdded);
         }
 
         [Description("Binding Source für Clan."), Category("Data")]
@@ -90,12 +91,22 @@ namespace MainForm
             }
         }
 
+        public void ShowPicture()
+        {
+            Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+            if (obj != null)
+            {
+                ucPicture1.Image = obj.Picture;
+            }
+        }
+
         private void dbgrdClans_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 ShowMembers();
                 ShowDiaryEntries();
+                ShowPicture();
             }
         }
 
@@ -111,6 +122,7 @@ namespace MainForm
         {
             ShowMembers();
             ShowDiaryEntries();
+            ShowPicture();
         }
 
         private void dbgrdPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -139,6 +151,11 @@ namespace MainForm
                 PersonRowDeleted?.Invoke(sender, e);
                 personBindingSource.RemoveCurrent();
             }
+        }
+
+        private void PictureAdded(object sender, EventArgs e)
+        {
+            (clanBindingSource.Current as Clan).Picture = ucPicture1.Image;
         }
     }
 }

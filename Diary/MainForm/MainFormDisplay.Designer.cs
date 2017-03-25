@@ -90,7 +90,7 @@
             this.ucDiary1.Location = new System.Drawing.Point(3, 3);
             this.ucDiary1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucDiary1.Name = "ucDiary1";
-            this.ucDiary1.Size = new System.Drawing.Size(1243, 472);
+            this.ucDiary1.Size = new System.Drawing.Size(1243, 612);
             this.ucDiary1.TabIndex = 0;
             // 
             // tabPerson
@@ -108,7 +108,7 @@
             // btnAddPeopleToDiary
             // 
             this.btnAddPeopleToDiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPeopleToDiary.Location = new System.Drawing.Point(975, 141);
+            this.btnAddPeopleToDiary.Location = new System.Drawing.Point(992, 404);
             this.btnAddPeopleToDiary.Name = "btnAddPeopleToDiary";
             this.btnAddPeopleToDiary.Size = new System.Drawing.Size(100, 50);
             this.btnAddPeopleToDiary.TabIndex = 1;

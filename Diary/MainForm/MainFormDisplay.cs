@@ -362,6 +362,7 @@ namespace MainForm
                     break;
                 case "tabPerson":
                     ucPersons1.ShowDiaryEntries();
+                    ucPersons1.ShowPicture();
                     break;
                 case "tabPlaces":
                     ucPlace1.ShowDiaryEntries();
@@ -370,6 +371,7 @@ namespace MainForm
                 case "tabClans":
                     ucClan1.ShowMembers();
                     ucClan1.ShowDiaryEntries();
+                    ucClan1.ShowPicture();
                     break;
                 default:
                     break;
