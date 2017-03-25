@@ -42,6 +42,8 @@ namespace MainForm
             ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
             ucPersons1.PlaceAdded += new EventHandler(Place_RowsAdded);
             ucDiary1.ChangePeopleOfDiaryEntry += new EventHandler(ChangePeopleOfDiaryEntry);
+            ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
+            ucDiary1.QuestAdded += new EventHandler(Quest_RowsAdded);
 
             applicationState = ApplicationState.Started;
         }
@@ -88,6 +90,7 @@ namespace MainForm
             ucDiary1.DataSourcePlace.DataSource = entityManager.GetPlaces();
             ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
             ucPlace1.DataSourcePlace.DataSource = entityManager.GetPlaces();
+            ucDiary1.DataSourceItem.DataSource = entityManager.GetItems();
         }
 
         /// <summary>
@@ -202,8 +205,52 @@ namespace MainForm
                     default:
                         break;
                 }
+            }
+        }
 
-                
+        private void Item_RowsAdded(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabDiary":
+                        entityManager.AddItemEntry(ucDiary1.NewItem);
+                        btnSave_Click(null, null);
+                        break;
+                    //case "tabPerson":
+                    //    entityManager.AddPlaceEntry(ucPersons1.NewPlace);
+                    //    btnSave_Click(null, null);
+                    //    break;
+                    //case "tabPlaces":
+                    //    entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
+                    //    break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void Quest_RowsAdded(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabDiary":
+                        entityManager.AddQuestEntry(ucDiary1.NewQuest);
+                        btnSave_Click(null, null);
+                        break;
+                    //case "tabPerson":
+                    //    entityManager.AddPlaceEntry(ucPersons1.NewPlace);
+                    //    btnSave_Click(null, null);
+                    //    break;
+                    //case "tabPlaces":
+                    //    entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
+                    //    break;
+                    default:
+                        break;
+                }
             }
         }
 

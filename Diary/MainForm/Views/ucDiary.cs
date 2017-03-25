@@ -15,7 +15,11 @@ namespace MainForm
         public ucDiary()
         {
             InitializeComponent();
+            ucAddNewItem.Type = "Item";
+            ucAddNewQuest.Type = "Quest";
             ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
+            ucAddNewItem.SingleItemAdded += new EventHandler(ucItemAdded);
+            ucAddNewQuest.SingleItemAdded += new EventHandler(ucQuestAdded);
             cbxFilterColumn.SelectedIndex = 2;
         }
 
@@ -30,6 +34,13 @@ namespace MainForm
         public BindingSource DataSourcePlace
         {
             get { return placeBindingSource; }
+            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
+        }
+
+        [Description("Binding Source für Item."), Category("Data")]
+        public BindingSource DataSourceItem
+        {
+            get { return itemBindingSource; }
             // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
@@ -62,7 +73,39 @@ namespace MainForm
             PlaceAdded?.Invoke(sender, e);
         }
 
+        [Description("New Item."), Category("Data")]
+        public Item NewItem
+        {
+            get
+            {
+                return ucAddNewItem.NewSingleItem as Item;
+            }
+        }
 
+        [Description("Neues Item wird hinzugefügt."), Category("Data")]
+        public event EventHandler ItemAdded;
+
+        private void ucItemAdded(object sender, EventArgs e)
+        {
+            ItemAdded?.Invoke(sender, e);
+        }
+
+        [Description("New Quest."), Category("Data")]
+        public Quest NewQuest
+        {
+            get
+            {
+                return ucAddNewQuest.NewSingleItem as Quest;
+            }
+        }
+
+        [Description("Neuer Quest wird hinzugefügt."), Category("Data")]
+        public event EventHandler QuestAdded;
+
+        private void ucQuestAdded(object sender, EventArgs e)
+        {
+            QuestAdded?.Invoke(sender, e);
+        }
 
 
 

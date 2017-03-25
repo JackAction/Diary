@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Small\ucNewSingleItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Small\ucNewSingleItem.Designer.cs">
+      <DependentUpon>ucNewSingleItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Small\ucAddNewPlace.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Small\ucNewSingleItem.resx">
+      <DependentUpon>ucNewSingleItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Small\ucAddNewPlace.resx">
       <DependentUpon>ucAddNewPlace.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +197,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Clan.datasource" />
     <None Include="Properties\DataSources\Diary.datasource" />
+    <None Include="Properties\DataSources\Item.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\DataSources\Place.datasource" />
     <None Include="Properties\Settings.settings">

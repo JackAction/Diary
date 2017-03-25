@@ -79,6 +79,16 @@ namespace MainForm
             return db.Clans.ToList();
         }
 
+        public List<Item> GetItems()
+        {
+            return db.Items.ToList();
+        }
+
+        public List<Quest> GetQuests()
+        {
+            return db.Quests.ToList();
+        }
+
         public void AddDiaryEntry(Diary d)
         {
             if (d != null)
@@ -108,6 +118,22 @@ namespace MainForm
             if (p != null)
             {
                 db.Places.Add(p);
+            }
+        }
+
+        public void AddItemEntry(Item i)
+        {
+            if (i != null)
+            {
+                db.Items.Add(i);
+            }
+        }
+
+        public void AddQuestEntry(Quest q)
+        {
+            if (q != null)
+            {
+                db.Quests.Add(q);
             }
         }
     }
