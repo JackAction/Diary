@@ -200,6 +200,7 @@
     <None Include="Properties\DataSources\Item.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\DataSources\Place.datasource" />
+    <None Include="Properties\DataSources\Quest.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -91,6 +91,11 @@ namespace MainForm
             ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
             ucPlace1.DataSourcePlace.DataSource = entityManager.GetPlaces();
             ucDiary1.DataSourceItem.DataSource = entityManager.GetItems();
+            ucDiary1.DataSourceQuest.DataSource = entityManager.GetQuests();
+            ucPersons1.DataSourceItem.DataSource = entityManager.GetItems();
+            ucPersons1.DataSourceQuest.DataSource = entityManager.GetQuests();
+            ucPlace1.DataSourceItem.DataSource = entityManager.GetItems();
+            ucPlace1.DataSourceQuest.DataSource = entityManager.GetQuests();
         }
 
         /// <summary>
@@ -218,13 +223,6 @@ namespace MainForm
                         entityManager.AddItemEntry(ucDiary1.NewItem);
                         btnSave_Click(null, null);
                         break;
-                    //case "tabPerson":
-                    //    entityManager.AddPlaceEntry(ucPersons1.NewPlace);
-                    //    btnSave_Click(null, null);
-                    //    break;
-                    //case "tabPlaces":
-                    //    entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
-                    //    break;
                     default:
                         break;
                 }
@@ -241,13 +239,6 @@ namespace MainForm
                         entityManager.AddQuestEntry(ucDiary1.NewQuest);
                         btnSave_Click(null, null);
                         break;
-                    //case "tabPerson":
-                    //    entityManager.AddPlaceEntry(ucPersons1.NewPlace);
-                    //    btnSave_Click(null, null);
-                    //    break;
-                    //case "tabPlaces":
-                    //    entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
-                    //    break;
                     default:
                         break;
                 }

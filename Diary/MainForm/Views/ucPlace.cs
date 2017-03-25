@@ -32,6 +32,20 @@ namespace MainForm
             // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
+        [Description("Binding Source für Item."), Category("Data")]
+        public BindingSource DataSourceItem
+        {
+            get { return itemBindingSource; }
+            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
+        }
+
+        [Description("Binding Source für Quest."), Category("Data")]
+        public BindingSource DataSourceQuest
+        {
+            get { return questBindingSource; }
+            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
+        }
+
         [Description("Neue Zeile wurde zu Place DataGrid hinzugefügt."), Category("Data")]
         public event EventHandler PlaceRowAdded;
 
