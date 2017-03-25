@@ -38,6 +38,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(258, 247);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -49,6 +50,7 @@
             this.btnUploadPicture.TabIndex = 1;
             this.btnUploadPicture.Text = "Upload";
             this.btnUploadPicture.UseVisualStyleBackColor = true;
+            this.btnUploadPicture.Click += new System.EventHandler(this.btnUploadPicture_Click);
             // 
             // ucPicture
             // 
