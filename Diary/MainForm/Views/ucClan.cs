@@ -129,7 +129,7 @@ namespace MainForm
             }
         }
 
-        [Description("Zeile wurde aus Diary DataGrid gelöscht."), Category("Data")]
+        [Description("Zeile wurde aus Person DataGrid gelöscht."), Category("Data")]
         public event EventHandler PersonRowDeleted;
 
         private void personRowDeleted(object sender, EventArgs e)

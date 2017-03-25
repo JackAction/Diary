@@ -49,6 +49,7 @@ namespace MainForm
             ucPlace1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
             ucPersons1.PersonRowDeleted += new EventHandler(Person_RowsDeleted);
             ucClan1.PersonRowDeleted += new EventHandler(Person_RowsDeleted);
+            ucPlace1.PlaceRowDeleted += new EventHandler(Place_RowsDeleted);
 
             applicationState = ApplicationState.Started;
         }
@@ -256,6 +257,21 @@ namespace MainForm
                         break;
                     case "tabPlaces":
                         entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void Place_RowsDeleted(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabPlaces":
+                        entityManager.DeletePlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
                         break;
                     default:
                         break;

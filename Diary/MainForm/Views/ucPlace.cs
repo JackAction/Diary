@@ -135,5 +135,33 @@ namespace MainForm
                 diaryBindingSource.RemoveCurrent();
             }
         }
+
+        private void dbgrdPlaces_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dbgrdPlaces.Columns[e.ColumnIndex].Name == "DeletePlace")
+            {
+                placeRowDeleted(sender, e);
+            }
+        }
+
+        private void dbgrdPlaces_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                placeRowDeleted(sender, e);
+            }
+        }
+
+        [Description("Zeile wurde aus Place DataGrid gelöscht."), Category("Data")]
+        public event EventHandler PlaceRowDeleted;
+
+        private void placeRowDeleted(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wirklich löschen?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                PlaceRowDeleted?.Invoke(sender, e);
+                placeBindingSource.RemoveCurrent();
+            }
+        }
     }
 }
