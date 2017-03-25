@@ -113,19 +113,6 @@ namespace MainForm
             QuestAdded?.Invoke(sender, e);
         }
 
-
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dbgrdDiary.ClearSelection();
-            dbgrdDiary.Rows[1].Selected = false;
-            dbgrdDiary.Rows[2].Selected = true;
-            dbgrdDiary.CurrentCell = dbgrdDiary[0, 0];
-            dbgrdDiary.Rows[1].Visible = false;
-        }
-
         private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -134,14 +121,14 @@ namespace MainForm
             }
         }
 
-        [Description("Personen zu einem Diary Eintrag ändern."), Category("Data")]
-        public event EventHandler ChangePeopleOfDiaryEntry;
+        [Description("Personen zu einem Diary Eintrag ändern/hinzufügen."), Category("Data")]
+        public event EventHandler ChangePersonModeTo_DiaryDetailEdit;
 
         private void dbgrdDiary_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dbgrdDiary.Columns[e.ColumnIndex].Name == "PeopleString" && e.RowIndex >= 0)
             {
-                ChangePeopleOfDiaryEntry?.Invoke(sender, e);
+                ChangePersonModeTo_DiaryDetailEdit?.Invoke(sender, e);
             }
         }
 

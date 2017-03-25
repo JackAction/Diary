@@ -41,7 +41,7 @@ namespace MainForm
             ucPlace1.DiaryRowAdded += new EventHandler(Diary_RowsAdded);
             ucDiary1.PlaceAdded += new EventHandler(Place_RowsAdded);
             ucPersons1.PlaceAdded += new EventHandler(Place_RowsAdded);
-            ucDiary1.ChangePeopleOfDiaryEntry += new EventHandler(ChangePeopleOfDiaryEntry);
+            ucDiary1.ChangePersonModeTo_DiaryDetailEdit += new EventHandler(ChangePersonModeTo_DiaryDetailEdit);
             ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
             ucDiary1.QuestAdded += new EventHandler(Quest_RowsAdded);
             ucDiary1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
@@ -311,31 +311,36 @@ namespace MainForm
             }
         }
 
-        private void ChangePeopleOfDiaryEntry(object sender, EventArgs e)
+        private void ChangePersonModeTo_DiaryDetailEdit(object sender, EventArgs e)
         {
             mstControl.SelectTab("tabPerson");
-            tmp = ucPersons1.DataSourceDiary;
+            tmpStorage_PersonBindingSource = ucPersons1.DataSourceDiary;
             ucPersons1.DataSourceDiary = ucDiary1.DataSourceDiary;
-            currentDiary = ucDiary1.DataSourceDiary.Current as Diary;
-            ucPersons1.AddCheckboxesToPersonList();
-            btnAddPeopleToDiary.Visible = true;
+            tmpStorage_currentDiary = ucDiary1.DataSourceDiary.Current as Diary;
+            ucPersons1.ChangePersonModeTo_DiaryDetailEdit();
+            btnUpdatePeopleForDiaryEntry.Visible = true;
             mstControl.TabPages.Remove(tabDiary);
             mstControl.TabPages.Remove(tabClans);
             mstControl.TabPages.Remove(tabPlaces);
         }
 
-        private BindingSource tmp;
-        private Diary currentDiary;
+        private BindingSource tmpStorage_PersonBindingSource;
+        private Diary tmpStorage_currentDiary;
 
         private void btnAddPeopleToDiary_Click(object sender, EventArgs e)
         {
-            if (currentDiary != null)
+            ChangePersonModeTo_NormalMode();
+        }
+
+        private void ChangePersonModeTo_NormalMode()
+        {
+            if (tmpStorage_currentDiary != null)
             {
-                currentDiary.People = ucPersons1.GetCheckedPeople(); 
+                tmpStorage_currentDiary.People = ucPersons1.GetCheckedPeople();
             }
-            ucPersons1.DataSourceDiary = tmp;
-            ucPersons1.setNormalMode();
-            btnAddPeopleToDiary.Visible = false;
+            ucPersons1.DataSourceDiary = tmpStorage_PersonBindingSource;
+            ucPersons1.ChangePersonModeTo_NormalMode();
+            btnUpdatePeopleForDiaryEntry.Visible = false;
             mstControl.TabPages.Insert(0, tabDiary);
             mstControl.TabPages.Insert(2, tabClans);
             mstControl.TabPages.Insert(3, tabPlaces);

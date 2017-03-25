@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MainForm.MainFormDisplay">
+    <Position X="5.75" Y="1.75" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QQCAAAQZQSGgDAQCEBCAIALmQAIAKBACABABAAaAADE=</HashCode>
+      <FileName>MainFormDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ModelEnhancements" Collapsed="true">
+    <Position X="13.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Diary" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAIAgoAAEgAAQAAAMAAAAAAAGAEAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Clan" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAIABgAAEAAAAAAQAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Item" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAgAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Person" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQBgAAAAAIBgEIEAAEAEAQAAABAAAAAQEAACAAIAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Place" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgRAAAIIBgAIMAAABAAQAAAAAAAABQAAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Quest" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAgAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ModelEnhancements.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.dnd_hotdqEntities" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIIgCAAAAABAAAAAEAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Model.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Program" Collapsed="true">
+    <Position X="11.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.DBHelper" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAgAAAAAAAAQAAAAAIABAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Utility\DBHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.EntityManager" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIhABBICQCAAABAAAYAAAQMEgKgAAAAAQQgAEAAA=</HashCode>
+      <FileName>Utility\EntityManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucAddNewPlace" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAUACAAAAiAAAJAAAACAQAADAgAAAAAAABAAAAAAAAQ=</HashCode>
+      <FileName>Views\Small\ucAddNewPlace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucNewSingleItem" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQBIAAAACAIAACAAACAAABCAAAAAAAAAQAAAAAAAAQ=</HashCode>
+      <FileName>Views\Small\ucNewSingleItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucPicture" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAQAAAACGAAIACAAAAABAAACAAAABAAAA=</HashCode>
+      <FileName>Views\Small\ucPicture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucBase" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ucBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucClan" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggCJAQSAQCIAIGoUgEiBAEASSQAAAEBCGMAEAKpECAA=</HashCode>
+      <FileName>Views\ucClan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucDiary">
+    <Position X="0.75" Y="3.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gCgAHQRJQKAAYIwQQMmBQACCEgEAAAgAmeAEAAITABE=</HashCode>
+      <FileName>Views\ucDiary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucPersons" Collapsed="true">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCgJHQSBQKCAMO4UQEiBQFCSAQEEAUhAKMAAAKpQCBE=</HashCode>
+      <FileName>Views\ucPersons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.ucPlace" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCgBVQWBQOAAII5QQEmRAAGSAQECIFgBAIECAAoAABE=</HashCode>
+      <FileName>Views\ucPlace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Properties.Resources" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainForm.Properties.Settings" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MainForm.ApplicationState" Collapsed="true">
+    <Position X="12.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Utility\ApplicationState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

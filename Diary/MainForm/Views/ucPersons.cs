@@ -149,7 +149,7 @@ namespace MainForm
         /// <summary>
         /// Fügt der Personenliste eine Checkboxspalte hinzu und markiert jene, welche im aktuellen Diaryeintrag vorhanden sind. Setzt danach den DiaryEditMode.
         /// </summary>
-        public void AddCheckboxesToPersonList()
+        private void AddCheckboxesToPersonList()
         {
             DataGridViewCheckBoxColumn cbColumn = new DataGridViewCheckBoxColumn();
             cbColumn.HeaderText = "";
@@ -173,11 +173,14 @@ namespace MainForm
                     } 
                 }
             }
-            setDiaryMode();
         }
 
-        private void setDiaryMode()
+        /// <summary>
+        /// Ändert den Modus der Personenansicht in den Einzelbearbeitungsmodus eines Tagebucheintrages.
+        /// </summary>
+        public void ChangePersonModeTo_DiaryDetailEdit()
         {
+            AddCheckboxesToPersonList();
             dbgrdDiary.Visible = false;
             Diary currentDiary = DataSourceDiary.Current as Diary;
             if (currentDiary != null)
@@ -186,7 +189,10 @@ namespace MainForm
             }
         }
 
-        public void setNormalMode()
+        /// <summary>
+        /// Ändert den Modus der Personenansicht zurück in den normalen Modus.
+        /// </summary>
+        public void ChangePersonModeTo_NormalMode()
         {
             dbgrdDiary.Visible = true;
             lblDiaryEntries.Text = "Diary Entries";

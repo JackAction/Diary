@@ -34,7 +34,7 @@
             this.tabDiary = new System.Windows.Forms.TabPage();
             this.ucDiary1 = new MainForm.ucDiary();
             this.tabPerson = new System.Windows.Forms.TabPage();
-            this.btnAddPeopleToDiary = new System.Windows.Forms.Button();
+            this.btnUpdatePeopleForDiaryEntry = new System.Windows.Forms.Button();
             this.ucPersons1 = new MainForm.ucPersons();
             this.tabClans = new System.Windows.Forms.TabPage();
             this.ucClan1 = new MainForm.ucClan();
@@ -95,7 +95,7 @@
             // 
             // tabPerson
             // 
-            this.tabPerson.Controls.Add(this.btnAddPeopleToDiary);
+            this.tabPerson.Controls.Add(this.btnUpdatePeopleForDiaryEntry);
             this.tabPerson.Controls.Add(this.ucPersons1);
             this.tabPerson.Location = new System.Drawing.Point(4, 49);
             this.tabPerson.Name = "tabPerson";
@@ -105,17 +105,17 @@
             this.tabPerson.Text = "Persons";
             this.tabPerson.UseVisualStyleBackColor = true;
             // 
-            // btnAddPeopleToDiary
+            // btnUpdatePeopleForDiaryEntry
             // 
-            this.btnAddPeopleToDiary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPeopleToDiary.Location = new System.Drawing.Point(992, 404);
-            this.btnAddPeopleToDiary.Name = "btnAddPeopleToDiary";
-            this.btnAddPeopleToDiary.Size = new System.Drawing.Size(100, 50);
-            this.btnAddPeopleToDiary.TabIndex = 1;
-            this.btnAddPeopleToDiary.Text = "Add to Diary Entry";
-            this.btnAddPeopleToDiary.UseVisualStyleBackColor = true;
-            this.btnAddPeopleToDiary.Visible = false;
-            this.btnAddPeopleToDiary.Click += new System.EventHandler(this.btnAddPeopleToDiary_Click);
+            this.btnUpdatePeopleForDiaryEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePeopleForDiaryEntry.Location = new System.Drawing.Point(387, 132);
+            this.btnUpdatePeopleForDiaryEntry.Name = "btnUpdatePeopleForDiaryEntry";
+            this.btnUpdatePeopleForDiaryEntry.Size = new System.Drawing.Size(158, 83);
+            this.btnUpdatePeopleForDiaryEntry.TabIndex = 1;
+            this.btnUpdatePeopleForDiaryEntry.Text = "Update and return to Diary";
+            this.btnUpdatePeopleForDiaryEntry.UseVisualStyleBackColor = true;
+            this.btnUpdatePeopleForDiaryEntry.Visible = false;
+            this.btnUpdatePeopleForDiaryEntry.Click += new System.EventHandler(this.btnAddPeopleToDiary_Click);
             // 
             // ucPersons1
             // 
@@ -288,7 +288,7 @@
         private ucPlace ucPlace1;
         private System.Windows.Forms.Label lblSessionID;
         private System.Windows.Forms.NumericUpDown txtSessionID;
-        private System.Windows.Forms.Button btnAddPeopleToDiary;
+        private System.Windows.Forms.Button btnUpdatePeopleForDiaryEntry;
     }
 }
 
