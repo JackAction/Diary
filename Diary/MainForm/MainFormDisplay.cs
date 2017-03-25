@@ -45,6 +45,8 @@ namespace MainForm
             ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
             ucDiary1.QuestAdded += new EventHandler(Quest_RowsAdded);
             ucDiary1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
+            ucPersons1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
+            ucPlace1.DiaryRowDeleted += new EventHandler(Diary_RowsDeleted);
 
             applicationState = ApplicationState.Started;
         }

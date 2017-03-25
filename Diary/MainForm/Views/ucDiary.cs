@@ -249,9 +249,7 @@ namespace MainForm
         {
             if (dbgrdDiary.Columns[e.ColumnIndex].Name == "Delete")
             {
-
                 diaryRowDeleted(sender, e);
-
             }
         }
 

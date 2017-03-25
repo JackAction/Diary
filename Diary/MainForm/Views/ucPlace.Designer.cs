@@ -34,6 +34,8 @@
             this.lblPlaces = new System.Windows.Forms.Label();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPlaces = new System.Windows.Forms.DataGridView();
             this.continentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +47,6 @@
             this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,12 +55,13 @@
             this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPlaces
@@ -94,7 +95,8 @@
             this.itemsIDDataGridViewTextBoxColumn,
             this.questsIDDataGridViewTextBoxColumn,
             this.iDDataGridViewTextBoxColumn,
-            this.placeIDDataGridViewTextBoxColumn});
+            this.placeIDDataGridViewTextBoxColumn,
+            this.Delete});
             this.dbgrdDiary.DataSource = this.diaryBindingSource;
             this.dbgrdDiary.Location = new System.Drawing.Point(68, 65);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -103,8 +105,18 @@
             this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dbgrdDiary.Size = new System.Drawing.Size(848, 231);
             this.dbgrdDiary.TabIndex = 4;
+            this.dbgrdDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellContentClick);
             this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
+            this.dbgrdDiary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdDiary_KeyDown);
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(MainForm.Item);
+            // 
+            // questBindingSource
+            // 
+            this.questBindingSource.DataSource = typeof(MainForm.Quest);
             // 
             // diaryBindingSource
             // 
@@ -187,14 +199,6 @@
             // 
             this.placeBindingSource.DataSource = typeof(MainForm.Place);
             // 
-            // questBindingSource
-            // 
-            this.questBindingSource.DataSource = typeof(MainForm.Quest);
-            // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataSource = typeof(MainForm.Item);
-            // 
             // sessionIDDataGridViewTextBoxColumn
             // 
             this.sessionIDDataGridViewTextBoxColumn.DataPropertyName = "SessionID";
@@ -259,6 +263,15 @@
             this.placeIDDataGridViewTextBoxColumn.Name = "placeIDDataGridViewTextBoxColumn";
             this.placeIDDataGridViewTextBoxColumn.Width = 20;
             // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.Text = "X";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 70;
+            // 
             // ucPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -272,11 +285,11 @@
             this.Size = new System.Drawing.Size(1038, 621);
             this.Load += new System.EventHandler(this.ucPlace_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPlaces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,15 +311,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource itemBindingSource;
+        private System.Windows.Forms.BindingSource questBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
         private System.Windows.Forms.DataGridViewComboBoxColumn itemsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource itemBindingSource;
         private System.Windows.Forms.DataGridViewComboBoxColumn questsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource questBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
