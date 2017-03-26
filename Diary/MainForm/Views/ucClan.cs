@@ -16,6 +16,7 @@ namespace MainForm
         {
             InitializeComponent();
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
+            cbxFilterColumn.SelectedIndex = 1;
         }
 
         [Description("Binding Source für Clan."), Category("Data")]
@@ -156,6 +157,76 @@ namespace MainForm
         private void PictureAdded(object sender, EventArgs e)
         {
             (clanBindingSource.Current as Clan).Picture = ucPicture1.Image;
+        }
+
+        private List<Clan> ClanList;
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (ClanList == null)
+            {
+                ClanList = DataSourceClan.DataSource as List<Clan>;
+            }
+
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                DataSourceClan.DataSource = ClanList;
+                foreach (DataGridViewRow row in dbgrdClans.Rows)
+                {
+                    row.Visible = true;
+                }
+            }
+            else
+            {
+                if (cbxFilterColumn.SelectedItem.ToString() == "All")
+                {
+                    FullTextSearch((sender as TextBox).Text);
+                }
+                else
+                {
+                    List<Clan> query =
+                        ClanList.FindAll(delegate (Clan obj)
+                        {
+                            switch (cbxFilterColumn.SelectedItem.ToString())
+                            {
+                                case "Name":
+                                    if (obj.Name == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Details":
+                                    if (obj.Details == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Details.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                default:
+                                    return false;
+                            }
+                        });
+                    DataSourceClan.DataSource = query;
+                }
+            }
+        }
+
+        private void FullTextSearch(string searchText)
+        {
+            dbgrdClans.CurrentCell = dbgrdClans[0, dbgrdClans.RowCount - 1]; //Benötigt, damit CurrencyMangerfehler nicht auftritt (aktuelle row kann nicht ausgeblendet werrden).
+            foreach (DataGridViewRow row in dbgrdClans.Rows)
+            {
+                if (row.Index != dbgrdClans.RowCount - 1)
+                {
+                    row.Visible = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value ?? "").ToString().IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            row.Visible = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }

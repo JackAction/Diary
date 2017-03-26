@@ -16,6 +16,7 @@ namespace MainForm
         {
             InitializeComponent();
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
+            cbxFilterColumn.SelectedIndex = 5;
         }
 
         [Description("Binding Source für Place."), Category("Data")]
@@ -180,6 +181,106 @@ namespace MainForm
         private void PictureAdded(object sender, EventArgs e)
         {
             (placeBindingSource.Current as Place).Picture = ucPicture1.Image;
+        }
+
+        private List<Place> placeList;
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (placeList == null)
+            {
+                placeList = DataSourcePlace.DataSource as List<Place>;
+            }
+
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                DataSourcePlace.DataSource = placeList;
+                foreach (DataGridViewRow row in dbgrdPlaces.Rows)
+                {
+                    row.Visible = true;
+                }
+            }
+            else
+            {
+                if (cbxFilterColumn.SelectedItem.ToString() == "All")
+                {
+                    FullTextSearch((sender as TextBox).Text);
+                }
+                else
+                {
+                    List<Place> query =
+                        placeList.FindAll(delegate (Place obj)
+                        {
+                            switch (cbxFilterColumn.SelectedItem.ToString())
+                            {
+                                case "Continent":
+                                    if (obj.Continent == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Continent.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "City":
+                                    if (obj.City == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.City.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "District":
+                                    if (obj.District == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.District.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Building":
+                                    if (obj.Building == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Building.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Name":
+                                    if (obj.Name == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Comment":
+                                    if (obj.Comment_2 == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Comment_2.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Details":
+                                    if (obj.Details == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Details.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                default:
+                                    return false;
+                            }
+                        });
+                    DataSourcePlace.DataSource = query;
+                }
+            }
+        }
+
+        private void FullTextSearch(string searchText)
+        {
+            dbgrdPlaces.CurrentCell = dbgrdPlaces[0, dbgrdPlaces.RowCount - 1]; //Benötigt, damit CurrencyMangerfehler nicht auftritt (aktuelle row kann nicht ausgeblendet werrden).
+            foreach (DataGridViewRow row in dbgrdPlaces.Rows)
+            {
+                if (row.Index != dbgrdPlaces.RowCount - 1)
+                {
+                    row.Visible = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value ?? "").ToString().IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            row.Visible = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }
