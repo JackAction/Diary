@@ -17,6 +17,7 @@ namespace MainForm
             InitializeComponent();
             ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
+            cbxFilterColumn.SelectedIndex = 1;
         }
 
         [Description("Binding Source für Person."), Category("Data")]
@@ -280,6 +281,130 @@ namespace MainForm
         private void PictureAdded(object sender, EventArgs e)
         {
             (personBindingSource.Current as Person).Picture = ucPicture1.Image;
+        }
+
+        private List<Person> PersonList;
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (PersonList == null)
+            {
+                PersonList = DataSourcePerson.DataSource as List<Person>;
+            }
+
+            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            {
+                DataSourcePerson.DataSource = PersonList;
+                foreach (DataGridViewRow row in dbgrdPersons.Rows)
+                {
+                    row.Visible = true;
+                }
+            }
+            else
+            {
+                if (cbxFilterColumn.SelectedItem.ToString() == "All")
+                {
+                    FullTextSearch((sender as TextBox).Text);
+                }
+                else
+                {
+                    List<Person> query =
+                        PersonList.FindAll(delegate (Person obj)
+                        {
+                            switch (cbxFilterColumn.SelectedItem.ToString())
+                            {
+                                case "Name":
+                                    if (obj.Name == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Title":
+                                    if (obj.Title == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Title.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Rank":
+                                    if (obj.Rank == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Rank.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Clan":
+                                    if (obj.Clan == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Clan.ToString().IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Place Met":
+                                    if (obj.Place == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Place.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Place last known":
+                                    if (obj.Place1 == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Place1.Name.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Race":
+                                    if (obj.Race == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Race.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Dead":
+                                    if (obj.Dead == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Dead.ToString().IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Alignement":
+                                    if (obj.Alignement == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Alignement.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Comment":
+                                    if (obj.Comment_2 == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Comment_2.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                case "Details":
+                                    if (obj.Details == null)
+                                    {
+                                        return false;
+                                    }
+                                    return obj.Details.IndexOf((sender as TextBox).Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                                default:
+                                    return false;
+                            }
+                        });
+                    DataSourcePerson.DataSource = query;
+                }
+            }
+        }
+
+        private void FullTextSearch(string searchText)
+        {
+            dbgrdPersons.CurrentCell = dbgrdPersons[0, dbgrdPersons.RowCount - 1]; //Benötigt, damit CurrencyMangerfehler nicht auftritt (aktuelle row kann nicht ausgeblendet werrden).
+            foreach (DataGridViewRow row in dbgrdPersons.Rows)
+            {
+                if (row.Index != dbgrdPersons.RowCount - 1)
+                {
+                    row.Visible = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value ?? "").ToString().IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            row.Visible = true;
+                        }
+                    }
+                }
+            }
         }
     }
 }

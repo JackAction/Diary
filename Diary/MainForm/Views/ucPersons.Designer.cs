@@ -48,6 +48,9 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
+            this.ucPicture1 = new MainForm.ucPicture();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,13 +62,9 @@
             this.alignementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diariesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clanIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeletePerson = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
-            this.ucPicture1 = new MainForm.ucPicture();
+            this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
@@ -237,9 +236,6 @@
             this.alignementDataGridViewTextBoxColumn,
             this.comment2DataGridViewTextBoxColumn,
             this.detailsDataGridViewTextBoxColumn,
-            this.diariesDataGridViewTextBoxColumn,
-            this.iDDataGridViewTextBoxColumn,
-            this.clanIDDataGridViewTextBoxColumn,
             this.DeletePerson});
             this.dbgrdPersons.DataSource = this.personBindingSource;
             this.dbgrdPersons.Location = new System.Drawing.Point(42, 306);
@@ -253,6 +249,29 @@
             this.dbgrdPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellContentClick);
             this.dbgrdPersons.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPersons_RowsAdded);
             this.dbgrdPersons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdPersons_KeyDown);
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(MainForm.Person);
+            // 
+            // ucAddNewPlace1
+            // 
+            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewPlace1.Location = new System.Drawing.Point(25, 571);
+            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
+            this.ucAddNewPlace1.Size = new System.Drawing.Size(1006, 60);
+            this.ucAddNewPlace1.TabIndex = 4;
+            // 
+            // ucPicture1
+            // 
+            this.ucPicture1.Filename = null;
+            this.ucPicture1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucPicture1.Location = new System.Drawing.Point(910, 19);
+            this.ucPicture1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucPicture1.Name = "ucPicture1";
+            this.ucPicture1.Size = new System.Drawing.Size(267, 305);
+            this.ucPicture1.TabIndex = 5;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -330,26 +349,6 @@
             this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
             this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
             // 
-            // diariesDataGridViewTextBoxColumn
-            // 
-            this.diariesDataGridViewTextBoxColumn.DataPropertyName = "Diaries";
-            this.diariesDataGridViewTextBoxColumn.HeaderText = "Diaries";
-            this.diariesDataGridViewTextBoxColumn.Name = "diariesDataGridViewTextBoxColumn";
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Width = 20;
-            // 
-            // clanIDDataGridViewTextBoxColumn
-            // 
-            this.clanIDDataGridViewTextBoxColumn.DataPropertyName = "Clan_ID";
-            this.clanIDDataGridViewTextBoxColumn.HeaderText = "Clan_ID";
-            this.clanIDDataGridViewTextBoxColumn.Name = "clanIDDataGridViewTextBoxColumn";
-            this.clanIDDataGridViewTextBoxColumn.Width = 20;
-            // 
             // DeletePerson
             // 
             this.DeletePerson.HeaderText = "Delete";
@@ -359,33 +358,41 @@
             this.DeletePerson.UseColumnTextForButtonValue = true;
             this.DeletePerson.Width = 70;
             // 
-            // personBindingSource
+            // cbxFilterColumn
             // 
-            this.personBindingSource.DataSource = typeof(MainForm.Person);
+            this.cbxFilterColumn.FormattingEnabled = true;
+            this.cbxFilterColumn.Items.AddRange(new object[] {
+            "All",
+            "Name",
+            "Title",
+            "Rank",
+            "Clan",
+            "Place Met",
+            "Place Last Known",
+            "Race",
+            "Dead",
+            "Alignement",
+            "Comment",
+            "Details"});
+            this.cbxFilterColumn.Location = new System.Drawing.Point(253, 270);
+            this.cbxFilterColumn.Name = "cbxFilterColumn";
+            this.cbxFilterColumn.Size = new System.Drawing.Size(121, 28);
+            this.cbxFilterColumn.TabIndex = 11;
             // 
-            // ucAddNewPlace1
+            // txtSearch
             // 
-            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewPlace1.Location = new System.Drawing.Point(25, 571);
-            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
-            this.ucAddNewPlace1.Size = new System.Drawing.Size(1006, 60);
-            this.ucAddNewPlace1.TabIndex = 4;
-            // 
-            // ucPicture1
-            // 
-            this.ucPicture1.Filename = null;
-            this.ucPicture1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPicture1.Location = new System.Drawing.Point(910, 19);
-            this.ucPicture1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucPicture1.Name = "ucPicture1";
-            this.ucPicture1.Size = new System.Drawing.Size(267, 305);
-            this.ucPicture1.TabIndex = 5;
+            this.txtSearch.Location = new System.Drawing.Point(380, 272);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(270, 26);
+            this.txtSearch.TabIndex = 10;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // ucPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbxFilterColumn);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ucPicture1);
             this.Controls.Add(this.ucAddNewPlace1);
             this.Controls.Add(this.lblDiaryEntries);
@@ -429,6 +436,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn questsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private ucPicture ucPicture1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
@@ -440,10 +448,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn alignementDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diariesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clanIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeletePerson;
-        private ucPicture ucPicture1;
+        private System.Windows.Forms.ComboBox cbxFilterColumn;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

@@ -20,7 +20,7 @@ namespace MainForm
             ucAddNewPlace.PlaceAdded += new EventHandler(ucPlaceAdded);
             ucAddNewItem.SingleItemAdded += new EventHandler(ucItemAdded);
             ucAddNewQuest.SingleItemAdded += new EventHandler(ucQuestAdded);
-            cbxFilterColumn.SelectedIndex = 2;
+            cbxFilterColumn.SelectedIndex = 3;
         }
 
         [Description("Binding Source für Diary."), Category("Data")]
@@ -223,7 +223,7 @@ namespace MainForm
                     row.Visible = false;
                     foreach (DataGridViewCell cell in row.Cells)
                     {
-                        if ((cell.Value ?? "").ToString().Contains(searchText))
+                        if ((cell.Value ?? "").ToString().IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
                         {
                             row.Visible = true;
                         }
