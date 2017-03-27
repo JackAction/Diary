@@ -59,12 +59,13 @@
             this.DeletePerson = new System.Windows.Forms.DataGridViewButtonColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdClans = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ucPicture1 = new MainForm.ucPicture();
             this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDetails = new System.Windows.Forms.TextBox();
+            this.lblDetails = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
@@ -305,18 +306,23 @@
             this.dbgrdClans.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dbgrdClans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbgrdClans.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.detailsDataGridViewTextBoxColumn});
+            this.nameDataGridViewTextBoxColumn});
             this.dbgrdClans.DataSource = this.clanBindingSource;
             this.dbgrdClans.Location = new System.Drawing.Point(756, 360);
             this.dbgrdClans.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdClans.Name = "dbgrdClans";
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dbgrdClans.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dbgrdClans.Size = new System.Drawing.Size(360, 231);
+            this.dbgrdClans.Size = new System.Drawing.Size(160, 231);
             this.dbgrdClans.TabIndex = 0;
             this.dbgrdClans.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdClans_CellClick);
             this.dbgrdClans.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdClans_RowsAdded);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
             // clanBindingSource
             // 
@@ -352,22 +358,30 @@
             this.txtSearch.TabIndex = 10;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // nameDataGridViewTextBoxColumn
+            // txtDetails
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.txtDetails.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clanBindingSource, "Details", true));
+            this.txtDetails.Location = new System.Drawing.Point(952, 360);
+            this.txtDetails.Multiline = true;
+            this.txtDetails.Name = "txtDetails";
+            this.txtDetails.Size = new System.Drawing.Size(181, 242);
+            this.txtDetails.TabIndex = 14;
             // 
-            // detailsDataGridViewTextBoxColumn
+            // lblDetails
             // 
-            this.detailsDataGridViewTextBoxColumn.DataPropertyName = "Details";
-            this.detailsDataGridViewTextBoxColumn.HeaderText = "Details";
-            this.detailsDataGridViewTextBoxColumn.Name = "detailsDataGridViewTextBoxColumn";
+            this.lblDetails.AutoSize = true;
+            this.lblDetails.Location = new System.Drawing.Point(948, 335);
+            this.lblDetails.Name = "lblDetails";
+            this.lblDetails.Size = new System.Drawing.Size(58, 20);
+            this.lblDetails.TabIndex = 15;
+            this.lblDetails.Text = "Details";
             // 
             // ucClan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblDetails);
+            this.Controls.Add(this.txtDetails);
             this.Controls.Add(this.cbxFilterColumn);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ucPicture1);
@@ -426,6 +440,7 @@
         private System.Windows.Forms.ComboBox cbxFilterColumn;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtDetails;
+        private System.Windows.Forms.Label lblDetails;
     }
 }
