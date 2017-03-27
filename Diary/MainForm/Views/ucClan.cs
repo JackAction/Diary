@@ -128,7 +128,7 @@ namespace MainForm
 
         private void dbgrdPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dbgrdPersons.Columns[e.ColumnIndex].Name == "DeletePerson")
+            if (dbgrdPersons.Columns[e.ColumnIndex].Name == "DeletePerson" && e.RowIndex >= 0)
             {
                 personRowDeleted(sender, e);
             }

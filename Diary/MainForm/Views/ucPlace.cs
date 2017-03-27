@@ -152,7 +152,7 @@ namespace MainForm
 
         private void dbgrdPlaces_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dbgrdPlaces.Columns[e.ColumnIndex].Name == "DeletePlace")
+            if (dbgrdPlaces.Columns[e.ColumnIndex].Name == "DeletePlace" && e.RowIndex >= 0)
             {
                 placeRowDeleted(sender, e);
             }
