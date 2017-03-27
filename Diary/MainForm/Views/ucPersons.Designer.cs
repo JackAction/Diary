@@ -47,6 +47,13 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
+            this.ucPicture1 = new MainForm.ucPicture();
+            this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtDetails = new System.Windows.Forms.TextBox();
+            this.lblDetails = new System.Windows.Forms.Label();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,13 +65,6 @@
             this.alignementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeletePerson = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
-            this.ucPicture1 = new MainForm.ucPicture();
-            this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.txtDetails = new System.Windows.Forms.TextBox();
-            this.lblDetails = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
@@ -241,85 +241,6 @@
             this.dbgrdPersons.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPersons_RowsAdded);
             this.dbgrdPersons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdPersons_KeyDown);
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            // 
-            // rankDataGridViewTextBoxColumn
-            // 
-            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
-            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
-            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
-            // 
-            // clanDataGridViewTextBoxColumn
-            // 
-            this.clanDataGridViewTextBoxColumn.DataPropertyName = "Clan";
-            this.clanDataGridViewTextBoxColumn.HeaderText = "Clan";
-            this.clanDataGridViewTextBoxColumn.Name = "clanDataGridViewTextBoxColumn";
-            // 
-            // Place1
-            // 
-            this.Place1.DataPropertyName = "Place_Met";
-            this.Place1.DataSource = this.placeBindingSource;
-            this.Place1.DisplayMember = "Name";
-            this.Place1.HeaderText = "Met Place";
-            this.Place1.Name = "Place1";
-            this.Place1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Place1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Place1.ValueMember = "ID";
-            // 
-            // Place
-            // 
-            this.Place.DataPropertyName = "Place_LastKnown";
-            this.Place.DataSource = this.placeBindingSource;
-            this.Place.DisplayMember = "Name";
-            this.Place.HeaderText = "Last known Place";
-            this.Place.Name = "Place";
-            this.Place.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Place.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Place.ValueMember = "ID";
-            // 
-            // raceDataGridViewTextBoxColumn
-            // 
-            this.raceDataGridViewTextBoxColumn.DataPropertyName = "Race";
-            this.raceDataGridViewTextBoxColumn.HeaderText = "Race";
-            this.raceDataGridViewTextBoxColumn.Name = "raceDataGridViewTextBoxColumn";
-            // 
-            // deadDataGridViewTextBoxColumn
-            // 
-            this.deadDataGridViewTextBoxColumn.DataPropertyName = "Dead";
-            this.deadDataGridViewTextBoxColumn.HeaderText = "Dead";
-            this.deadDataGridViewTextBoxColumn.Name = "deadDataGridViewTextBoxColumn";
-            // 
-            // alignementDataGridViewTextBoxColumn
-            // 
-            this.alignementDataGridViewTextBoxColumn.DataPropertyName = "Alignement";
-            this.alignementDataGridViewTextBoxColumn.HeaderText = "Alignement";
-            this.alignementDataGridViewTextBoxColumn.Name = "alignementDataGridViewTextBoxColumn";
-            // 
-            // comment2DataGridViewTextBoxColumn
-            // 
-            this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
-            this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment_2";
-            this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
-            // 
-            // DeletePerson
-            // 
-            this.DeletePerson.HeaderText = "Delete";
-            this.DeletePerson.Name = "DeletePerson";
-            this.DeletePerson.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeletePerson.Text = "X";
-            this.DeletePerson.UseColumnTextForButtonValue = true;
-            this.DeletePerson.Width = 70;
-            // 
             // personBindingSource
             // 
             this.personBindingSource.DataSource = typeof(MainForm.Person);
@@ -390,6 +311,85 @@
             this.lblDetails.TabIndex = 16;
             this.lblDetails.Text = "Details";
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // rankDataGridViewTextBoxColumn
+            // 
+            this.rankDataGridViewTextBoxColumn.DataPropertyName = "Rank";
+            this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
+            this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
+            // 
+            // clanDataGridViewTextBoxColumn
+            // 
+            this.clanDataGridViewTextBoxColumn.DataPropertyName = "Clan";
+            this.clanDataGridViewTextBoxColumn.HeaderText = "Clan";
+            this.clanDataGridViewTextBoxColumn.Name = "clanDataGridViewTextBoxColumn";
+            // 
+            // Place1
+            // 
+            this.Place1.DataPropertyName = "Place_Met";
+            this.Place1.DataSource = this.placeBindingSource;
+            this.Place1.DisplayMember = "Name";
+            this.Place1.HeaderText = "Met Place";
+            this.Place1.Name = "Place1";
+            this.Place1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Place1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Place1.ValueMember = "ID";
+            // 
+            // Place
+            // 
+            this.Place.DataPropertyName = "Place_LastKnown";
+            this.Place.DataSource = this.placeBindingSource;
+            this.Place.DisplayMember = "Name";
+            this.Place.HeaderText = "Last known Place";
+            this.Place.Name = "Place";
+            this.Place.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Place.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Place.ValueMember = "ID";
+            // 
+            // raceDataGridViewTextBoxColumn
+            // 
+            this.raceDataGridViewTextBoxColumn.DataPropertyName = "Race";
+            this.raceDataGridViewTextBoxColumn.HeaderText = "Race";
+            this.raceDataGridViewTextBoxColumn.Name = "raceDataGridViewTextBoxColumn";
+            // 
+            // deadDataGridViewTextBoxColumn
+            // 
+            this.deadDataGridViewTextBoxColumn.DataPropertyName = "Dead";
+            this.deadDataGridViewTextBoxColumn.HeaderText = "Dead";
+            this.deadDataGridViewTextBoxColumn.Name = "deadDataGridViewTextBoxColumn";
+            // 
+            // alignementDataGridViewTextBoxColumn
+            // 
+            this.alignementDataGridViewTextBoxColumn.DataPropertyName = "Alignement";
+            this.alignementDataGridViewTextBoxColumn.HeaderText = "Alignement";
+            this.alignementDataGridViewTextBoxColumn.Name = "alignementDataGridViewTextBoxColumn";
+            // 
+            // comment2DataGridViewTextBoxColumn
+            // 
+            this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
+            this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment";
+            this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
+            // 
+            // DeletePerson
+            // 
+            this.DeletePerson.HeaderText = "Delete";
+            this.DeletePerson.Name = "DeletePerson";
+            this.DeletePerson.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeletePerson.Text = "X";
+            this.DeletePerson.UseColumnTextForButtonValue = true;
+            this.DeletePerson.Width = 70;
+            // 
             // ucPersons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -436,6 +436,15 @@
         private System.Windows.Forms.ComboBox cbxFilterColumn;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
+        private System.Windows.Forms.DataGridViewComboBoxColumn placeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn itemsIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn questsIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Label lblDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
@@ -447,14 +456,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn alignementDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeletePerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PeopleString;
-        private System.Windows.Forms.DataGridViewComboBoxColumn placeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn itemsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn questsIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Label lblDetails;
     }
 }
