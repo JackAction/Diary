@@ -124,7 +124,7 @@ namespace MainForm
 
         private void dbgrdDiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "Delete")
+            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "Delete" && e.RowIndex >= 0)
             {
                 diaryRowDeleted(sender, e);
             }

@@ -126,9 +126,12 @@ namespace MainForm
 
         private void dbgrdDiary_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "PeopleString" && e.RowIndex >= 0)
+            if (e.ColumnIndex >= 0)
             {
-                ChangePersonModeTo_DiaryDetailEdit?.Invoke(sender, e);
+                if (dbgrdDiary.Columns[e.ColumnIndex].Name == "PeopleString" && e.RowIndex >= 0)
+                {
+                    ChangePersonModeTo_DiaryDetailEdit?.Invoke(sender, e);
+                } 
             }
         }
 
