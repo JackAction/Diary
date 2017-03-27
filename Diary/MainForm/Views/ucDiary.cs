@@ -20,35 +20,31 @@ namespace MainForm
             ucAddNewPlace.PlaceAdded += new EventHandler(ucPlaceAdded);
             ucAddNewItem.SingleItemAdded += new EventHandler(ucItemAdded);
             ucAddNewQuest.SingleItemAdded += new EventHandler(ucQuestAdded);
-            cbxFilterColumn.SelectedIndex = 3;
+            cbxFilterColumn.SelectedIndex = 3; // Initialfeld für Filter
         }
 
-        [Description("Binding Source für Diary."), Category("Data")]
+        [Description("Binding Source für DiaryGrid."), Category("Data")]
         public BindingSource DataSourceDiary
         {
             get { return diaryBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Place."), Category("Data")]
+        [Description("Binding Source für PlaceColumn."), Category("Data")]
         public BindingSource DataSourcePlace
         {
             get { return placeBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Item."), Category("Data")]
+        [Description("Binding Source für ItemColumn."), Category("Data")]
         public BindingSource DataSourceItem
         {
             get { return itemBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Quest."), Category("Data")]
+        [Description("Binding Source für QuestColumn."), Category("Data")]
         public BindingSource DataSourceQuest
         {
             get { return questBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
         [Description("Neue Zeile wurde zu Diary DataGrid hinzugefügt."), Category("Data")]

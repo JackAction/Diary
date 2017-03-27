@@ -17,43 +17,38 @@ namespace MainForm
             InitializeComponent();
             ucAddNewPlace1.PlaceAdded += new EventHandler(ucPlaceAdded);
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
-            cbxFilterColumn.SelectedIndex = 1;
+            cbxFilterColumn.SelectedIndex = 1; // Initialfeld für Filter
         }
 
-        [Description("Binding Source für Person."), Category("Data")]
+        [Description("Binding Source für PersonGrid."), Category("Data")]
         public BindingSource DataSourcePerson
         {
             get { return personBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Diary."), Category("Data")]
+        [Description("Binding Source für DiaryGrid."), Category("Data")]
         public BindingSource DataSourceDiary
         {
             get { return diaryBindingSource; } 
             set { diaryBindingSource = value; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Place."), Category("Data")]
+        [Description("Binding Source für PlaceColumn."), Category("Data")]
         public BindingSource DataSourcePlace
         {
             get { return placeBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Item."), Category("Data")]
+        [Description("Binding Source für ItemColumn."), Category("Data")]
         public BindingSource DataSourceItem
         {
             get { return itemBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Quest."), Category("Data")]
+        [Description("Binding Source für QuestColumn."), Category("Data")]
         public BindingSource DataSourceQuest
         {
             get { return questBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
         [Description("Neue Zeile wurde zu Person DataGrid hinzugefügt."), Category("Data")]
@@ -74,15 +69,20 @@ namespace MainForm
         {
             if (e.RowIndex > diaryBindingSource.Count - 1)
             {
-                Person obj = personBindingSource.Current as Person; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-                if (obj != null)
-                {
-                    if (diaryBindingSource.Current != null)
-                    {
-                        ((Diary)diaryBindingSource.Current).People.Add(obj);
-                    }
-                }
+                LinkNewlyAddedDiaryRowToCurrentPerson();
                 DiaryRowAdded?.Invoke(sender, e);
+            }
+        }
+
+        private void LinkNewlyAddedDiaryRowToCurrentPerson()
+        {
+            Person obj = personBindingSource.Current as Person;
+            if (obj != null)
+            {
+                if (diaryBindingSource.Current != null)
+                {
+                    ((Diary)diaryBindingSource.Current).People.Add(obj);
+                }
             }
         }
 

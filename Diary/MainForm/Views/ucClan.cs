@@ -16,22 +16,19 @@ namespace MainForm
         {
             InitializeComponent();
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
-            cbxFilterColumn.SelectedIndex = 1;
+            cbxFilterColumn.SelectedIndex = 1; // Initialfeld für Filter
         }
 
-        [Description("Binding Source für Clan."), Category("Data")]
+        [Description("Binding Source für ClanGrid."), Category("Data")]
         public BindingSource DataSourceClan
         {
             get { return clanBindingSource; }
-            set { clanBindingSource = value; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Person."), Category("Data")]
+        [Description("Binding Source für PersonGrid."), Category("Data")]
         public BindingSource DataSourcePerson
         {
             get { return personBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
         [Description("Neue Zeile wurde zu Clan DataGrid hinzugefügt."), Category("Data")]
@@ -50,9 +47,14 @@ namespace MainForm
 
         private void dbgrdPersons_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
+            LinkNewlyAddedPersonRowToCurrentClan(sender, e);
+        }
+
+        private void LinkNewlyAddedPersonRowToCurrentClan(object sender, DataGridViewRowsAddedEventArgs e)
+        {
             if (e.RowIndex > personBindingSource.Count - 1)
             {
-                Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+                Clan obj = clanBindingSource.Current as Clan;
                 if (obj != null)
                 {
                     if (personBindingSource.Current != null)

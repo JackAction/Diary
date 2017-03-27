@@ -16,36 +16,31 @@ namespace MainForm
         {
             InitializeComponent();
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
-            cbxFilterColumn.SelectedIndex = 5;
+            cbxFilterColumn.SelectedIndex = 5; // Initialfeld für Filter
         }
 
-        [Description("Binding Source für Place."), Category("Data")]
+        [Description("Binding Source für PlaceGrid."), Category("Data")]
         public BindingSource DataSourcePlace
         {
             get { return placeBindingSource; }
-            set { placeBindingSource = value; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Diary."), Category("Data")]
+        [Description("Binding Source für DiaryGrid."), Category("Data")]
         public BindingSource DataSourceDiary
         {
             get { return diaryBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Item."), Category("Data")]
+        [Description("Binding Source für ItemColumn."), Category("Data")]
         public BindingSource DataSourceItem
         {
             get { return itemBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
-        [Description("Binding Source für Quest."), Category("Data")]
+        [Description("Binding Source für QuestColumn."), Category("Data")]
         public BindingSource DataSourceQuest
         {
             get { return questBindingSource; }
-            // Anstelle von personBindingSource geht auch dbgrdPersons. Was ist unterschied von direkt auf Datagrid binden oder auf bindingsource?
         }
 
         [Description("Neue Zeile wurde zu Place DataGrid hinzugefügt."), Category("Data")]
@@ -66,15 +61,20 @@ namespace MainForm
         {
             if (e.RowIndex > diaryBindingSource.Count - 1)
             {
-                Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-                if (obj != null)
-                {
-                    if (diaryBindingSource.Current != null)
-                    {
-                        ((Diary)diaryBindingSource.Current).Place = obj;
-                    }
-                }
+                LinkNewlyAddedDiaryRowToCurrentPlace();
                 DiaryRowAdded?.Invoke(sender, e);
+            }
+        }
+
+        private void LinkNewlyAddedDiaryRowToCurrentPlace()
+        {
+            Place obj = placeBindingSource.Current as Place;
+            if (obj != null)
+            {
+                if (diaryBindingSource.Current != null)
+                {
+                    ((Diary)diaryBindingSource.Current).Place = obj;
+                }
             }
         }
 
