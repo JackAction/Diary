@@ -259,5 +259,21 @@ namespace MainForm
                 diaryBindingSource.RemoveCurrent();
             }
         }
+
+        private void dbgrdDiary_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // How to activate combobox on first click (Datagridview):
+            // http://stackoverflow.com/questions/13005112/how-to-activate-combobox-on-first-click-datagridview?noredirect=1&lq=1
+
+            bool validClick = (e.RowIndex != -1 && e.ColumnIndex != -1); //Make sure the clicked row/column is valid.
+            var datagridview = sender as DataGridView;
+
+            // Check to make sure the cell clicked is the cell containing the combobox 
+            if (datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
+            {
+                datagridview.BeginEdit(true);
+                ((ComboBox)datagridview.EditingControl).DroppedDown = true;
+            }
+        }
     }
 }
