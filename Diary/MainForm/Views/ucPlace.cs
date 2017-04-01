@@ -282,5 +282,10 @@ namespace MainForm
                 }
             }
         }
+
+        private void cbxFilterColumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

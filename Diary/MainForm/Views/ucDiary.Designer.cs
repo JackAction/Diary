@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
@@ -110,18 +110,18 @@
             this.questsIDDataGridViewTextBoxColumn,
             this.Delete});
             this.dbgrdDiary.DataSource = this.diaryBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdDiary.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dbgrdDiary.Location = new System.Drawing.Point(0, 29);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdDiary.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dbgrdDiary.Location = new System.Drawing.Point(0, 32);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
-            this.dbgrdDiary.Size = new System.Drawing.Size(1252, 416);
+            this.dbgrdDiary.Size = new System.Drawing.Size(1252, 415);
             this.dbgrdDiary.TabIndex = 0;
             this.dbgrdDiary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellClick);
             this.dbgrdDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellContentClick);
@@ -142,14 +142,14 @@
             this.ingameDayDataGridViewTextBoxColumn.DataPropertyName = "IngameDay";
             this.ingameDayDataGridViewTextBoxColumn.HeaderText = "IngameDay";
             this.ingameDayDataGridViewTextBoxColumn.Name = "ingameDayDataGridViewTextBoxColumn";
-            this.ingameDayDataGridViewTextBoxColumn.Width = 170;
+            this.ingameDayDataGridViewTextBoxColumn.Width = 115;
             // 
             // entryDataGridViewTextBoxColumn
             // 
             this.entryDataGridViewTextBoxColumn.DataPropertyName = "Entry";
             this.entryDataGridViewTextBoxColumn.HeaderText = "Entry";
             this.entryDataGridViewTextBoxColumn.Name = "entryDataGridViewTextBoxColumn";
-            this.entryDataGridViewTextBoxColumn.Width = 383;
+            this.entryDataGridViewTextBoxColumn.Width = 438;
             // 
             // PeopleString
             // 

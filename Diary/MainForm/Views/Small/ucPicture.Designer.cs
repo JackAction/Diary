@@ -38,18 +38,18 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(258, 247);
+            this.pictureBox1.Size = new System.Drawing.Size(258, 234);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // btnUploadPicture
             // 
-            this.btnUploadPicture.Location = new System.Drawing.Point(61, 256);
+            this.btnUploadPicture.Location = new System.Drawing.Point(53, 243);
             this.btnUploadPicture.Name = "btnUploadPicture";
-            this.btnUploadPicture.Size = new System.Drawing.Size(125, 38);
+            this.btnUploadPicture.Size = new System.Drawing.Size(155, 38);
             this.btnUploadPicture.TabIndex = 1;
-            this.btnUploadPicture.Text = "Upload";
+            this.btnUploadPicture.Text = "Upload Picture";
             this.btnUploadPicture.UseVisualStyleBackColor = true;
             this.btnUploadPicture.Click += new System.EventHandler(this.btnUploadPicture_Click);
             // 
@@ -62,7 +62,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucPicture";
-            this.Size = new System.Drawing.Size(267, 305);
+            this.Size = new System.Drawing.Size(267, 288);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
