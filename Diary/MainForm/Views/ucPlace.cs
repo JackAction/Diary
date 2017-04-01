@@ -88,6 +88,10 @@ namespace MainForm
                     diaryBindingSource.DataSource = obj.Diaries.ToList();
                 }
             }
+            else
+            {
+                diaryBindingSource.DataSource = null;
+            }
         }
 
         public void ShowPicture()
@@ -147,6 +151,7 @@ namespace MainForm
             {
                 DiaryRowDeleted?.Invoke(sender, e);
                 diaryBindingSource.RemoveCurrent();
+                ShowDiaryEntries();
             }
         }
 
@@ -281,11 +286,6 @@ namespace MainForm
                     }
                 }
             }
-        }
-
-        private void cbxFilterColumn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

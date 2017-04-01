@@ -96,6 +96,10 @@ namespace MainForm
                     diaryBindingSource.DataSource = obj.Diaries.ToList();
                 }
             }
+            else
+            {
+                diaryBindingSource.DataSource = null;
+            }
         }
 
         public void ShowPicture()
@@ -275,6 +279,7 @@ namespace MainForm
             {
                 PersonRowDeleted?.Invoke(sender, e);
                 personBindingSource.RemoveCurrent();
+                ShowDiaryEntries();
             }
         }
 

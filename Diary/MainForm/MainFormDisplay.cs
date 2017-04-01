@@ -51,6 +51,7 @@ namespace MainForm
             ucPlace1.PlaceRowDeleted += new EventHandler(Place_RowsDeleted);
             // Clan Handling
             ucClan1.ClanRowAdded += new EventHandler(Clan_RowsAdded);
+            ucClan1.ClanRowDeleted += new EventHandler(Clan_RowsDeleted);
             // Item Handling
             ucDiary1.ItemAdded += new EventHandler(Item_RowsAdded);
             // Quest Handling
@@ -208,7 +209,29 @@ namespace MainForm
         {
             if (applicationState == ApplicationState.DBLoaded)
             {
-                entityManager.AddClanEntry((Clan)ucClan1.DataSourceClan.Current);
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabClans":
+                        entityManager.AddClanEntry((Clan)ucClan1.DataSourceClan.Current);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void Clan_RowsDeleted(object sender, EventArgs e)
+        {
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                switch (mstControl.SelectedTab.Name)
+                {
+                    case "tabClans":
+                        entityManager.DeleteClanEntry((Clan)ucClan1.DataSourceClan.Current);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

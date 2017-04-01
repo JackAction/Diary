@@ -76,6 +76,10 @@ namespace MainForm
                     personBindingSource.DataSource = obj.People.ToList();
                 }
             }
+            else
+            {
+                personBindingSource.DataSource = null;
+            }
         }
 
         public void ShowDiaryEntries()
@@ -153,6 +157,37 @@ namespace MainForm
             {
                 PersonRowDeleted?.Invoke(sender, e);
                 personBindingSource.RemoveCurrent();
+                ShowDiaryEntries();
+            }
+        }
+
+        private void dbgrdClans_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dbgrdClans.Columns[e.ColumnIndex].Name == "DeleteClan" && e.RowIndex >= 0)
+            {
+                clanRowDeleted(sender, e);
+            }
+        }
+
+        private void dbgrdClans_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                clanRowDeleted(sender, e);
+            }
+        }
+
+        [Description("Zeile wurde aus Clan DataGrid gelöscht."), Category("Data")]
+        public event EventHandler ClanRowDeleted;
+
+        private void clanRowDeleted(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wirklich löschen?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ClanRowDeleted?.Invoke(sender, e);
+                clanBindingSource.RemoveCurrent();
+                ShowMembers();
+                ShowDiaryEntries();
             }
         }
 
@@ -229,11 +264,6 @@ namespace MainForm
                     }
                 }
             }
-        }
-
-        private void cbxFilterColumn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
