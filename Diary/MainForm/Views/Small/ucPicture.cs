@@ -26,7 +26,6 @@ namespace MainForm
             OpenFileDialog open = new OpenFileDialog();
             open.Title = "Open Picture";
             open.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
-            open.InitialDirectory = $"{Directory.GetCurrentDirectory()}\\Pictures";
 
             if (open.ShowDialog() == DialogResult.OK)
             {
