@@ -161,6 +161,7 @@ namespace MainForm
             cbColumn.FalseValue = "0";
             cbColumn.TrueValue = "1";
             cbColumn.Width = 20;
+            cbColumn.DefaultCellStyle.BackColor = Color.LawnGreen;
             dbgrdPersons.Columns.Insert(0, cbColumn);
 
             foreach (DataGridViewRow row in dbgrdPersons.Rows)
