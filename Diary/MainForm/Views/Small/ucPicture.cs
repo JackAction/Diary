@@ -31,10 +31,10 @@ namespace MainForm
             if (open.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = new Bitmap(open.OpenFile());
+                Filename = open.SafeFileName;
+                PictureAdded?.Invoke(sender, e);
             }
-            Filename = open.SafeFileName;
             open.Dispose();
-            PictureAdded?.Invoke(sender, e);
         }
 
         [Description("Angezeigtes Bild."), Category("Data")]

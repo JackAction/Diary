@@ -191,7 +191,7 @@ namespace MainForm
             Diary currentDiary = DataSourceDiary.Current as Diary;
             if (currentDiary != null)
             {
-                lblDiaryEntries.Text = $"Person entries for Diaryentry: {currentDiary.Entry}"; 
+                lblDiaryEntries.Text = $"People linked to diary entry:{Environment.NewLine}{Environment.NewLine}{currentDiary.Entry}"; 
             }
         }
 
