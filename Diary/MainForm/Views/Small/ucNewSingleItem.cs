@@ -29,7 +29,7 @@ namespace MainForm
             set
             {
                 _name = value;
-                lblName.Text = value;
+                lblName.Text = value + ":";
                 btnAddNewSingleItem.Text = $"New {value}";
             }
         }

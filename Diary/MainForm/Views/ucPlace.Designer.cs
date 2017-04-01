@@ -40,8 +40,15 @@
             this.lblPlaces = new System.Windows.Forms.Label();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
+            this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.questBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPlaces = new System.Windows.Forms.DataGridView();
             this.continentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,13 +58,6 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeletePlace = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.sessionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ingameDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PeopleString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.questsIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
@@ -69,21 +69,19 @@
             // lblDetails
             // 
             this.lblDetails.AutoSize = true;
-            this.lblDetails.Location = new System.Drawing.Point(1588, 464);
-            this.lblDetails.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDetails.Location = new System.Drawing.Point(1021, 320);
             this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(87, 29);
+            this.lblDetails.Size = new System.Drawing.Size(58, 20);
             this.lblDetails.TabIndex = 16;
             this.lblDetails.Text = "Details";
             // 
             // txtDetails
             // 
             this.txtDetails.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.placeBindingSource, "Details", true));
-            this.txtDetails.Location = new System.Drawing.Point(1594, 497);
-            this.txtDetails.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtDetails.Location = new System.Drawing.Point(1025, 343);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
-            this.txtDetails.Size = new System.Drawing.Size(279, 349);
+            this.txtDetails.Size = new System.Drawing.Size(181, 242);
             this.txtDetails.TabIndex = 13;
             // 
             // placeBindingSource
@@ -102,18 +100,16 @@
             "Name",
             "Comment",
             "Details"});
-            this.cbxFilterColumn.Location = new System.Drawing.Point(348, 448);
-            this.cbxFilterColumn.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.cbxFilterColumn.Location = new System.Drawing.Point(224, 309);
             this.cbxFilterColumn.Name = "cbxFilterColumn";
-            this.cbxFilterColumn.Size = new System.Drawing.Size(186, 37);
+            this.cbxFilterColumn.Size = new System.Drawing.Size(121, 28);
             this.cbxFilterColumn.TabIndex = 11;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(546, 451);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtSearch.Location = new System.Drawing.Point(351, 311);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(418, 35);
+            this.txtSearch.Size = new System.Drawing.Size(270, 26);
             this.txtSearch.TabIndex = 10;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -121,29 +117,27 @@
             // 
             this.ucPicture1.Filename = null;
             this.ucPicture1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPicture1.Location = new System.Drawing.Point(1461, 23);
-            this.ucPicture1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.ucPicture1.Location = new System.Drawing.Point(939, 16);
+            this.ucPicture1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPicture1.Name = "ucPicture1";
-            this.ucPicture1.Size = new System.Drawing.Size(415, 442);
+            this.ucPicture1.Size = new System.Drawing.Size(267, 305);
             this.ucPicture1.TabIndex = 7;
             // 
             // lblPlaces
             // 
             this.lblPlaces.AutoSize = true;
-            this.lblPlaces.Location = new System.Drawing.Point(26, 464);
-            this.lblPlaces.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblPlaces.Location = new System.Drawing.Point(17, 320);
             this.lblPlaces.Name = "lblPlaces";
-            this.lblPlaces.Size = new System.Drawing.Size(86, 29);
+            this.lblPlaces.Size = new System.Drawing.Size(56, 20);
             this.lblPlaces.TabIndex = 6;
             this.lblPlaces.Text = "Places";
             // 
             // lblDiaryEntries
             // 
             this.lblDiaryEntries.AutoSize = true;
-            this.lblDiaryEntries.Location = new System.Drawing.Point(100, 58);
-            this.lblDiaryEntries.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblDiaryEntries.Location = new System.Drawing.Point(64, 40);
             this.lblDiaryEntries.Name = "lblDiaryEntries";
-            this.lblDiaryEntries.Size = new System.Drawing.Size(149, 29);
+            this.lblDiaryEntries.Size = new System.Drawing.Size(99, 20);
             this.lblDiaryEntries.TabIndex = 5;
             this.lblDiaryEntries.Text = "Diary Entries";
             // 
@@ -161,25 +155,84 @@
             this.questsIDDataGridViewTextBoxColumn,
             this.Delete});
             this.dbgrdDiary.DataSource = this.diaryBindingSource;
-            this.dbgrdDiary.Location = new System.Drawing.Point(106, 94);
-            this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.dbgrdDiary.Location = new System.Drawing.Point(68, 65);
+            this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dbgrdDiary.Size = new System.Drawing.Size(1319, 335);
+            this.dbgrdDiary.Size = new System.Drawing.Size(848, 231);
             this.dbgrdDiary.TabIndex = 4;
             this.dbgrdDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellContentClick);
             this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
             this.dbgrdDiary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdDiary_KeyDown);
             // 
+            // sessionIDDataGridViewTextBoxColumn
+            // 
+            this.sessionIDDataGridViewTextBoxColumn.DataPropertyName = "SessionID";
+            this.sessionIDDataGridViewTextBoxColumn.HeaderText = "S";
+            this.sessionIDDataGridViewTextBoxColumn.Name = "sessionIDDataGridViewTextBoxColumn";
+            this.sessionIDDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // ingameDayDataGridViewTextBoxColumn
+            // 
+            this.ingameDayDataGridViewTextBoxColumn.DataPropertyName = "IngameDay";
+            this.ingameDayDataGridViewTextBoxColumn.HeaderText = "IngameDay";
+            this.ingameDayDataGridViewTextBoxColumn.Name = "ingameDayDataGridViewTextBoxColumn";
+            // 
+            // entryDataGridViewTextBoxColumn
+            // 
+            this.entryDataGridViewTextBoxColumn.DataPropertyName = "Entry";
+            this.entryDataGridViewTextBoxColumn.HeaderText = "Entry";
+            this.entryDataGridViewTextBoxColumn.Name = "entryDataGridViewTextBoxColumn";
+            // 
+            // PeopleString
+            // 
+            this.PeopleString.DataPropertyName = "PeopleString";
+            this.PeopleString.HeaderText = "People";
+            this.PeopleString.Name = "PeopleString";
+            this.PeopleString.ReadOnly = true;
+            // 
+            // itemsIDDataGridViewTextBoxColumn
+            // 
+            this.itemsIDDataGridViewTextBoxColumn.DataPropertyName = "Items_ID";
+            this.itemsIDDataGridViewTextBoxColumn.DataSource = this.itemBindingSource;
+            this.itemsIDDataGridViewTextBoxColumn.DisplayMember = "Name";
+            this.itemsIDDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.itemsIDDataGridViewTextBoxColumn.Name = "itemsIDDataGridViewTextBoxColumn";
+            this.itemsIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.itemsIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.itemsIDDataGridViewTextBoxColumn.ValueMember = "ID";
+            this.itemsIDDataGridViewTextBoxColumn.Width = 150;
+            // 
             // itemBindingSource
             // 
             this.itemBindingSource.DataSource = typeof(MainForm.Item);
             // 
+            // questsIDDataGridViewTextBoxColumn
+            // 
+            this.questsIDDataGridViewTextBoxColumn.DataPropertyName = "Quests_ID";
+            this.questsIDDataGridViewTextBoxColumn.DataSource = this.questBindingSource;
+            this.questsIDDataGridViewTextBoxColumn.DisplayMember = "Name";
+            this.questsIDDataGridViewTextBoxColumn.HeaderText = "Quest";
+            this.questsIDDataGridViewTextBoxColumn.Name = "questsIDDataGridViewTextBoxColumn";
+            this.questsIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.questsIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.questsIDDataGridViewTextBoxColumn.ValueMember = "ID";
+            this.questsIDDataGridViewTextBoxColumn.Width = 150;
+            // 
             // questBindingSource
             // 
             this.questBindingSource.DataSource = typeof(MainForm.Quest);
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.Text = "X";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 70;
             // 
             // diaryBindingSource
             // 
@@ -199,12 +252,11 @@
             this.comment2DataGridViewTextBoxColumn,
             this.DeletePlace});
             this.dbgrdPlaces.DataSource = this.placeBindingSource;
-            this.dbgrdPlaces.Location = new System.Drawing.Point(33, 497);
-            this.dbgrdPlaces.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dbgrdPlaces.Location = new System.Drawing.Point(21, 343);
             this.dbgrdPlaces.Name = "dbgrdPlaces";
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dbgrdPlaces.Size = new System.Drawing.Size(1526, 341);
+            this.dbgrdPlaces.Size = new System.Drawing.Size(981, 235);
             this.dbgrdPlaces.TabIndex = 0;
             this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
             this.dbgrdPlaces.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellContentClick);
@@ -257,68 +309,9 @@
             this.DeletePlace.UseColumnTextForButtonValue = true;
             this.DeletePlace.Width = 70;
             // 
-            // sessionIDDataGridViewTextBoxColumn
-            // 
-            this.sessionIDDataGridViewTextBoxColumn.DataPropertyName = "SessionID";
-            this.sessionIDDataGridViewTextBoxColumn.HeaderText = "S";
-            this.sessionIDDataGridViewTextBoxColumn.Name = "sessionIDDataGridViewTextBoxColumn";
-            this.sessionIDDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // ingameDayDataGridViewTextBoxColumn
-            // 
-            this.ingameDayDataGridViewTextBoxColumn.DataPropertyName = "IngameDay";
-            this.ingameDayDataGridViewTextBoxColumn.HeaderText = "IngameDay";
-            this.ingameDayDataGridViewTextBoxColumn.Name = "ingameDayDataGridViewTextBoxColumn";
-            // 
-            // entryDataGridViewTextBoxColumn
-            // 
-            this.entryDataGridViewTextBoxColumn.DataPropertyName = "Entry";
-            this.entryDataGridViewTextBoxColumn.HeaderText = "Entry";
-            this.entryDataGridViewTextBoxColumn.Name = "entryDataGridViewTextBoxColumn";
-            // 
-            // PeopleString
-            // 
-            this.PeopleString.DataPropertyName = "PeopleString";
-            this.PeopleString.HeaderText = "People";
-            this.PeopleString.Name = "PeopleString";
-            this.PeopleString.ReadOnly = true;
-            // 
-            // itemsIDDataGridViewTextBoxColumn
-            // 
-            this.itemsIDDataGridViewTextBoxColumn.DataPropertyName = "Items_ID";
-            this.itemsIDDataGridViewTextBoxColumn.DataSource = this.itemBindingSource;
-            this.itemsIDDataGridViewTextBoxColumn.DisplayMember = "Name";
-            this.itemsIDDataGridViewTextBoxColumn.HeaderText = "Item";
-            this.itemsIDDataGridViewTextBoxColumn.Name = "itemsIDDataGridViewTextBoxColumn";
-            this.itemsIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.itemsIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.itemsIDDataGridViewTextBoxColumn.ValueMember = "ID";
-            this.itemsIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // questsIDDataGridViewTextBoxColumn
-            // 
-            this.questsIDDataGridViewTextBoxColumn.DataPropertyName = "Quests_ID";
-            this.questsIDDataGridViewTextBoxColumn.DataSource = this.questBindingSource;
-            this.questsIDDataGridViewTextBoxColumn.DisplayMember = "Name";
-            this.questsIDDataGridViewTextBoxColumn.HeaderText = "Quest";
-            this.questsIDDataGridViewTextBoxColumn.Name = "questsIDDataGridViewTextBoxColumn";
-            this.questsIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.questsIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.questsIDDataGridViewTextBoxColumn.ValueMember = "ID";
-            this.questsIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.Text = "X";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 70;
-            // 
             // ucPlace
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblDetails);
             this.Controls.Add(this.txtDetails);
@@ -329,9 +322,9 @@
             this.Controls.Add(this.lblDiaryEntries);
             this.Controls.Add(this.dbgrdDiary);
             this.Controls.Add(this.dbgrdPlaces);
-            this.Margin = new System.Windows.Forms.Padding(12, 9, 12, 9);
+            this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "ucPlace";
-            this.Size = new System.Drawing.Size(1938, 900);
+            this.Size = new System.Drawing.Size(1252, 630);
             this.Load += new System.EventHandler(this.ucPlace_Load);
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
