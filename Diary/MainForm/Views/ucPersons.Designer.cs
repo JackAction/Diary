@@ -125,7 +125,7 @@
             // 
             this.lblDiaryEntries.AutoSize = true;
             this.lblDiaryEntries.Location = new System.Drawing.Point(3, 4);
-            this.lblDiaryEntries.MaximumSize = new System.Drawing.Size(780, 138);
+            this.lblDiaryEntries.MaximumSize = new System.Drawing.Size(780, 190);
             this.lblDiaryEntries.Name = "lblDiaryEntries";
             this.lblDiaryEntries.Size = new System.Drawing.Size(235, 20);
             this.lblDiaryEntries.TabIndex = 3;

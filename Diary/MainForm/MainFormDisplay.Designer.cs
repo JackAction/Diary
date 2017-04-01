@@ -110,9 +110,9 @@
             // 
             this.btnUpdatePeopleForDiaryEntry.BackColor = System.Drawing.Color.LawnGreen;
             this.btnUpdatePeopleForDiaryEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdatePeopleForDiaryEntry.Location = new System.Drawing.Point(220, 92);
+            this.btnUpdatePeopleForDiaryEntry.Location = new System.Drawing.Point(257, 210);
             this.btnUpdatePeopleForDiaryEntry.Name = "btnUpdatePeopleForDiaryEntry";
-            this.btnUpdatePeopleForDiaryEntry.Size = new System.Drawing.Size(323, 131);
+            this.btnUpdatePeopleForDiaryEntry.Size = new System.Drawing.Size(323, 39);
             this.btnUpdatePeopleForDiaryEntry.TabIndex = 1;
             this.btnUpdatePeopleForDiaryEntry.Text = "Update and return to Diary";
             this.btnUpdatePeopleForDiaryEntry.UseVisualStyleBackColor = false;
