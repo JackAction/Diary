@@ -8,6 +8,18 @@ namespace MainForm
 {
     static class Program
     {
+        public static MainFormDisplay MainFormDisplay
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
