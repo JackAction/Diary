@@ -262,6 +262,11 @@ namespace MainForm
 
         private void dbgrdDiary_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            activateComboBoxOnFirstClick(sender, e);
+        }
+
+        private void activateComboBoxOnFirstClick(object sender, DataGridViewCellEventArgs e)
+        {
             // How to activate combobox on first click (Datagridview):
             // http://stackoverflow.com/questions/13005112/how-to-activate-combobox-on-first-click-datagridview?noredirect=1&lq=1
 

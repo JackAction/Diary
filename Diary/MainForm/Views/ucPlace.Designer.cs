@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblDetails = new System.Windows.Forms.Label();
             this.txtDetails = new System.Windows.Forms.TextBox();
             this.placeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -158,11 +158,12 @@
             this.dbgrdDiary.Location = new System.Drawing.Point(0, 32);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dbgrdDiary.Size = new System.Drawing.Size(965, 221);
             this.dbgrdDiary.TabIndex = 4;
             this.dbgrdDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellContentClick);
+            this.dbgrdDiary.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellEnter);
             this.dbgrdDiary.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dbgrdDiary_DataError);
             this.dbgrdDiary.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdDiary_RowsAdded);
             this.dbgrdDiary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdDiary_KeyDown);
@@ -257,8 +258,8 @@
             this.dbgrdPlaces.DataSource = this.placeBindingSource;
             this.dbgrdPlaces.Location = new System.Drawing.Point(0, 295);
             this.dbgrdPlaces.Name = "dbgrdPlaces";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dbgrdPlaces.Size = new System.Drawing.Size(965, 335);
             this.dbgrdPlaces.TabIndex = 0;
             this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
