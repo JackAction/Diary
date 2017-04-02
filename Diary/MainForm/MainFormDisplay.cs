@@ -62,40 +62,6 @@ namespace MainForm
             applicationState = ApplicationState.Started;
         }
 
-        /// <summary>
-        /// Event Handler Button: Datenbankbackup auf Dropbox speichern.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSaveDB_Click(object sender, EventArgs e)
-        {
-            entityManager.BackupDB();
-        }
-
-        /// <summary>
-        /// Event Handler Button: Lokale Datenbank laden
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLoadDB_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                applicationState = ApplicationState.DBInteraction;
-                entityManager.LoadDatafromDB();
-                setDatasourcess();
-                mstControl_SelectedIndexChanged(null, null);
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Datenbankverbindung konnte nicht hergestellt werden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } finally
-            {
-                applicationState = ApplicationState.DBLoaded;
-            }
-        }
-
         private void setDatasourcess()
         {
             ucPersons1.DataSourcePerson.DataSource = entityManager.GetPersons();
@@ -110,43 +76,6 @@ namespace MainForm
             ucPersons1.DataSourceQuest.DataSource = entityManager.GetQuests();
             ucPlace1.DataSourceItem.DataSource = entityManager.GetItems();
             ucPlace1.DataSourceQuest.DataSource = entityManager.GetQuests();
-        }
-
-        /// <summary>
-        /// Event Handler Button: Datenbankbackup von Dropbox laden.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLoadDBBackup_Click(object sender, EventArgs e)
-        {
-            entityManager.RestoreDB();
-            btnLoadDB_Click(null,null);
-        }
-
-        /// <summary>
-        /// Event Handler Button: Lokale Datenbank sichern
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                entityManager.SaveChangesToDB(); // Führt die änderungen auf dem db c# objekt effektiv auf der DB aus
-
-                //MessageBox.Show("Save success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            setDatasourcess();
-        }
-
-        private void btnDiscard_Click(object sender, EventArgs e)
-        {
-            entityManager.DiscardChanges();
-            setDatasourcess();
         }
 
         private void Diary_RowsAdded(object sender, EventArgs e)
@@ -279,11 +208,11 @@ namespace MainForm
                 {
                     case "tabDiary":
                         entityManager.AddPlaceEntry(ucDiary1.NewPlace);
-                        btnSave_Click(null, null);
+                        quickSaveToolStripMenuItem_Click(null, null);
                         break;
                     case "tabPerson":
                         entityManager.AddPlaceEntry(ucPersons1.NewPlace);
-                        btnSave_Click(null, null);
+                        quickSaveToolStripMenuItem_Click(null, null);
                         break;
                     case "tabPlaces":
                         entityManager.AddPlaceEntry((Place)ucPlace1.DataSourcePlace.Current);
@@ -317,7 +246,7 @@ namespace MainForm
                 {
                     case "tabDiary":
                         entityManager.AddItemEntry(ucDiary1.NewItem);
-                        btnSave_Click(null, null);
+                        quickSaveToolStripMenuItem_Click(null, null);
                         break;
                     default:
                         break;
@@ -333,7 +262,7 @@ namespace MainForm
                 {
                     case "tabDiary":
                         entityManager.AddQuestEntry(ucDiary1.NewQuest);
-                        btnSave_Click(null, null);
+                        quickSaveToolStripMenuItem_Click(null, null);
                         break;
                     default:
                         break;
@@ -387,7 +316,7 @@ namespace MainForm
             // Damit alles in DB gespeichert wird und aktuell ist 
             if (applicationState == ApplicationState.DBLoaded)
             {
-                btnSave_Click(null, null); 
+                quickSaveToolStripMenuItem_Click(null, null); 
             }
 
             switch (mstControl.SelectedTab.Name)
@@ -413,6 +342,75 @@ namespace MainForm
             }
         }
 
+        /// <summary>
+        /// Event Handler: Datenbankbackup von Dropbox laden.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loadBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            entityManager.RestoreDB();
+            loadBackupFromLocalToolStripMenuItem_Click(null, null);
+        }
 
+        /// <summary>
+        /// Event Handler: Lokale Datenbank laden.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void loadBackupFromLocalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                applicationState = ApplicationState.DBInteraction;
+                entityManager.LoadDatafromDB();
+                setDatasourcess();
+                mstControl_SelectedIndexChanged(null, null);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Datenbankverbindung konnte nicht hergestellt werden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                applicationState = ApplicationState.DBLoaded;
+            }
+        }
+
+        /// <summary>
+        /// Event Handler: Datenbankbackup auf Dropbox speichern.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveDropboxBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            entityManager.BackupDB();
+        }
+
+        /// <summary>
+        /// Event Handler: Lokale Datenbank sichern
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void quickSaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtSessionID.Focus();
+            try
+            {
+                entityManager.SaveChangesToDB();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            setDatasourcess();
+        }
+
+        private void quickDiscardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            entityManager.DiscardChanges();
+            setDatasourcess();
+        }
     }
 }

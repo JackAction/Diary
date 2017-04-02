@@ -291,7 +291,7 @@
             this.dbgrdPersons.Name = "dbgrdPersons";
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dbgrdPersons.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dbgrdPersons.Size = new System.Drawing.Size(1252, 260);
+            this.dbgrdPersons.Size = new System.Drawing.Size(1252, 278);
             this.dbgrdPersons.TabIndex = 0;
             this.dbgrdPersons.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellClick);
             this.dbgrdPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellContentClick);
@@ -400,7 +400,7 @@
             // 
             this.ucAddNewPlace1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewPlace1.Location = new System.Drawing.Point(208, 565);
+            this.ucAddNewPlace1.Location = new System.Drawing.Point(208, 583);
             this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucAddNewPlace1.Name = "ucAddNewPlace1";
             this.ucAddNewPlace1.Size = new System.Drawing.Size(1040, 60);
@@ -422,7 +422,7 @@
             this.Controls.Add(this.dbgrdPersons);
             this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "ucPersons";
-            this.Size = new System.Drawing.Size(1252, 630);
+            this.Size = new System.Drawing.Size(1252, 648);
             this.Load += new System.EventHandler(this.ucPersons_Load);
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();

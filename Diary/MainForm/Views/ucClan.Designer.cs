@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblDetails = new System.Windows.Forms.Label();
             this.txtDetails = new System.Windows.Forms.TextBox();
             this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -84,7 +84,7 @@
             this.txtDetails.Location = new System.Drawing.Point(981, 330);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
-            this.txtDetails.Size = new System.Drawing.Size(268, 297);
+            this.txtDetails.Size = new System.Drawing.Size(268, 318);
             this.txtDetails.TabIndex = 14;
             // 
             // clanBindingSource
@@ -168,8 +168,8 @@
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
             this.dbgrdDiary.ReadOnly = true;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdDiary.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dbgrdDiary.Size = new System.Drawing.Size(965, 221);
             this.dbgrdDiary.TabIndex = 2;
             // 
@@ -247,9 +247,9 @@
             this.dbgrdPersons.Location = new System.Drawing.Point(0, 295);
             this.dbgrdPersons.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdPersons.Name = "dbgrdPersons";
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdPersons.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dbgrdPersons.Size = new System.Drawing.Size(736, 335);
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdPersons.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dbgrdPersons.Size = new System.Drawing.Size(736, 353);
             this.dbgrdPersons.TabIndex = 1;
             this.dbgrdPersons.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellClick);
             this.dbgrdPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPersons_CellContentClick);
@@ -311,9 +311,9 @@
             this.dbgrdClans.Location = new System.Drawing.Point(744, 295);
             this.dbgrdClans.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdClans.Name = "dbgrdClans";
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dbgrdClans.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dbgrdClans.Size = new System.Drawing.Size(221, 335);
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dbgrdClans.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dbgrdClans.Size = new System.Drawing.Size(221, 353);
             this.dbgrdClans.TabIndex = 0;
             this.dbgrdClans.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdClans_CellClick);
             this.dbgrdClans.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdClans_CellContentClick);
@@ -352,7 +352,7 @@
             this.Controls.Add(this.dbgrdClans);
             this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "ucClan";
-            this.Size = new System.Drawing.Size(1252, 630);
+            this.Size = new System.Drawing.Size(1252, 648);
             this.Load += new System.EventHandler(this.ucClan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();

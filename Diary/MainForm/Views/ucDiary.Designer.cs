@@ -73,14 +73,14 @@
             "Place",
             "Item",
             "Quest"});
-            this.cbxFilterColumn.Location = new System.Drawing.Point(321, 453);
+            this.cbxFilterColumn.Location = new System.Drawing.Point(321, 471);
             this.cbxFilterColumn.Name = "cbxFilterColumn";
             this.cbxFilterColumn.Size = new System.Drawing.Size(160, 28);
             this.cbxFilterColumn.TabIndex = 9;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(488, 455);
+            this.txtSearch.Location = new System.Drawing.Point(488, 473);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(380, 26);
             this.txtSearch.TabIndex = 8;
@@ -121,7 +121,7 @@
             this.dbgrdDiary.Location = new System.Drawing.Point(0, 32);
             this.dbgrdDiary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dbgrdDiary.Name = "dbgrdDiary";
-            this.dbgrdDiary.Size = new System.Drawing.Size(1252, 415);
+            this.dbgrdDiary.Size = new System.Drawing.Size(1252, 431);
             this.dbgrdDiary.TabIndex = 0;
             this.dbgrdDiary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellClick);
             this.dbgrdDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdDiary_CellContentClick);
@@ -230,7 +230,7 @@
             // 
             this.ucAddNewQuest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAddNewQuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewQuest.Location = new System.Drawing.Point(944, 500);
+            this.ucAddNewQuest.Location = new System.Drawing.Point(944, 518);
             this.ucAddNewQuest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucAddNewQuest.Name = "ucAddNewQuest";
             this.ucAddNewQuest.Size = new System.Drawing.Size(304, 60);
@@ -241,7 +241,7 @@
             // 
             this.ucAddNewItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAddNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewItem.Location = new System.Drawing.Point(632, 500);
+            this.ucAddNewItem.Location = new System.Drawing.Point(632, 518);
             this.ucAddNewItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucAddNewItem.Name = "ucAddNewItem";
             this.ucAddNewItem.Size = new System.Drawing.Size(304, 60);
@@ -252,7 +252,7 @@
             // 
             this.ucAddNewPlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucAddNewPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewPlace.Location = new System.Drawing.Point(208, 565);
+            this.ucAddNewPlace.Location = new System.Drawing.Point(208, 583);
             this.ucAddNewPlace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucAddNewPlace.Name = "ucAddNewPlace";
             this.ucAddNewPlace.Size = new System.Drawing.Size(1040, 60);
@@ -279,7 +279,7 @@
             this.Controls.Add(this.dbgrdDiary);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ucDiary";
-            this.Size = new System.Drawing.Size(1252, 630);
+            this.Size = new System.Drawing.Size(1252, 648);
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();

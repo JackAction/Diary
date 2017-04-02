@@ -32,27 +32,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormDisplay));
             this.mstControl = new System.Windows.Forms.TabControl();
             this.tabDiary = new System.Windows.Forms.TabPage();
-            this.ucDiary1 = new MainForm.ucDiary();
             this.tabPerson = new System.Windows.Forms.TabPage();
             this.btnUpdatePeopleForDiaryEntry = new System.Windows.Forms.Button();
-            this.ucPersons1 = new MainForm.ucPersons();
             this.tabClans = new System.Windows.Forms.TabPage();
-            this.ucClan1 = new MainForm.ucClan();
             this.tabPlaces = new System.Windows.Forms.TabPage();
-            this.ucPlace1 = new MainForm.ucPlace();
-            this.btnSaveDB = new System.Windows.Forms.Button();
-            this.btnLoadDB = new System.Windows.Forms.Button();
-            this.btnLoadDBBackup = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDiscard = new System.Windows.Forms.Button();
             this.lblSessionID = new System.Windows.Forms.Label();
             this.txtSessionID = new System.Windows.Forms.NumericUpDown();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadBackupFromLocalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveDropboxBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickDiscardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucDiary1 = new MainForm.ucDiary();
+            this.ucPersons1 = new MainForm.ucPersons();
+            this.ucClan1 = new MainForm.ucClan();
+            this.ucPlace1 = new MainForm.ucPlace();
             this.mstControl.SuspendLayout();
             this.tabDiary.SuspendLayout();
             this.tabPerson.SuspendLayout();
             this.tabClans.SuspendLayout();
             this.tabPlaces.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSessionID)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mstControl
@@ -64,10 +68,10 @@
             this.mstControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mstControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mstControl.ItemSize = new System.Drawing.Size(200, 45);
-            this.mstControl.Location = new System.Drawing.Point(0, 54);
+            this.mstControl.Location = new System.Drawing.Point(0, 36);
             this.mstControl.Name = "mstControl";
             this.mstControl.SelectedIndex = 0;
-            this.mstControl.Size = new System.Drawing.Size(1266, 689);
+            this.mstControl.Size = new System.Drawing.Size(1266, 707);
             this.mstControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mstControl.TabIndex = 0;
             this.mstControl.SelectedIndexChanged += new System.EventHandler(this.mstControl_SelectedIndexChanged);
@@ -78,21 +82,10 @@
             this.tabDiary.Location = new System.Drawing.Point(4, 49);
             this.tabDiary.Name = "tabDiary";
             this.tabDiary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDiary.Size = new System.Drawing.Size(1258, 636);
+            this.tabDiary.Size = new System.Drawing.Size(1258, 654);
             this.tabDiary.TabIndex = 0;
             this.tabDiary.Text = "Diary";
             this.tabDiary.UseVisualStyleBackColor = true;
-            // 
-            // ucDiary1
-            // 
-            this.ucDiary1.AutoSize = true;
-            this.ucDiary1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucDiary1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucDiary1.Location = new System.Drawing.Point(3, 3);
-            this.ucDiary1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucDiary1.Name = "ucDiary1";
-            this.ucDiary1.Size = new System.Drawing.Size(1252, 630);
-            this.ucDiary1.TabIndex = 0;
             // 
             // tabPerson
             // 
@@ -101,7 +94,7 @@
             this.tabPerson.Location = new System.Drawing.Point(4, 49);
             this.tabPerson.Name = "tabPerson";
             this.tabPerson.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPerson.Size = new System.Drawing.Size(1258, 636);
+            this.tabPerson.Size = new System.Drawing.Size(1258, 654);
             this.tabPerson.TabIndex = 1;
             this.tabPerson.Text = "People";
             this.tabPerson.UseVisualStyleBackColor = true;
@@ -119,6 +112,130 @@
             this.btnUpdatePeopleForDiaryEntry.Visible = false;
             this.btnUpdatePeopleForDiaryEntry.Click += new System.EventHandler(this.btnAddPeopleToDiary_Click);
             // 
+            // tabClans
+            // 
+            this.tabClans.Controls.Add(this.ucClan1);
+            this.tabClans.Location = new System.Drawing.Point(4, 49);
+            this.tabClans.Name = "tabClans";
+            this.tabClans.Padding = new System.Windows.Forms.Padding(3);
+            this.tabClans.Size = new System.Drawing.Size(1258, 654);
+            this.tabClans.TabIndex = 2;
+            this.tabClans.Text = "Clans";
+            this.tabClans.UseVisualStyleBackColor = true;
+            // 
+            // tabPlaces
+            // 
+            this.tabPlaces.Controls.Add(this.ucPlace1);
+            this.tabPlaces.Location = new System.Drawing.Point(4, 49);
+            this.tabPlaces.Name = "tabPlaces";
+            this.tabPlaces.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlaces.Size = new System.Drawing.Size(1258, 654);
+            this.tabPlaces.TabIndex = 3;
+            this.tabPlaces.Text = "Places";
+            this.tabPlaces.UseVisualStyleBackColor = true;
+            // 
+            // lblSessionID
+            // 
+            this.lblSessionID.AutoSize = true;
+            this.lblSessionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSessionID.Location = new System.Drawing.Point(167, 6);
+            this.lblSessionID.Name = "lblSessionID";
+            this.lblSessionID.Size = new System.Drawing.Size(90, 20);
+            this.lblSessionID.TabIndex = 3;
+            this.lblSessionID.Text = "Session Nr:";
+            // 
+            // txtSessionID
+            // 
+            this.txtSessionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSessionID.Location = new System.Drawing.Point(261, 4);
+            this.txtSessionID.Name = "txtSessionID";
+            this.txtSessionID.Size = new System.Drawing.Size(42, 26);
+            this.txtSessionID.TabIndex = 5;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.quickDiscardToolStripMenuItem,
+            this.quickSaveToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1266, 29);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadBackupFromLocalToolStripMenuItem,
+            this.loadBackupToolStripMenuItem});
+            this.loadToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
+            this.loadToolStripMenuItem.Text = "Load DB";
+            // 
+            // loadBackupFromLocalToolStripMenuItem
+            // 
+            this.loadBackupFromLocalToolStripMenuItem.Name = "loadBackupFromLocalToolStripMenuItem";
+            this.loadBackupFromLocalToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.loadBackupFromLocalToolStripMenuItem.Text = "Load local Database";
+            this.loadBackupFromLocalToolStripMenuItem.Click += new System.EventHandler(this.loadBackupFromLocalToolStripMenuItem_Click);
+            // 
+            // loadBackupToolStripMenuItem
+            // 
+            this.loadBackupToolStripMenuItem.Name = "loadBackupToolStripMenuItem";
+            this.loadBackupToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.loadBackupToolStripMenuItem.Text = "Load Dropbox Backup";
+            this.loadBackupToolStripMenuItem.Click += new System.EventHandler(this.loadBackupToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveDropboxBackupToolStripMenuItem});
+            this.saveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(79, 25);
+            this.saveToolStripMenuItem.Text = "Save DB";
+            // 
+            // saveDropboxBackupToolStripMenuItem
+            // 
+            this.saveDropboxBackupToolStripMenuItem.Name = "saveDropboxBackupToolStripMenuItem";
+            this.saveDropboxBackupToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.saveDropboxBackupToolStripMenuItem.Text = "Save Dropbox Backup";
+            this.saveDropboxBackupToolStripMenuItem.Click += new System.EventHandler(this.saveDropboxBackupToolStripMenuItem_Click);
+            // 
+            // quickDiscardToolStripMenuItem
+            // 
+            this.quickDiscardToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.quickDiscardToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.quickDiscardToolStripMenuItem.Name = "quickDiscardToolStripMenuItem";
+            this.quickDiscardToolStripMenuItem.Size = new System.Drawing.Size(118, 25);
+            this.quickDiscardToolStripMenuItem.Text = "Quick Discard";
+            this.quickDiscardToolStripMenuItem.ToolTipText = "\r\n";
+            this.quickDiscardToolStripMenuItem.Click += new System.EventHandler(this.quickDiscardToolStripMenuItem_Click);
+            // 
+            // quickSaveToolStripMenuItem
+            // 
+            this.quickSaveToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.quickSaveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
+            this.quickSaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
+            this.quickSaveToolStripMenuItem.Text = "Quick Save";
+            this.quickSaveToolStripMenuItem.Click += new System.EventHandler(this.quickSaveToolStripMenuItem_Click);
+            // 
+            // ucDiary1
+            // 
+            this.ucDiary1.AutoSize = true;
+            this.ucDiary1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucDiary1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucDiary1.Location = new System.Drawing.Point(3, 3);
+            this.ucDiary1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucDiary1.Name = "ucDiary1";
+            this.ucDiary1.Size = new System.Drawing.Size(1252, 648);
+            this.ucDiary1.TabIndex = 0;
+            // 
             // ucPersons1
             // 
             this.ucPersons1.AutoSize = true;
@@ -127,19 +244,8 @@
             this.ucPersons1.Location = new System.Drawing.Point(3, 3);
             this.ucPersons1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucPersons1.Name = "ucPersons1";
-            this.ucPersons1.Size = new System.Drawing.Size(1252, 630);
+            this.ucPersons1.Size = new System.Drawing.Size(1252, 648);
             this.ucPersons1.TabIndex = 0;
-            // 
-            // tabClans
-            // 
-            this.tabClans.Controls.Add(this.ucClan1);
-            this.tabClans.Location = new System.Drawing.Point(4, 49);
-            this.tabClans.Name = "tabClans";
-            this.tabClans.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClans.Size = new System.Drawing.Size(1258, 636);
-            this.tabClans.TabIndex = 2;
-            this.tabClans.Text = "Clans";
-            this.tabClans.UseVisualStyleBackColor = true;
             // 
             // ucClan1
             // 
@@ -149,19 +255,8 @@
             this.ucClan1.Location = new System.Drawing.Point(3, 3);
             this.ucClan1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucClan1.Name = "ucClan1";
-            this.ucClan1.Size = new System.Drawing.Size(1252, 630);
+            this.ucClan1.Size = new System.Drawing.Size(1252, 648);
             this.ucClan1.TabIndex = 0;
-            // 
-            // tabPlaces
-            // 
-            this.tabPlaces.Controls.Add(this.ucPlace1);
-            this.tabPlaces.Location = new System.Drawing.Point(4, 49);
-            this.tabPlaces.Name = "tabPlaces";
-            this.tabPlaces.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlaces.Size = new System.Drawing.Size(1258, 636);
-            this.tabPlaces.TabIndex = 3;
-            this.tabPlaces.Text = "Places";
-            this.tabPlaces.UseVisualStyleBackColor = true;
             // 
             // ucPlace1
             // 
@@ -171,76 +266,8 @@
             this.ucPlace1.Location = new System.Drawing.Point(3, 3);
             this.ucPlace1.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.ucPlace1.Name = "ucPlace1";
-            this.ucPlace1.Size = new System.Drawing.Size(1252, 630);
+            this.ucPlace1.Size = new System.Drawing.Size(1252, 648);
             this.ucPlace1.TabIndex = 0;
-            // 
-            // btnSaveDB
-            // 
-            this.btnSaveDB.Location = new System.Drawing.Point(935, 13);
-            this.btnSaveDB.Name = "btnSaveDB";
-            this.btnSaveDB.Size = new System.Drawing.Size(125, 36);
-            this.btnSaveDB.TabIndex = 1;
-            this.btnSaveDB.Text = "Datenbank Backup speichern";
-            this.btnSaveDB.UseVisualStyleBackColor = true;
-            this.btnSaveDB.Click += new System.EventHandler(this.btnSaveDB_Click);
-            // 
-            // btnLoadDB
-            // 
-            this.btnLoadDB.Location = new System.Drawing.Point(802, 13);
-            this.btnLoadDB.Name = "btnLoadDB";
-            this.btnLoadDB.Size = new System.Drawing.Size(127, 36);
-            this.btnLoadDB.TabIndex = 1;
-            this.btnLoadDB.Text = "Daten aus lokaler Datenbank laden";
-            this.btnLoadDB.UseVisualStyleBackColor = true;
-            this.btnLoadDB.Click += new System.EventHandler(this.btnLoadDB_Click);
-            // 
-            // btnLoadDBBackup
-            // 
-            this.btnLoadDBBackup.Location = new System.Drawing.Point(667, 13);
-            this.btnLoadDBBackup.Name = "btnLoadDBBackup";
-            this.btnLoadDBBackup.Size = new System.Drawing.Size(129, 36);
-            this.btnLoadDBBackup.TabIndex = 1;
-            this.btnLoadDBBackup.Text = "Datenbank Backup laden";
-            this.btnLoadDBBackup.UseVisualStyleBackColor = true;
-            this.btnLoadDBBackup.Click += new System.EventHandler(this.btnLoadDBBackup_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(286, 13);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(89, 36);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnDiscard
-            // 
-            this.btnDiscard.Location = new System.Drawing.Point(379, 13);
-            this.btnDiscard.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDiscard.Name = "btnDiscard";
-            this.btnDiscard.Size = new System.Drawing.Size(89, 36);
-            this.btnDiscard.TabIndex = 2;
-            this.btnDiscard.Text = "Discard";
-            this.btnDiscard.UseVisualStyleBackColor = true;
-            this.btnDiscard.Click += new System.EventHandler(this.btnDiscard_Click);
-            // 
-            // lblSessionID
-            // 
-            this.lblSessionID.AutoSize = true;
-            this.lblSessionID.Location = new System.Drawing.Point(13, 13);
-            this.lblSessionID.Name = "lblSessionID";
-            this.lblSessionID.Size = new System.Drawing.Size(61, 13);
-            this.lblSessionID.TabIndex = 3;
-            this.lblSessionID.Text = "Session Nr:";
-            // 
-            // txtSessionID
-            // 
-            this.txtSessionID.Location = new System.Drawing.Point(80, 11);
-            this.txtSessionID.Name = "txtSessionID";
-            this.txtSessionID.Size = new System.Drawing.Size(42, 20);
-            this.txtSessionID.TabIndex = 5;
             // 
             // MainFormDisplay
             // 
@@ -249,13 +276,10 @@
             this.ClientSize = new System.Drawing.Size(1266, 743);
             this.Controls.Add(this.txtSessionID);
             this.Controls.Add(this.lblSessionID);
-            this.Controls.Add(this.btnDiscard);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnLoadDBBackup);
-            this.Controls.Add(this.btnLoadDB);
-            this.Controls.Add(this.btnSaveDB);
             this.Controls.Add(this.mstControl);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFormDisplay";
             this.Text = "D&D Diary";
             this.Load += new System.EventHandler(this.MainFormDisplay_Load);
@@ -269,6 +293,8 @@
             this.tabPlaces.ResumeLayout(false);
             this.tabPlaces.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSessionID)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,17 +308,20 @@
         private ucPersons ucPersons1;
         private ucDiary ucDiary1;
         private System.Windows.Forms.TabPage tabClans;
-        private System.Windows.Forms.Button btnSaveDB;
-        private System.Windows.Forms.Button btnLoadDB;
-        private System.Windows.Forms.Button btnLoadDBBackup;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnDiscard;
         private ucClan ucClan1;
         private System.Windows.Forms.TabPage tabPlaces;
         private ucPlace ucPlace1;
         private System.Windows.Forms.Label lblSessionID;
         private System.Windows.Forms.NumericUpDown txtSessionID;
         private System.Windows.Forms.Button btnUpdatePeopleForDiaryEntry;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadBackupFromLocalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveDropboxBackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quickSaveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quickDiscardToolStripMenuItem;
     }
 }
 

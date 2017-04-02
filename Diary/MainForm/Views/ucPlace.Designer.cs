@@ -81,7 +81,7 @@
             this.txtDetails.Location = new System.Drawing.Point(981, 330);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
-            this.txtDetails.Size = new System.Drawing.Size(267, 297);
+            this.txtDetails.Size = new System.Drawing.Size(267, 318);
             this.txtDetails.TabIndex = 13;
             // 
             // placeBindingSource
@@ -260,7 +260,7 @@
             this.dbgrdPlaces.Name = "dbgrdPlaces";
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dbgrdPlaces.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dbgrdPlaces.Size = new System.Drawing.Size(965, 335);
+            this.dbgrdPlaces.Size = new System.Drawing.Size(965, 353);
             this.dbgrdPlaces.TabIndex = 0;
             this.dbgrdPlaces.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellClick);
             this.dbgrdPlaces.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbgrdPlaces_CellContentClick);
@@ -328,7 +328,7 @@
             this.Controls.Add(this.dbgrdPlaces);
             this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "ucPlace";
-            this.Size = new System.Drawing.Size(1252, 630);
+            this.Size = new System.Drawing.Size(1252, 648);
             this.Load += new System.EventHandler(this.ucPlace_Load);
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).EndInit();
