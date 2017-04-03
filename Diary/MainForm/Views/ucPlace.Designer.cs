@@ -272,36 +272,42 @@
             this.continentDataGridViewTextBoxColumn.DataPropertyName = "Continent";
             this.continentDataGridViewTextBoxColumn.HeaderText = "Continent";
             this.continentDataGridViewTextBoxColumn.Name = "continentDataGridViewTextBoxColumn";
+            this.continentDataGridViewTextBoxColumn.Width = 130;
             // 
             // cityDataGridViewTextBoxColumn
             // 
             this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
             this.cityDataGridViewTextBoxColumn.HeaderText = "City";
             this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.cityDataGridViewTextBoxColumn.Width = 130;
             // 
             // districtDataGridViewTextBoxColumn
             // 
             this.districtDataGridViewTextBoxColumn.DataPropertyName = "District";
             this.districtDataGridViewTextBoxColumn.HeaderText = "District";
             this.districtDataGridViewTextBoxColumn.Name = "districtDataGridViewTextBoxColumn";
+            this.districtDataGridViewTextBoxColumn.Width = 130;
             // 
             // buildingDataGridViewTextBoxColumn
             // 
             this.buildingDataGridViewTextBoxColumn.DataPropertyName = "Building";
             this.buildingDataGridViewTextBoxColumn.HeaderText = "Building";
             this.buildingDataGridViewTextBoxColumn.Name = "buildingDataGridViewTextBoxColumn";
+            this.buildingDataGridViewTextBoxColumn.Width = 130;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 185;
             // 
             // comment2DataGridViewTextBoxColumn
             // 
             this.comment2DataGridViewTextBoxColumn.DataPropertyName = "Comment_2";
             this.comment2DataGridViewTextBoxColumn.HeaderText = "Comment";
             this.comment2DataGridViewTextBoxColumn.Name = "comment2DataGridViewTextBoxColumn";
+            this.comment2DataGridViewTextBoxColumn.Width = 200;
             // 
             // DeletePlace
             // 
@@ -356,13 +362,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtDetails;
         private System.Windows.Forms.Label lblDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn continentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn districtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buildingDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn DeletePlace;
         private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
@@ -370,5 +369,12 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn itemsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn questsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn continentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn districtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buildingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DeletePlace;
     }
 }
