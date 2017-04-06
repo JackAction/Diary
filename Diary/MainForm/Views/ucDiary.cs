@@ -53,7 +53,8 @@ namespace MainForm
 
         private void dbgrdDiary_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > diaryBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > diaryBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 DiaryRowAdded?.Invoke(sender, e);
             }

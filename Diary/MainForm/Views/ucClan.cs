@@ -40,7 +40,8 @@ namespace MainForm
 
         private void dbgrdClans_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > clanBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > clanBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 ClanRowAdded?.Invoke(sender, e);
             }
@@ -56,7 +57,8 @@ namespace MainForm
 
         private void LinkNewlyAddedPersonRowToCurrentClan(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > personBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > personBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 Clan obj = clanBindingSource.Current as Clan;
                 if (obj != null)
@@ -229,7 +231,7 @@ namespace MainForm
 
         public void ShowMembers()
         {
-            Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+            Clan obj = clanBindingSource.Current as Clan;
             if (obj != null)
             {
                 if (obj.People != null)
@@ -247,7 +249,7 @@ namespace MainForm
         {
             if (personBindingSource.Count > 0)
             {
-                Person obj = personBindingSource.Current as Person; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+                Person obj = personBindingSource.Current as Person;
                 if (obj.Diaries != null)
                 {
                     diaryBindingSource.DataSource = obj.Diaries.ToList();
@@ -261,7 +263,7 @@ namespace MainForm
 
         public void ShowPicture()
         {
-            Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+            Clan obj = clanBindingSource.Current as Clan;
             if (obj != null)
             {
                 ucPicture1.Image = obj.Picture;

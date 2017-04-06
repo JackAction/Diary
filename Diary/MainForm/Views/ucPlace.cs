@@ -52,7 +52,8 @@ namespace MainForm
 
         private void dbgrdPlaces_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > placeBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > placeBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 PlaceRowAdded?.Invoke(sender, e);
             }
@@ -63,7 +64,8 @@ namespace MainForm
 
         private void dbgrdDiary_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > diaryBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > diaryBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 LinkNewlyAddedDiaryRowToCurrentPlace();
                 DiaryRowAdded?.Invoke(sender, e);
@@ -260,7 +262,7 @@ namespace MainForm
 
         public void ShowDiaryEntries()
         {
-            Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+            Place obj = placeBindingSource.Current as Place;
             if (obj != null)
             {
                 if (obj.Diaries != null)
@@ -276,7 +278,7 @@ namespace MainForm
 
         public void ShowPicture()
         {
-            Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
+            Place obj = placeBindingSource.Current as Place;
             if (obj != null)
             {
                 ucPicture1.Image = obj.Picture;
