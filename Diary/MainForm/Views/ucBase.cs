@@ -17,9 +17,14 @@ namespace MainForm
             InitializeComponent();
         }
 
-        public void RaiseErrorMessageForSessionID()
+        public void RaiseErrorMessageForSessionID(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            bool errorColumnIsSessionID = e.ColumnIndex == 0 ? true : false;
+
+            if (errorColumnIsSessionID)
+            {
+                MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
         }
 
         public void ActivateComboBoxOnFirstClick(object sender, DataGridViewCellEventArgs e)
