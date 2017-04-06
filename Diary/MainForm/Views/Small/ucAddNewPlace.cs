@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MainForm
@@ -22,7 +17,13 @@ namespace MainForm
         {
             get
             {
-                Place tmp = new Place { Continent = txtContinent.Text, City = txtCity.Text, District = txtDistrict.Text, Building = txtBuilding.Text, Name = txtName.Text };
+                Place tmp = new Place {
+                                        Continent = txtContinent.Text,
+                                        City = txtCity.Text,
+                                        District = txtDistrict.Text,
+                                        Building = txtBuilding.Text,
+                                        Name = txtName.Text
+                                      };
                 return tmp;
             }
         }

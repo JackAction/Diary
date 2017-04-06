@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MainForm
 {
@@ -61,7 +59,7 @@ namespace MainForm
 
         public List<Person> GetPersons()
         {
-            return db.People.ToList(); //Wird include benötitg? .Include("Clan")
+            return db.People.ToList();
         }
 
         public List<Diary> GetDiaryEntries()

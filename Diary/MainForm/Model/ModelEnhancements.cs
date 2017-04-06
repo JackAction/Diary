@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MainForm
+﻿namespace MainForm
 {
     class ModelEnhancements
     {
@@ -16,7 +10,7 @@ namespace MainForm
         {
             get
             {
-                return String.Join(", ", People);
+                return string.Join(", ", People);
             }
         }
         public override string ToString()
