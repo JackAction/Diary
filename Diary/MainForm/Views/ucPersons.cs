@@ -348,7 +348,7 @@ namespace MainForm
 
         private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-                RaiseErrorMessageForSessionID(sender, e);
+            RaiseErrorMessageForSessionID(sender, e);
         }
 
         private void dbgrd_CellEnter(object sender, DataGridViewCellEventArgs e)
