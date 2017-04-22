@@ -68,6 +68,8 @@
             // 
             // lblDetails
             // 
+            this.lblDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDetails.AutoSize = true;
             this.lblDetails.Location = new System.Drawing.Point(977, 307);
             this.lblDetails.Name = "lblDetails";
@@ -77,6 +79,8 @@
             // 
             // txtDetails
             // 
+            this.txtDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDetails.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.placeBindingSource, "Details", true));
             this.txtDetails.Location = new System.Drawing.Point(981, 330);
             this.txtDetails.Multiline = true;
@@ -115,6 +119,7 @@
             // 
             // ucPicture1
             // 
+            this.ucPicture1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ucPicture1.Filename = null;
             this.ucPicture1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucPicture1.Location = new System.Drawing.Point(981, 5);
@@ -143,6 +148,8 @@
             // 
             // dbgrdDiary
             // 
+            this.dbgrdDiary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dbgrdDiary.AutoGenerateColumns = false;
             this.dbgrdDiary.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dbgrdDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -244,6 +251,9 @@
             // 
             // dbgrdPlaces
             // 
+            this.dbgrdPlaces.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dbgrdPlaces.AutoGenerateColumns = false;
             this.dbgrdPlaces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dbgrdPlaces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

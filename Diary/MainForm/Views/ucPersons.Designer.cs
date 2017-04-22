@@ -36,6 +36,8 @@
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbxFilterColumn = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.ucPicture1 = new MainForm.ucPicture();
+            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             this.lblDiaryEntries = new System.Windows.Forms.Label();
             this.lblPersons = new System.Windows.Forms.Label();
             this.dbgrdDiary = new System.Windows.Forms.DataGridView();
@@ -63,8 +65,6 @@
             this.alignementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeletePerson = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ucPicture1 = new MainForm.ucPicture();
-            this.ucAddNewPlace1 = new MainForm.ucAddNewPlace();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdDiary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeBindingSource)).BeginInit();
@@ -85,6 +85,7 @@
             // 
             // txtDetails
             // 
+            this.txtDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDetails.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personBindingSource, "Details", true));
             this.txtDetails.Location = new System.Drawing.Point(793, 32);
             this.txtDetails.Multiline = true;
@@ -125,6 +126,28 @@
             this.txtSearch.TabIndex = 10;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // ucPicture1
+            // 
+            this.ucPicture1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucPicture1.Filename = null;
+            this.ucPicture1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucPicture1.Location = new System.Drawing.Point(981, 5);
+            this.ucPicture1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucPicture1.Name = "ucPicture1";
+            this.ucPicture1.Size = new System.Drawing.Size(267, 288);
+            this.ucPicture1.TabIndex = 5;
+            // 
+            // ucAddNewPlace1
+            // 
+            this.ucAddNewPlace1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucAddNewPlace1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucAddNewPlace1.Location = new System.Drawing.Point(208, 583);
+            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
+            this.ucAddNewPlace1.Size = new System.Drawing.Size(1040, 60);
+            this.ucAddNewPlace1.TabIndex = 4;
+            // 
             // lblDiaryEntries
             // 
             this.lblDiaryEntries.AutoSize = true;
@@ -146,6 +169,8 @@
             // 
             // dbgrdDiary
             // 
+            this.dbgrdDiary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dbgrdDiary.AutoGenerateColumns = false;
             this.dbgrdDiary.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dbgrdDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -270,6 +295,9 @@
             // 
             // dbgrdPersons
             // 
+            this.dbgrdPersons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dbgrdPersons.AutoGenerateColumns = false;
             this.dbgrdPersons.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dbgrdPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -385,26 +413,6 @@
             this.DeletePerson.Text = "X";
             this.DeletePerson.UseColumnTextForButtonValue = true;
             this.DeletePerson.Width = 70;
-            // 
-            // ucPicture1
-            // 
-            this.ucPicture1.Filename = null;
-            this.ucPicture1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPicture1.Location = new System.Drawing.Point(981, 5);
-            this.ucPicture1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucPicture1.Name = "ucPicture1";
-            this.ucPicture1.Size = new System.Drawing.Size(267, 288);
-            this.ucPicture1.TabIndex = 5;
-            // 
-            // ucAddNewPlace1
-            // 
-            this.ucAddNewPlace1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucAddNewPlace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucAddNewPlace1.Location = new System.Drawing.Point(208, 583);
-            this.ucAddNewPlace1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucAddNewPlace1.Name = "ucAddNewPlace1";
-            this.ucAddNewPlace1.Size = new System.Drawing.Size(1040, 60);
-            this.ucAddNewPlace1.TabIndex = 4;
             // 
             // ucPersons
             // 
