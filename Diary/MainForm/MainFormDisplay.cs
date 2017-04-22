@@ -78,6 +78,8 @@ namespace MainForm
             ucPlace1.DataSourceQuest.DataSource = entityManager.GetQuests();
         }
 
+        #region Handle creation and deletion of Model Entries
+
         private void Diary_RowsAdded(object sender, EventArgs e)
         {
             if (applicationState == ApplicationState.DBLoaded)
@@ -102,7 +104,7 @@ namespace MainForm
                 if (newDiary != null)
                 {
                     newDiary.SessionID = (int)txtSessionID.Value;
-                    entityManager.AddDiaryEntry(newDiary); 
+                    entityManager.AddDiaryEntry(newDiary);
                 }
             }
         }
@@ -270,6 +272,13 @@ namespace MainForm
             }
         }
 
+        #endregion
+
+        #region Change between DiaryDetailEdit and Normal Mode
+
+        private BindingSource tmpStorage_PersonBindingSource;
+        private Diary tmpStorage_currentDiary;
+
         private void ChangePersonModeTo_DiaryDetailEdit(object sender, EventArgs e)
         {
             mstControl.SelectTab("tabPerson");
@@ -282,9 +291,6 @@ namespace MainForm
             mstControl.TabPages.Remove(tabClans);
             mstControl.TabPages.Remove(tabPlaces);
         }
-
-        private BindingSource tmpStorage_PersonBindingSource;
-        private Diary tmpStorage_currentDiary;
 
         private void btnAddPeopleToDiary_Click(object sender, EventArgs e)
         {
@@ -306,42 +312,9 @@ namespace MainForm
             mstControl.SelectTab("tabDiary");
         }
 
-        /// <summary>
-        /// Event Handler bei Tab-wechsel: Benötigt um zusätzliche Datagrids zu aktualisieren aufgrund aktuell selektierter Zeile in Hauptdatagrid des Tabs.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void mstControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Damit alles in DB gespeichert wird und aktuell ist 
-            if (applicationState == ApplicationState.DBLoaded)
-            {
-                quickSaveToolStripMenuItem_Click(null, null); 
-            }
+        #endregion
 
-            switch (mstControl.SelectedTab.Name)
-            {
-                case "tabDiary":
-                    // Zurzeit kein weiteres Datagrid, somit nicht benötigt.
-                    break;
-                case "tabPerson":
-                    ucPersons1.ShowDiaryEntries();
-                    ucPersons1.ShowPicture();
-                    break;
-                case "tabPlaces":
-                    ucPlace1.ShowDiaryEntries();
-                    ucPlace1.ShowPicture();
-                    break;
-                case "tabClans":
-                    ucClan1.ShowMembers();
-                    ucClan1.ShowDiaryEntries();
-                    ucClan1.ShowPicture();
-                    break;
-                default:
-                    break;
-            }
-        }
-
+        #region MenuStrip functions
         /// <summary>
         /// Event Handler: Datenbankbackup von Dropbox laden.
         /// </summary>
@@ -389,7 +362,7 @@ namespace MainForm
         }
 
         /// <summary>
-        /// Event Handler: Lokale Datenbank sichern
+        /// Event Handler: Änderungen in lokale DB speichern.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -407,10 +380,54 @@ namespace MainForm
             setDatasourcess();
         }
 
+        /// <summary>
+        /// Event Handler: Änderungen seit letztem speichern verwerfen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void quickDiscardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             entityManager.DiscardChanges();
             setDatasourcess();
         }
+
+        #endregion
+
+        /// <summary>
+        /// Event Handler bei Tab-wechsel: Benötigt um zusätzliche Datagrids zu aktualisieren aufgrund aktuell selektierter Zeile in Hauptdatagrid des Tabs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mstControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Damit alles in DB gespeichert wird und aktuell ist 
+            if (applicationState == ApplicationState.DBLoaded)
+            {
+                quickSaveToolStripMenuItem_Click(null, null); 
+            }
+
+            switch (mstControl.SelectedTab.Name)
+            {
+                case "tabDiary":
+                    // Zurzeit kein weiteres Datagrid, somit nicht benötigt.
+                    break;
+                case "tabPerson":
+                    ucPersons1.ShowDiaryEntries();
+                    ucPersons1.ShowPicture();
+                    break;
+                case "tabPlaces":
+                    ucPlace1.ShowDiaryEntries();
+                    ucPlace1.ShowPicture();
+                    break;
+                case "tabClans":
+                    ucClan1.ShowMembers();
+                    ucClan1.ShowDiaryEntries();
+                    ucClan1.ShowPicture();
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

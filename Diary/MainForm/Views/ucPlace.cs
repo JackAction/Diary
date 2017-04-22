@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MainForm
 {
     public partial class ucPlace : ucBase
     {
+        private List<Place> placeList;
+
         public ucPlace()
         {
             InitializeComponent();
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
             cbxFilterColumn.SelectedIndex = 5; // Initialfeld für Filter
         }
+
+        #region DataSources
 
         [Description("Binding Source für PlaceGrid."), Category("Data")]
         public BindingSource DataSourcePlace
@@ -43,12 +43,17 @@ namespace MainForm
             get { return questBindingSource; }
         }
 
+        #endregion
+
+        #region Handle creation of new Model Entries
+
         [Description("Neue Zeile wurde zu Place DataGrid hinzugefügt."), Category("Data")]
         public event EventHandler PlaceRowAdded;
 
         private void dbgrdPlaces_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > placeBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > placeBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 PlaceRowAdded?.Invoke(sender, e);
             }
@@ -59,7 +64,8 @@ namespace MainForm
 
         private void dbgrdDiary_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > diaryBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > diaryBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 LinkNewlyAddedDiaryRowToCurrentPlace();
                 DiaryRowAdded?.Invoke(sender, e);
@@ -78,53 +84,9 @@ namespace MainForm
             }
         }
 
-        public void ShowDiaryEntries()
-        {
-            Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-            if (obj != null)
-            {
-                if (obj.Diaries != null)
-                {
-                    diaryBindingSource.DataSource = obj.Diaries.ToList();
-                }
-            }
-            else
-            {
-                diaryBindingSource.DataSource = null;
-            }
-        }
+        #endregion
 
-        public void ShowPicture()
-        {
-            Place obj = placeBindingSource.Current as Place; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-            if (obj != null)
-            {
-                ucPicture1.Image = obj.Picture;
-            }
-        }
-
-        private void dbgrdPlaces_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                ShowDiaryEntries();
-                ShowPicture();
-            }
-        }
-
-        private void ucPlace_Load(object sender, EventArgs e)
-        {
-            ShowDiaryEntries();
-            ShowPicture();
-        }
-
-        private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            if (e.ColumnIndex == 0)
-            {
-                MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        #region Handle deletion of Model Entries
 
         private void dbgrdDiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -183,12 +145,9 @@ namespace MainForm
             }
         }
 
-        private void PictureAdded(object sender, EventArgs e)
-        {
-            (placeBindingSource.Current as Place).Picture = ucPicture1.Image;
-        }
+        #endregion
 
-        private List<Place> placeList;
+        #region Search and filter functions
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -288,25 +247,66 @@ namespace MainForm
             }
         }
 
-        private void dbgrdDiary_CellEnter(object sender, DataGridViewCellEventArgs e)
+        #endregion
+
+        #region Refresh data dependant of primary DGV selection
+
+        private void dbgrdPlaces_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            activateComboBoxOnFirstClick(sender, e);
-        }
-
-        private void activateComboBoxOnFirstClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // How to activate combobox on first click (Datagridview):
-            // http://stackoverflow.com/questions/13005112/how-to-activate-combobox-on-first-click-datagridview?noredirect=1&lq=1
-
-            bool validClick = (e.RowIndex != -1 && e.ColumnIndex != -1); //Make sure the clicked row/column is valid.
-            var datagridview = sender as DataGridView;
-
-            // Check to make sure the cell clicked is the cell containing the combobox 
-            if (datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
+            if (e.RowIndex >= 0)
             {
-                datagridview.BeginEdit(true);
-                ((ComboBox)datagridview.EditingControl).DroppedDown = true;
+                ShowDiaryEntries();
+                ShowPicture();
             }
         }
+
+        public void ShowDiaryEntries()
+        {
+            Place obj = placeBindingSource.Current as Place;
+            if (obj != null)
+            {
+                if (obj.Diaries != null)
+                {
+                    diaryBindingSource.DataSource = obj.Diaries.ToList();
+                }
+            }
+            else
+            {
+                diaryBindingSource.DataSource = null;
+            }
+        }
+
+        public void ShowPicture()
+        {
+            Place obj = placeBindingSource.Current as Place;
+            if (obj != null)
+            {
+                ucPicture1.Image = obj.Picture;
+            }
+        }
+
+        #endregion
+
+        private void ucPlace_Load(object sender, EventArgs e)
+        {
+            ShowDiaryEntries();
+            ShowPicture();
+        }
+
+        private void PictureAdded(object sender, EventArgs e)
+        {
+            (placeBindingSource.Current as Place).Picture = ucPicture1.Image;
+        }
+
+        private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            RaiseErrorMessageForSessionID(sender, e);
+        }
+
+        private void dbgrdDiary_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ActivateComboBoxOnFirstClick(sender, e);
+        }
+
     }
 }

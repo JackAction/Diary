@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MainForm
 {
     public partial class ucClan : ucBase
     {
+        private List<Clan> ClanList;
+
         public ucClan()
         {
             InitializeComponent();
             ucPicture1.PictureAdded += new EventHandler(PictureAdded);
             cbxFilterColumn.SelectedIndex = 1; // Initialfeld für Filter
         }
+
+        #region DataSources
 
         [Description("Binding Source für ClanGrid."), Category("Data")]
         public BindingSource DataSourceClan
@@ -31,14 +31,19 @@ namespace MainForm
             get { return personBindingSource; }
         }
 
+        #endregion
+
+        #region Handle creation of new Model Entries
+
         [Description("Neue Zeile wurde zu Clan DataGrid hinzugefügt."), Category("Data")]
         public event EventHandler ClanRowAdded;
 
         private void dbgrdClans_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > clanBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > clanBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
-                ClanRowAdded?.Invoke(sender, e); 
+                ClanRowAdded?.Invoke(sender, e);
             }
         }
 
@@ -52,7 +57,8 @@ namespace MainForm
 
         private void LinkNewlyAddedPersonRowToCurrentClan(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > personBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > personBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
                 Clan obj = clanBindingSource.Current as Clan;
                 if (obj != null)
@@ -66,71 +72,9 @@ namespace MainForm
             }
         }
 
-        public void ShowMembers()
-        {
-            Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-            if (obj != null)
-            {
-                if (obj.People != null)
-                {
-                    personBindingSource.DataSource = obj.People.ToList();
-                }
-            }
-            else
-            {
-                personBindingSource.DataSource = null;
-            }
-        }
+        #endregion
 
-        public void ShowDiaryEntries()
-        {
-            if (personBindingSource.Count > 0)
-            {
-                Person obj = personBindingSource.Current as Person; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-                if (obj.Diaries != null)
-                {
-                    diaryBindingSource.DataSource = obj.Diaries.ToList();
-                } 
-            }
-            else
-            {
-                diaryBindingSource.DataSource = null;
-            }
-        }
-
-        public void ShowPicture()
-        {
-            Clan obj = clanBindingSource.Current as Clan; // Erstellt ein Kundenobjekt mit den Daten der selektierten Reihe im KundenGrid
-            if (obj != null)
-            {
-                ucPicture1.Image = obj.Picture;
-            }
-        }
-
-        private void dbgrdClans_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                ShowMembers();
-                ShowDiaryEntries();
-                ShowPicture();
-            }
-        }
-
-        private void dbgrdPersons_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                ShowDiaryEntries();
-            }
-        }
-
-        private void ucClan_Load(object sender, EventArgs e)
-        {
-            ShowMembers();
-            ShowDiaryEntries();
-            ShowPicture();
-        }
+        #region Handle deletion of Model Entries
 
         private void dbgrdPersons_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -191,12 +135,9 @@ namespace MainForm
             }
         }
 
-        private void PictureAdded(object sender, EventArgs e)
-        {
-            (clanBindingSource.Current as Clan).Picture = ucPicture1.Image;
-        }
+        #endregion
 
-        private List<Clan> ClanList;
+        #region Search and filter functions
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -264,6 +205,83 @@ namespace MainForm
                     }
                 }
             }
+        }
+
+        #endregion
+
+        #region Refresh data dependant of primary DGV selection
+
+        private void dbgrdClans_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ShowMembers();
+                ShowDiaryEntries();
+                ShowPicture();
+            }
+        }
+
+        private void dbgrdPersons_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                ShowDiaryEntries();
+            }
+        }
+
+        public void ShowMembers()
+        {
+            Clan obj = clanBindingSource.Current as Clan;
+            if (obj != null)
+            {
+                if (obj.People != null)
+                {
+                    personBindingSource.DataSource = obj.People.ToList();
+                }
+            }
+            else
+            {
+                personBindingSource.DataSource = null;
+            }
+        }
+
+        public void ShowDiaryEntries()
+        {
+            if (personBindingSource.Count > 0)
+            {
+                Person obj = personBindingSource.Current as Person;
+                if (obj.Diaries != null)
+                {
+                    diaryBindingSource.DataSource = obj.Diaries.ToList();
+                }
+            }
+            else
+            {
+                diaryBindingSource.DataSource = null;
+            }
+        }
+
+        public void ShowPicture()
+        {
+            Clan obj = clanBindingSource.Current as Clan;
+            if (obj != null)
+            {
+                ucPicture1.Image = obj.Picture;
+            }
+        }
+
+        #endregion
+
+        private void ucClan_Load(object sender, EventArgs e)
+        {
+            ShowMembers();
+            ShowDiaryEntries();
+            ShowPicture();
+        }
+
+        private void PictureAdded(object sender, EventArgs e)
+        {
+            (clanBindingSource.Current as Clan).Picture = ucPicture1.Image;
         }
     }
 }

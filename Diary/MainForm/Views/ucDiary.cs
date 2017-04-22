@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MainForm
 {
     public partial class ucDiary : ucBase
     {
+        private List<Diary> diaryList;
+
         public ucDiary()
         {
             InitializeComponent();
-            ucAddNewItem.Type = "Item";
-            ucAddNewQuest.Type = "Quest";
             ucAddNewPlace.PlaceAdded += new EventHandler(ucPlaceAdded);
             ucAddNewItem.SingleItemAdded += new EventHandler(ucItemAdded);
             ucAddNewQuest.SingleItemAdded += new EventHandler(ucQuestAdded);
             cbxFilterColumn.SelectedIndex = 3; // Initialfeld für Filter
         }
+
+        #region DataSources
 
         [Description("Binding Source für DiaryGrid."), Category("Data")]
         public BindingSource DataSourceDiary
@@ -47,14 +44,19 @@ namespace MainForm
             get { return questBindingSource; }
         }
 
+        #endregion
+
+        #region Handle creation of new Model Entries 
+
         [Description("Neue Zeile wurde zu Diary DataGrid hinzugefügt."), Category("Data")]
         public event EventHandler DiaryRowAdded;
 
         private void dbgrdDiary_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.RowIndex > diaryBindingSource.Count - 1)
+            bool newRowAddedByUser = e.RowIndex > diaryBindingSource.Count - 1 ? true : false;
+            if (newRowAddedByUser)
             {
-                DiaryRowAdded?.Invoke(sender, e); 
+                DiaryRowAdded?.Invoke(sender, e);
             }
         }
 
@@ -109,35 +111,47 @@ namespace MainForm
             QuestAdded?.Invoke(sender, e);
         }
 
-        private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        #endregion
+
+        #region Handle deletion of Model Entries
+
+        private void dbgrdDiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "Delete" && e.RowIndex >= 0)
             {
-                MessageBox.Show("Session ID muss eine Nummer sein.", "Parse error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                diaryRowDeleted(sender, e);
             }
         }
 
-        [Description("Personen zu einem Diary Eintrag ändern/hinzufügen."), Category("Data")]
-        public event EventHandler ChangePersonModeTo_DiaryDetailEdit;
-
-        private void dbgrdDiary_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dbgrdDiary_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.ColumnIndex >= 0)
+            if (e.KeyCode == Keys.Delete)
             {
-                if (dbgrdDiary.Columns[e.ColumnIndex].Name == "PeopleString" && e.RowIndex >= 0)
-                {
-                    ChangePersonModeTo_DiaryDetailEdit?.Invoke(sender, e);
-                } 
+                diaryRowDeleted(sender, e);
             }
         }
 
-        private List<Diary> diaryList;
+        [Description("Zeile wurde aus Diary DataGrid gelöscht."), Category("Data")]
+        public event EventHandler DiaryRowDeleted;
+
+        private void diaryRowDeleted(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wirklich löschen?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DiaryRowDeleted?.Invoke(sender, e);
+                diaryBindingSource.RemoveCurrent();
+            }
+        }
+
+        #endregion
+
+        #region Search and filter functions
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (diaryList == null)
             {
-                diaryList = DataSourceDiary.DataSource as List<Diary>; 
+                diaryList = DataSourceDiary.DataSource as List<Diary>;
             }
 
             if (string.IsNullOrEmpty((sender as TextBox).Text))
@@ -214,7 +228,7 @@ namespace MainForm
 
         private void FullTextSearch(string searchText)
         {
-            dbgrdDiary.CurrentCell = dbgrdDiary[0, dbgrdDiary.RowCount-1]; //Benötigt, damit CurrencyMangerfehler nicht auftritt (aktuelle row kann nicht ausgeblendet werrden).
+            dbgrdDiary.CurrentCell = dbgrdDiary[0, dbgrdDiary.RowCount - 1]; //Benötigt, damit CurrencyMangerfehler nicht auftritt (aktuelle row kann nicht ausgeblendet werrden).
             foreach (DataGridViewRow row in dbgrdDiary.Rows)
             {
                 if (row.Index != dbgrdDiary.RowCount - 1)
@@ -231,54 +245,32 @@ namespace MainForm
             }
         }
 
-        private void dbgrdDiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        #endregion
+
+
+        private void dbgrdDiary_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            if (dbgrdDiary.Columns[e.ColumnIndex].Name == "Delete" && e.RowIndex >= 0)
-            {
-                diaryRowDeleted(sender, e);
-            }
+            RaiseErrorMessageForSessionID(sender, e);
         }
 
-        private void dbgrdDiary_KeyDown(object sender, KeyEventArgs e)
+        [Description("Personen zu einem Diary Eintrag ändern/hinzufügen."), Category("Data")]
+        public event EventHandler ChangePersonModeTo_DiaryDetailEdit;
+
+        private void dbgrdDiary_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
+            if (e.ColumnIndex >= 0)
             {
-                diaryRowDeleted(sender, e);
-            }
-        }
-
-
-        [Description("Zeile wurde aus Diary DataGrid gelöscht."), Category("Data")]
-        public event EventHandler DiaryRowDeleted;
-
-        private void diaryRowDeleted(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Wirklich löschen?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                DiaryRowDeleted?.Invoke(sender, e);
-                diaryBindingSource.RemoveCurrent();
+                if (dbgrdDiary.Columns[e.ColumnIndex].Name == "PeopleString" && e.RowIndex >= 0)
+                {
+                    ChangePersonModeTo_DiaryDetailEdit?.Invoke(sender, e);
+                } 
             }
         }
 
         private void dbgrdDiary_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            activateComboBoxOnFirstClick(sender, e);
+            ActivateComboBoxOnFirstClick(sender, e);
         }
 
-        private void activateComboBoxOnFirstClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // How to activate combobox on first click (Datagridview):
-            // http://stackoverflow.com/questions/13005112/how-to-activate-combobox-on-first-click-datagridview?noredirect=1&lq=1
-
-            bool validClick = (e.RowIndex != -1 && e.ColumnIndex != -1); //Make sure the clicked row/column is valid.
-            var datagridview = sender as DataGridView;
-
-            // Check to make sure the cell clicked is the cell containing the combobox 
-            if (datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
-            {
-                datagridview.BeginEdit(true);
-                ((ComboBox)datagridview.EditingControl).DroppedDown = true;
-            }
-        }
     }
 }

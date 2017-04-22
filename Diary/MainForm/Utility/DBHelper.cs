@@ -1,11 +1,7 @@
 ﻿using Microsoft.SqlServer.Management.Smo;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Core.EntityClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MainForm
 {
@@ -15,31 +11,29 @@ namespace MainForm
         public Server SQLServer { get; }
         public Dictionary<string,string> BackupLocations { get; set; }
 
-    public DBHelper()
-        {
-            DBName = "dnd_hotdq";
-            SQLServer = new Server($"{Environment.MachineName}\\SQLEXPRESS");
-            BackupLocations = new Dictionary<string, string>();
-            BackupLocations.Add("SSDEVO250", $"C:\\Users\\JackAction\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
-            BackupLocations.Add("KLAPPI", $"C:\\Users\\Fabian\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
-        }
+        public DBHelper()
+            {
+                DBName = "dnd_hotdq";
+                SQLServer = new Server($"{Environment.MachineName}\\SQLEXPRESS");
+                BackupLocations = new Dictionary<string, string>();
+                BackupLocations.Add("SSDEVO250", $"C:\\Users\\JackAction\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
+                BackupLocations.Add("KLAPPI", $"C:\\Users\\Fabian\\Dropbox\\_Meins\\DnD\\_DiaryDB\\{DBName}.bak");
+            }
 
         /// <summary>
         /// Liefert den Connectionstring zu einer DB zurück.
         /// https://www.codeproject.com/Tips/798392/Changing-Databases-at-Run-time-using-Entity-Framew
         /// </summary>
-        /// <returns>Kompletten Connectionstring</returns>
+        /// <returns>Kompletter Connectionstring</returns>
         public String BuildConnectionString()
         {
             String connString = $"data source={ SQLServer.Name };initial catalog={ DBName };integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;";
 
-            // Build the MetaData... feel free to copy/paste it from the connection string in the config file.
             EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
             esb.Metadata = "res://*/Model.csdl|res://*/Model.ssdl|res://*/Model.msl";
             esb.Provider = "System.Data.SqlClient";
             esb.ProviderConnectionString = connString;
 
-            // Generate the full string and return it
             return esb.ToString();
         }
         /// <summary>
