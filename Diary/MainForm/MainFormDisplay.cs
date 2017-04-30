@@ -65,10 +65,10 @@ namespace MainForm
         private void setDatasourcess()
         {
             ucPersons1.DataSourcePerson.DataSource = entityManager.GetPersons();
-            ucPersons1.DataSourcePlace.DataSource = entityManager.GetPlaces();
-            ucPersons1.DataSourceClan.DataSource = entityManager.GetClans();
+            ucPersons1.DataSourcePlace.DataSource = entityManager.GetPlaces().OrderBy(x => x.DisplayName);
+            ucPersons1.DataSourceClan.DataSource = entityManager.GetClans().OrderBy(x => x.Name);
             ucDiary1.DataSourceDiary.DataSource = entityManager.GetDiaryEntries();
-            ucDiary1.DataSourcePlace.DataSource = entityManager.GetPlaces();
+            ucDiary1.DataSourcePlace.DataSource = entityManager.GetPlaces().OrderBy(x => x.DisplayName);
             ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
             ucPlace1.DataSourcePlace.DataSource = entityManager.GetPlaces();
             ucDiary1.DataSourceItem.DataSource = entityManager.GetItems();

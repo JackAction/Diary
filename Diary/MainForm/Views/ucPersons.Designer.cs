@@ -365,7 +365,7 @@
             // 
             this.Place1.DataPropertyName = "Place_Met";
             this.Place1.DataSource = this.placeBindingSource;
-            this.Place1.DisplayMember = "Name";
+            this.Place1.DisplayMember = "DisplayName";
             this.Place1.HeaderText = "Met Place";
             this.Place1.Name = "Place1";
             this.Place1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -377,7 +377,7 @@
             // 
             this.Place.DataPropertyName = "Place_LastKnown";
             this.Place.DataSource = this.placeBindingSource;
-            this.Place.DisplayMember = "Name";
+            this.Place.DisplayMember = "DisplayName";
             this.Place.HeaderText = "Last known Place";
             this.Place.Name = "Place";
             this.Place.Resizable = System.Windows.Forms.DataGridViewTriState.True;

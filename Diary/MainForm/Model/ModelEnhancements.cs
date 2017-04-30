@@ -47,7 +47,18 @@
     {
         public override string ToString()
         {
-            return Name ?? "Not Set";
+            return DisplayName ?? "Not Set";
+        }
+        public string DisplayName
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(City) && string.IsNullOrWhiteSpace(Building))
+                {
+                    return Name;
+                }
+                return $"{City} {Building} {Name}";
+            }
         }
     }
 
