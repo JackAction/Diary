@@ -54,10 +54,11 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.diaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dbgrdPersons = new System.Windows.Forms.DataGridView();
+            this.clanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rankDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clan_ID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Place1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Place = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.raceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDetails
@@ -305,7 +307,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
             this.rankDataGridViewTextBoxColumn,
-            this.clanDataGridViewTextBoxColumn,
+            this.Clan_ID,
             this.Place1,
             this.Place,
             this.raceDataGridViewTextBoxColumn,
@@ -327,6 +329,10 @@
             this.dbgrdPersons.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dbgrdPersons_RowsAdded);
             this.dbgrdPersons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dbgrdPersons_KeyDown);
             // 
+            // clanBindingSource
+            // 
+            this.clanBindingSource.DataSource = typeof(MainForm.Clan);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -346,11 +352,14 @@
             this.rankDataGridViewTextBoxColumn.HeaderText = "Rank";
             this.rankDataGridViewTextBoxColumn.Name = "rankDataGridViewTextBoxColumn";
             // 
-            // clanDataGridViewTextBoxColumn
+            // Clan_ID
             // 
-            this.clanDataGridViewTextBoxColumn.DataPropertyName = "Clan";
-            this.clanDataGridViewTextBoxColumn.HeaderText = "Clan";
-            this.clanDataGridViewTextBoxColumn.Name = "clanDataGridViewTextBoxColumn";
+            this.Clan_ID.DataPropertyName = "Clan_ID";
+            this.Clan_ID.DataSource = this.clanBindingSource;
+            this.Clan_ID.DisplayMember = "Name";
+            this.Clan_ID.HeaderText = "Clan";
+            this.Clan_ID.Name = "Clan_ID";
+            this.Clan_ID.ValueMember = "ID";
             // 
             // Place1
             // 
@@ -439,6 +448,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.questBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diaryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbgrdPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clanBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,17 +471,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtDetails;
         private System.Windows.Forms.Label lblDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Place1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn raceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn deadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alignementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn DeletePerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn sessionIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ingameDayDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entryDataGridViewTextBoxColumn;
@@ -480,5 +479,17 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn itemsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn questsIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.BindingSource clanBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rankDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Clan_ID;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Place1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn raceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn deadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alignementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comment2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DeletePerson;
     }
 }

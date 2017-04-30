@@ -52,6 +52,12 @@ namespace MainForm
             get { return questBindingSource; }
         }
 
+        [Description("Binding Source für ClanColumn."), Category("Data")]
+        public BindingSource DataSourceClan
+        {
+            get { return clanBindingSource; }
+        }
+
         #endregion
 
         #region Handle creation of new Model Entries

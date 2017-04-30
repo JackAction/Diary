@@ -66,6 +66,7 @@ namespace MainForm
         {
             ucPersons1.DataSourcePerson.DataSource = entityManager.GetPersons();
             ucPersons1.DataSourcePlace.DataSource = entityManager.GetPlaces();
+            ucPersons1.DataSourceClan.DataSource = entityManager.GetClans();
             ucDiary1.DataSourceDiary.DataSource = entityManager.GetDiaryEntries();
             ucDiary1.DataSourcePlace.DataSource = entityManager.GetPlaces();
             ucClan1.DataSourceClan.DataSource = entityManager.GetClans();
